@@ -13,12 +13,16 @@ module.exports = {
       fontSize: {
         1: "3rem"
       },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
       colors: {
-        primary: '#FF0000', // Add a custom primary color
+        primary: '#E5E4E2', // Add a custom primary color
         secondary: {
-          100: '#E5E5E5', // Add custom shades of secondary color
+          100: '#D3D3D3', // Add custom shades of secondary color
           200: '#CCCCCC',
         },
+        bg: '#2a2a2a'
       },
 
     },

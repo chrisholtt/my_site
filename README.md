@@ -11,8 +11,14 @@ yarn dev
 # or
 pnpm dev
 ```
-## Import your .gltf file into the public folder and run:
+## This project uses .GLTF files and react three fiber to render 3d components to the page:
+- [GLTFJSX Github](https://github.com/pmndrs/gltfjsx) - Learn how to convert GLT files to JSX components.
+- Move scene.gltf, scene.bin and textures folder into the public directory.
+- run:
+```
 npx gltfjsx model.gltf --transform
+```
+- This will convert your .gltf into a .glb file and return you a new .jsx component to use in your application.
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

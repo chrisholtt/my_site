@@ -11,6 +11,8 @@ yarn dev
 # or
 pnpm dev
 ```
+## Import your .gltf file into the public folder and run:
+npx gltfjsx model.gltf --transform
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

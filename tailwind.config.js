@@ -15,6 +15,8 @@ module.exports = {
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+        sans: ['Noto Sans', 'sans-serif']
       },
       colors: {
         primary: '#E5E4E2', // Add a custom primary color
@@ -22,7 +24,7 @@ module.exports = {
           100: '#D3D3D3', // Add custom shades of secondary color
           200: '#CCCCCC',
         },
-        bg: '#2a2a2a'
+        bg: '#0d0d0d'
       },
 
     },

@@ -1,7 +1,5 @@
 "use client"
-import { log } from "console"
 import App from "./App"
-import { Typography } from '@mui/material';
 
 export default function Hero() {
 

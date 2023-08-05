@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
+import Skills from './components/Skills';
 
 
 async function serverTest() {
@@ -18,6 +19,7 @@ export default async function Page() {
         <>
             <Nav />
             <Hero />
+            {/* <Skills /> */}
         </>
     )
 }

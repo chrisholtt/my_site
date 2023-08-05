@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function Nav() {
     return (
         <nav className="absolute flex justify-between align-middle z-10 bg-white w-screen h-auto">
-            <ul className="flex flex-row">
+            <ul className="flex flex-row items-center">
                 <li className="p-1 font-roboto text-primary text-3xl align-middle justify-center">
                     CH
                 </li>
@@ -21,18 +21,23 @@ export default function Nav() {
                     Contact
                 </li>
             </ul>
-            <ul className='flex flex-row'>
-                <li>
-                    <Link href="/page-n">
+            <ul className='flex flex-row items-center'>
+                <li className="p-1">
+                    <Link href="https://github.com/chrisholtt" target="_blank">
                         <GitHubIcon />
                     </Link>
 
                 </li>
-                <li>
-                    <LinkedInIcon />
+                <li className="p-1">
+                    <Link href="https://www.linkedin.com/in/chrisphilholt/" target="_blank">
+                        <LinkedInIcon />
+                    </Link>
+
                 </li>
-                <li>
-                    <EmailIcon />
+                <li className="p-1">
+                    <Link href="https://github.com/chrisholtt" target="_blank">
+                        <EmailIcon />
+                    </Link>
                 </li>
             </ul>
         </nav>

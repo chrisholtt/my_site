@@ -1,3 +1,4 @@
+"use client"
 import Link from 'next/link'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
@@ -11,7 +12,7 @@ async function serverTest() {
 export default async function Page() {
     // await new Promise((resolve) => setTimeout(resolve, 2000));
 
-    const getText = await serverTest();
+    // const getText = await serverTest();
 
     return (
         <>

@@ -10,6 +10,10 @@
     "build-css": "tailwindcss build -i src/style.css -o public/styles.css"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/material": "^5.14.3",
     "@react-three/drei": "^9.78.2",
     "@react-three/fiber": "^8.13.5",
     "@react-three/rapier": "^1.1.1",
@@ -19,6 +23,7 @@
     "@types/three": "^0.154.0",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.7",
+    "framer-motion": "^10.15.0",
     "next": "13.4.7",
     "next-google-fonts": "^2.2.0",
     "rapier": "^1.0.5",

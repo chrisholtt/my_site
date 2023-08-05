@@ -1,11 +1,12 @@
 import React, { useRef } from 'react'
-import { useGLTF, RoundedBox, Text, Sparkles } from '@react-three/drei'
+import { useGLTF, RoundedBox, MeshStandardMaterial, Text, Sparkles } from '@react-three/drei'
 
 export function Gameboy(props) {
   const { nodes, materials } = useGLTF('/scene-transformed.glb')
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes.defaultMaterial.geometry} material={materials.DefaultMaterial} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={1} />
+
       <RoundedBox
         args={[1, 1, 1]} // Width, height, depth. Default is [1, 1, 1]
         radius={0.05} // Radius of the rounded corners. Default is 0.05
@@ -26,7 +27,7 @@ export function Gameboy(props) {
         </Text>
         <meshPhongMaterial color="#f3f3f3" wireframe />
       </RoundedBox>
-      <Sparkles
+      {/* <Sparkles
         count={64}
         scale={2}
         size={4}
@@ -34,7 +35,7 @@ export function Gameboy(props) {
         color={'#77ff77'}
         position={[0, 2, 0]}
 
-      />
+      /> */}
     </group>
   )
 }

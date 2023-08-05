@@ -10,6 +10,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        backdrop: "url('/bg.png')",
+      },
       fontSize: {
         1: "3rem"
       },
@@ -19,10 +22,10 @@ module.exports = {
         sans: ['Noto Sans', 'sans-serif']
       },
       colors: {
-        primary: '#E5E4E2', // Add a custom primary color
+        primary: '#222222', // Add a custom primary color
         secondary: {
-          100: '#D3D3D3', // Add custom shades of secondary color
-          200: '#CCCCCC',
+          100: '#999999', // Add custom shades of secondary color
+          200: '#555555',
         },
         bg: '#0d0d0d'
       },

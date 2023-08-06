@@ -3,21 +3,22 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import Link from 'next/link';
 
+const hoverEffect = "border-b-2 border-lime-300"
 
 export default function Nav() {
     return (
         <nav className="absolute flex justify-between align-middle z-10 bg-white w-screen h-auto">
             <ul className="flex flex-row items-center">
-                <li className="p-1 font-roboto text-primary text-3xl align-middle justify-center">
+                <li className="p-1 cursor-pointer font-roboto text-primary text-3xl align-middle justify-center border-b-2 border-lime-300">
                     CH
                 </li>
-                <li className="p-1 text-secondary-100">
+                <li className="p-1 cursor-pointer text-secondary-100">
                     About
                 </li>
-                <li className="p-1 text-secondary-100">
+                <li className="p-1 cursor-pointer text-secondary-100">
                     Projects
                 </li>
-                <li className="p-1 text-secondary-100">
+                <li className="p-1 cursor-pointer text-secondary-100">
                     Contact
                 </li>
             </ul>

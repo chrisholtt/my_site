@@ -24,11 +24,13 @@
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.7",
     "framer-motion": "^10.15.0",
+    "gsap": "^3.12.2",
     "next": "13.4.7",
     "next-google-fonts": "^2.2.0",
     "rapier": "^1.0.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "split-string": "^6.1.0",
     "three": "^0.154.0",
     "typescript": "5.1.6"
   },

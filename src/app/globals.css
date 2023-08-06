@@ -8,6 +8,6 @@
 
 .bg {
     background-size: 100% 100%;
-    background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
-    background-image: radial-gradient(18% 28% at 24% 50%, #E8E8E8FF 7%, #073AFF00 100%), radial-gradient(18% 28% at 18% 71%, #FFFFFF59 90%, #073AFF00 100%), radial-gradient(70% 53% at 36% 76%, #FFFFFFFF 0%, #073AFF00 100%), radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%), radial-gradient(42% 53% at 34% 72%, #FFFFFFFF 7%, #073AFF00 100%), radial-gradient(18% 28% at 35% 87%, #E0E0E0F5 7%, #073AFF00 100%), radial-gradient(31% 43% at 7% 98%, #E0E0E0F5 24%, #073AFF00 100%), radial-gradient(21% 37% at 72% 23%, #DADADA9C 24%, #073AFF00 100%), radial-gradient(35% 56% at 91% 74%, #E0E0E0F5 9%, #073AFF00 100%), radial-gradient(74% 86% at 67% 38%, #E0E0E0F5 24%, #073AFF00 100%), linear-gradient(125deg, #FFFFFFFF 1%, #FFFFFFFF 100%);
+    background-position: 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px, 0px 0px;
+    background-image: radial-gradient(18% 28% at 24% 50%, #C3C3C3B0 7%, #073AFF00 100%), radial-gradient(18% 28% at 18% 71%, #DADADA9C 6%, #073AFF00 100%), radial-gradient(70% 53% at 36% 76%, #DADADA9C 0%, #073AFF00 100%), radial-gradient(42% 53% at 15% 94%, #FFFFFFFF 7%, #073AFF00 100%), radial-gradient(42% 53% at 34% 72%, #C3C3C3B0 0%, #073AFF00 100%), radial-gradient(18% 28% at 35% 87%, #FFFFFFFF 7%, #073AFF00 100%), radial-gradient(31% 43% at 7% 98%, #FFFFFFFF 24%, #073AFF00 100%), radial-gradient(35% 56% at 91% 74%, #DADADA9C 9%, #073AFF00 100%), radial-gradient(74% 86% at 67% 38%, #DADADA9C 24%, #073AFF00 100%), linear-gradient(180deg, #FFFFFF 1%, #DADADA 48%, #FFFFFFFF 100%);
 }

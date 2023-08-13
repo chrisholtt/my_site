@@ -6,17 +6,20 @@ import {
     Stats, useHelper,
     CameraControls,
     PerspectiveCamera,
-    Float,
     ContactShadows,
     Environment,
     Sky,
     OrthographicCamera,
+    Scroll,
+    ScrollControls,
+
 } from '@react-three/drei';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { CylinderCollider, Physics, RigidBody } from '@react-three/rapier';
-import { log } from 'console';
 import { Suspense, useRef, useMemo } from 'react';
 import { Gameboy } from './Gameboy';
+import Hero from './Hero'
+import Skills from './Skills'
 
 
 
@@ -28,18 +31,17 @@ const CameraDolly = () => {
 }
 
 
-export default function App() {
+export default function Scene() {
     const testing = false;
 
-
     return (
-        <Canvas>
+        <Canvas style={{ position: 'fixed' }}>
             <OrthographicCamera
                 makeDefault
                 zoom={100}
                 near={1}
                 far={2000}
-                position={[0, 0, 2]}
+                position={[0, 0, 4]}
             />
             {testing ? <gridHelper args={[10, 10]} /> : null}
             {testing ? <axesHelper args={[2]} /> : null}
@@ -49,13 +51,19 @@ export default function App() {
             <pointLight position={[10, 10, 10]} />
             <ContactShadows frames={1} position={[0, -0.5, 0]} scale={10} opacity={0.4} far={1} blur={2} />
             <pointLight position={[10, 10, 10]} />
-
-            <Suspense >
-                {/* <fog attach={"fog"} args={["#ffffff16", 2, 2]} /> */}
-                <Float>
+            <ScrollControls pages={3} damping={0.1}>
+                {/* Canvas contents in here will *not* scroll, but receive useScroll! */}
+                <Scroll>
+                    {/* Canvas contents in here will scroll along */}
                     <Gameboy />
-                </Float>
-            </Suspense>
+                </Scroll>
+                <Scroll html>
+                    {/* DOM contents in here will scroll along */}
+                    <Hero />
+                    <Skills />
+
+                </Scroll>
+            </ScrollControls>
             {/* <Sky /> */}
             <CameraDolly />
         </Canvas>

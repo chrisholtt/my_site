@@ -17,6 +17,7 @@
     "@react-three/drei": "^9.78.2",
     "@react-three/fiber": "^8.13.5",
     "@react-three/rapier": "^1.1.1",
+    "@studio-freight/lenis": "^1.0.19",
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",

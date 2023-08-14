@@ -10,21 +10,21 @@ export function Gameboy(props) {
   const scroll = useScroll();
 
   useFrame(() => {
-    ref.current.rotation.x = 10
+
     // tl.current.seek()
   })
 
   useLayoutEffect(() => {
     tl.current = gsap.timeline();
     // Animation
-    tl.current.to(
-      ref.current.position,
-      {
-        duration: 10,
-        x: -2
-      },
-      1
-    )
+    // tl.current.to(
+    //   ref.current.position,
+    //   {
+    //     duration: 10,
+    //     x: -2
+    //   },
+    //   1
+    // )
 
   }, [])
 
@@ -53,15 +53,6 @@ export function Gameboy(props) {
           </Text>
           {/* <meshPhongMaterial /> */}
         </RoundedBox>
-        <Sparkles
-          count={32}
-          scale={10}
-          size={5}
-          speed={0.1}
-          color={'#77ff77'}
-          position={[0, 2, 0]}
-
-        />
       </group>
     </Float>
   )

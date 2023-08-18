@@ -1,5 +1,4 @@
 "use client"
-import Link from 'next/link'
 import Nav from './components/Nav'
 import Hero from './components/Hero'
 import Skills from './components/Skills';
@@ -14,16 +13,12 @@ async function serverTest() {
 export default function Page() {
     // await new Promise((resolve) => setTimeout(resolve, 2000));
     // const getText = await serverTest();
-
-    useEffect(() => {
-        console.log(window.scrollY)
-    }, [])
-
     return (
         <>
             <Nav />
             <Scene />
             <Hero />
+            <Skills />
         </>
     )
 }

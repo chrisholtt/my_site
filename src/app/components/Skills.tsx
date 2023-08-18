@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from 'react'
-import { skills } from '../../utils/utils.js.js'
+import { skills } from "@/utils/utils";
 
 
 export default function Hero() {

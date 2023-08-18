@@ -35,7 +35,7 @@ export default function Scene() {
     const testing = false;
 
     return (
-        <Canvas style={{ position: 'fixed' }}>
+        <Canvas style={{ position: 'absolute', zIndex: -1 }}>
             <OrthographicCamera
                 makeDefault
                 zoom={100}

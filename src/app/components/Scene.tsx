@@ -51,20 +51,7 @@ export default function Scene() {
             <pointLight position={[10, 10, 10]} />
             <ContactShadows frames={1} position={[0, -0.5, 0]} scale={10} opacity={0.4} far={1} blur={20} />
             <pointLight position={[10, 10, 10]} />
-            <ScrollControls pages={3} damping={0}>
-                {/* Canvas contents in here will *not* scroll, but receive useScroll! */}
-                <Scroll>
-                    {/* Canvas contents in here will scroll along */}
-                    <Gameboy />
-                </Scroll>
-                <Scroll html>
-                    {/* DOM contents in here will scroll along */}
-                    <Hero />
-                    <Skills />
-
-                </Scroll>
-            </ScrollControls>
-            {/* <Sky /> */}
+            <Gameboy />
             <CameraDolly />
         </Canvas>
     );

@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from 'react'
-import { skills } from '../utils/utils.js'
+import { skills } from '../../utils/utils.js.js'
 
 
 export default function Hero() {
@@ -34,16 +34,16 @@ export default function Hero() {
     return (
         <section className="relative h-screen w-screen flex items-center justify-center">
             <div className="relative">
-                <div class="grid grid-cols-3 gap-4 bg-slate-100">
+                <div className="grid grid-cols-3 gap-4 bg-slate-100">
                     <SkillIcons />
                 </div>
                 <div className="absolute bottom-0 right-0 w-20 h-20 bg-slate-400">
                     <p>About me</p>
-                    {hovered.title}
+                    {/* {hovered.title} */}
                 </div>
             </div>
-            <div className="absolute top-0 w-screen h-screen">
-                <BlankDivs />
+            <div className="absolute top-0 w-screen h-screen pointer-events-none">
+                {/* <BlankDivs /> */}
             </div>
 
 

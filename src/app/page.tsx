@@ -23,6 +23,7 @@ export default function Page() {
         <>
             <Nav />
             <Scene />
+            <Hero />
         </>
     )
 }

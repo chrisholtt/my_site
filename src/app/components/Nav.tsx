@@ -7,7 +7,7 @@ const hoverEffect = "border-b-2 border-lime-300"
 
 export default function Nav() {
     return (
-        <nav className="absolute flex justify-between align-middle z-10 bg-white w-screen h-auto">
+        <nav className='flex flex-row justify-between'>
             <ul className="flex flex-row items-center">
                 <li className="p-1 cursor-pointer font-roboto text-primary text-3xl align-middle justify-center border-b-2 border-lime-300">
                     CH

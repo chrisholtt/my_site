@@ -2,6 +2,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import Link from 'next/link';
+import ThemeSwitches from "./ThemeSwitches"
 
 const hoverEffect = "border-b-2 border-lime-300"
 
@@ -39,6 +40,9 @@ export default function Nav() {
                     <Link href="https://github.com/chrisholtt" target="_blank">
                         <EmailIcon />
                     </Link>
+                </li>
+                <li>
+                    <ThemeSwitches />
                 </li>
             </ul>
         </nav>

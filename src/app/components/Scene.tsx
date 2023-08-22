@@ -14,7 +14,7 @@ import {
     ScrollControls,
 
 } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, SceneProps, useFrame } from '@react-three/fiber';
 import { CylinderCollider, Physics, RigidBody } from '@react-three/rapier';
 import { Suspense, useRef, useMemo } from 'react';
 import { Gameboy } from './Gameboy';
@@ -35,13 +35,13 @@ export default function Scene() {
     const testing = false;
 
     return (
-        <Canvas style={{ position: 'absolute', zIndex: -1 }}>
+        <Canvas style={{ position: 'fixed', zIndex: -1 }}>
             <OrthographicCamera
                 makeDefault
                 zoom={100}
-                near={1}
+                near={0.1}
                 far={2000}
-                position={[0, 0, 4]}
+                position={[0, 0, 40]}
             />
             {testing ? <gridHelper args={[10, 10]} /> : null}
             {testing ? <axesHelper args={[2]} /> : null}

@@ -1,5 +1,7 @@
 "use client"
 import './globals.css'
+import ThemeProvider from "./theme-provider";
+
 
 
 export default function RootLayout({
@@ -18,7 +20,10 @@ export default function RootLayout({
       </head>
 
 
-      <body className="bg">{children}</body>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <body className="bg">{children}</body>
+      </ThemeProvider>
+
     </html>
   )
 }

@@ -1,11 +1,12 @@
 "use client"
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default async function Loading() {
 
     return (
         <div className="flex h-screen items-center justify-center">
-            <img src="/portal.gif" alt="" width={100} style={{ transform: "rotate(90deg)" }} />
+            <Image src="/portal.gif" alt="" width={100} style={{ transform: "rotate(90deg)" }} />
         </div>
 
     )

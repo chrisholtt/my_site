@@ -46,6 +46,6 @@ export const skills = [
     },
 ];
 
-export const titleStyle = "text-8xl font-sans font-semibold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300 light:text-black";
-export const headingStyle = "text-6xl font-sans font-semibold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-300";
+export const titleStyle = "text-8xl font-sans font-semibold tracking-tighter dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-gray-300          bg-clip-text text-transparent bg-gradient-to-b from-slate-800 to-slate-900";
+export const headingStyle = "text-6xl font-sans font-semibold tracking-tighter dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-gray-300 text-black";
 export const subHeadingStyle = "text-lg text-primary font-sans font-semibold tracking-tighter dark:text-lime-500";

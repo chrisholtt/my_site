@@ -11,7 +11,7 @@ export default function Hero() {
 
     const SkillIcons = () => {
         return skills.map(skill => (
-            <Tooltip title={skill.title}>
+            <Tooltip title={skill.title} key={skill.title}>
                 <div className="w-40 h-40 bg-white bg-opacity-70 rounded-md flex flex-col justify-center items-center text-center transition-transform transform hover:shadow-md cursor-pointer" id={skill.title}>
                     <img src={skill.source} alt="skill-icon" className="w-20" />
                 </div>

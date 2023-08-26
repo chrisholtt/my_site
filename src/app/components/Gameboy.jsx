@@ -19,21 +19,12 @@ export function Gameboy(props) {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-    ref.current.position.z = scrollY * 0.01
-    ref.current.rotation.y = scrollY * 0.01
-    ref.current.position.y = scrollY * 0.0075
+    ref.current.rotation.y = scrollY * 0.005
+    ref.current.position.y = scrollY * 0.01
   }, [scrollY])
 
-
-  return (
-    // <Float>
-    <group {...props} dispose={null} ref={ref}>
-      <mesh geometry={nodes.defaultMaterial.geometry} material={materials.DefaultMaterial} scale={1} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} />
-
-
-
-
-
+  const Screen = () => {
+    return (
       <RoundedBox
         args={[1.5, 1.3, 0]} // Width, height, depth. Default is [1, 1, 1]
         radius={0.05} // Radius of the rounded corners. Default is 0.05
@@ -43,7 +34,13 @@ export function Gameboy(props) {
       >
         <meshPhongMaterial color={theme == 'dark' ? '#000000' : '#ffffff'} />
       </RoundedBox>
+    )
+  }
 
+  return (
+    <group {...props} dispose={null} ref={ref}>
+      <mesh geometry={nodes.defaultMaterial.geometry} material={materials.DefaultMaterial} scale={1} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} />
+      <Screen />
       <RoundedBox
         args={[0, 0, 0]} // Width, height, depth. Default is [1, 1, 1]
         radius={0.05} // Radius of the rounded corners. Default is 0.05
@@ -63,9 +60,7 @@ export function Gameboy(props) {
           $ --- WELCOME ---                  $ npx create-next-app potfolio_site                            $ yarn install three drie spring socket.io                 $yarn run dev
         </Text>
       </RoundedBox>
-
     </group>
-    // </Float>
   )
 }
 

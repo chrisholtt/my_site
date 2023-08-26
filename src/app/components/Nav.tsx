@@ -27,7 +27,7 @@ export default function Nav() {
             <ul className='flex flex-row items-center'>
                 <li className="p-1">
                     <Link href="https://github.com/chrisholtt" target="_blank">
-                        <Tooltip title="github">
+                        <Tooltip title="GitHub">
                             <GitHubIcon />
                         </Tooltip>
                     </Link>

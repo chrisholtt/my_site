@@ -24,7 +24,7 @@ module.exports = {
         sans: ['Noto Sans', 'sans-serif']
       },
       colors: {
-        primary: '#222222', // Add a custom primary color
+        primary: '#222222',
         secondary: {
           100: '#999999', // Add custom shades of secondary color
           200: '#555555',

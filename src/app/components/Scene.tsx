@@ -15,7 +15,6 @@ import {
     MeshPortalMaterial,
     useTexture,
     RoundedBox,
-    Float,
     Circle
 } from '@react-three/drei';
 import { Canvas, SceneProps, useFrame } from '@react-three/fiber';
@@ -43,11 +42,11 @@ const Portal = () => {
         ref.current.position.y = (1 + Math.sin(t / 1.5)) / 10
     })
     return (
-        <>
+        <group onClick={() => console.log('clicked')}>
             <ambientLight intensity={0.5} />
             <Environment preset='sunset' />
             <OrbitControls />
-            <Circle ref={ref}>
+            <RoundedBox ref={ref} args={[2, 3, 0.1]}>
                 <MeshPortalMaterial side={THREE.DoubleSide}>
                     <ambientLight intensity={0.5} />
                     <Environment preset='sunset' />
@@ -56,8 +55,8 @@ const Portal = () => {
                         <meshStandardMaterial map={map} side={THREE.BackSide} />
                     </mesh>
                 </MeshPortalMaterial>
-            </Circle>
-        </>
+            </RoundedBox>
+        </group>
     )
 }
 

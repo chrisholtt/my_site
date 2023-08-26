@@ -46,6 +46,39 @@ export const skills = [
     },
 ];
 
+export const projects = [
+    {
+        title: "Calorie Tracker",
+        lang: "Python",
+        description: "Full stack web app using python, flask and PostgreSQL"
+    },
+    {
+        title: "Blackjack",
+        lang: "Javascript",
+        description: "Wager bets, play minigames and level up by earning xp"
+    },
+    {
+        title: "CRAZY BEANZ",
+        lang: "Solidity",
+        description: "NFT project, Solidity smart contract, React dApp and webflow."
+    },
+    {
+        title: "Coin Tracker",
+        lang: "Javascript",
+        description: "React front end with charts"
+    },
+    {
+        title: "Portfolio Site V1",
+        lang: "Javascript",
+        description: "Javascript, WebGL, ThreeJS"
+    },
+    {
+        title: "Pool Buddies",
+        lang: "Javascript",
+        description: "React dApp, DEX with lottery smart contracts on Polygon mainnet"
+    }
+]
+
 export const titleStyle = "text-8xl font-sans font-semibold tracking-tighter dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-gray-300          bg-clip-text text-transparent bg-gradient-to-b from-slate-800 to-slate-900";
 export const headingStyle = "text-6xl font-sans font-semibold tracking-tighter dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-gray-300 text-black";
 export const subHeadingStyle = "text-lg text-primary font-sans font-semibold tracking-tighter dark:text-lime-500";

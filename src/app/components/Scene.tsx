@@ -80,7 +80,7 @@ export default function Scene() {
             <ContactShadows frames={1} position={[0, -0.5, 0]} scale={10} opacity={0.4} far={1} blur={20} />
             <pointLight position={[10, 10, 10]} />
             <Gameboy />
-            <Portal />
+            {/* <Portal /> */}
             <CameraDolly />
         </Canvas>
     );

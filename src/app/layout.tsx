@@ -1,8 +1,7 @@
 "use client"
 import './globals.css'
 import ThemeProvider from "./theme-provider";
-
-
+import { Analytics } from '@vercel/analytics/react';
 
 export default function RootLayout({
   children,
@@ -21,7 +20,10 @@ export default function RootLayout({
 
 
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <body className="bg">{children}</body>
+        <body className="bg">
+          {children}
+          <Analytics />
+        </body>
       </ThemeProvider>
 
     </html>

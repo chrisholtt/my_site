@@ -50,32 +50,41 @@ export const projects = [
     {
         title: "Calorie Tracker",
         lang: "Python",
-        description: "Full stack web app using python, flask and PostgreSQL"
+        description: "Full stack web app using python, flask and PostgreSQL",
+        link: "https://github.com/chrisholtt/Calorie-tracker-app"
     },
     {
         title: "Blackjack",
         lang: "Javascript",
-        description: "Wager bets, play minigames and level up by earning xp"
+        description: "Wager bets, play minigames and level up by earning xp",
+        link: "https://github.com/chrisholtt/Calorie-tracker-app"
     },
     {
         title: "CRAZY BEANZ",
         lang: "Solidity",
-        description: "NFT project, Solidity smart contract, React dApp and webflow."
+        description: "NFT project, smart contracts, React dApp and webflow.",
+        link: "https://github.com/chrisholtt/Calorie-tracker-app"
+
     },
     {
         title: "Coin Tracker",
         lang: "Javascript",
-        description: "React front end with charts"
+        description: "React front end with charts",
+        link: "https://github.com/chrisholtt/Calorie-tracker-app"
+
     },
     {
         title: "Portfolio Site V1",
         lang: "Javascript",
-        description: "Javascript, WebGL, ThreeJS"
+        description: "Javascript, WebGL, ThreeJS",
+        link: "https://github.com/chrisholtt/Calorie-tracker-app"
+
     },
     {
         title: "Pool Buddies",
         lang: "Javascript",
-        description: "React dApp, DEX with lottery smart contracts on Polygon mainnet"
+        description: "React dApp, DEX smart contracts on Polygon mainnet",
+        link: "https://github.com/chrisholtt/Calorie-tracker-app"
     }
 ]
 

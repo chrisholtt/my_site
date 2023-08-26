@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { skills, headingStyle, subHeadingStyle } from "@/utils/utils";
 import Tooltip from '@mui/material/Tooltip';
 import Image from "next/image";
-
+import Link from "next/link";
 
 
 export default function Hero() {
@@ -51,10 +51,10 @@ export default function Hero() {
     return (
         <section className="relative h-screen w-screen flex flex-col items-center justify-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-900 dark:border-zinc-700">
             <div className="w-1 h-20 bg-gradient-to-b rounded-sm from-lime-200 to-lime-500"></div>
-            <div className="flex flex-col justify-between items-center space-y-6">
+            <div className="flex flex-col justify-between items-center text-center space-y-6">
                 <h1>ABOUT</h1>
                 <h1 className={headingStyle}>Technologies I like</h1>
-                <h1 className={subHeadingStyle}>A collection of some cool cool technologies I like experimenting with.</h1>
+                <h1 className={subHeadingStyle}>An assortment of intriguing technologies that I enjoy exploring. With experience in both front-end and back-end development, I enjoy refining existing code and streamlining processes, making it my forte. For a full list of everything I've experimented with click <span className='underline'><Link href='/skills-full'>here</Link></span></h1>
             </div>
             <div className="relative">
                 <NewSkills />

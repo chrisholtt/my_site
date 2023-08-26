@@ -18,7 +18,6 @@ import {
     Circle
 } from '@react-three/drei';
 import { Canvas, SceneProps, useFrame } from '@react-three/fiber';
-import { CylinderCollider, Physics, RigidBody } from '@react-three/rapier';
 import { Suspense, useRef, useMemo } from 'react';
 import { Gameboy } from './Gameboy';
 import * as THREE from 'three';

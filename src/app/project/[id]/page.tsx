@@ -39,7 +39,7 @@ const Details = ({ params }: any) => {
                 </div>
                 <div className='h-full p-4 flex flex-row justify-between items-center'>
                     <KeyboardArrowLeftIcon />
-                    <Image className='rounded-md shadow-sm' src={project?.images[0]} alt="project image" width={200} height={150} />
+                    <Image className='rounded-md shadow-sm' src={'/projects/calorie1.png'} alt="project image" width={200} height={150} />
                     <KeyboardArrowRightIcon />
                 </div>
             </animated.div>

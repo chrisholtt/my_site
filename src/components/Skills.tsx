@@ -55,7 +55,7 @@ export default function Hero() {
                 <div className="flex flex-col justify-between items-center text-center space-y-6">
                     <h1>SKILLS</h1>
                     <h1 className={headingStyle}>Technologies I like</h1>
-                    <h1 className={subHeadingStyle}>An assortment of intriguing technologies that I enjoy exploring. With experience in both front-end and back-end development, I enjoy refining existing code and streamlining processes, making it my forte. For a full list of everything I've experimented with click <span className='underline'><Link href='/skills-full'>here</Link></span></h1>
+                    <h1 className={subHeadingStyle}>An assortment of intriguing technologies that I enjoy exploring. With experience in both front-end and back-end development, I enjoy refining existing code and streamlining processes, making it my forte. For a full list of everything I&apos;ve experimented with click <span className='underline'><Link href='/skills-full'>here</Link></span></h1>
                 </div>
                 <div className="relative">
                     <NewSkills />

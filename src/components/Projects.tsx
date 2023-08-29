@@ -21,12 +21,13 @@ const ProjectsTable = () => {
         }} >
             <Table>
                 <TableBody>
-                    {projects.map((proj) => (
+                    {projects.map((proj, i) => (
                         <TableRow
                             // key={proj.title}
                             sx={{
                                 '&:last-child td, &:last-child th': { border: 0 },
                             }}
+                            key={i}
                         >
                             <TableCell component="th" scope="row">
                                 <Link href={'/project/' + proj.id} >

@@ -20,7 +20,7 @@ export default function RootLayout({
 
 
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <body className="bg">
+        <body className="bg-white dark:bg-black">
           {children}
           <Analytics />
         </body>

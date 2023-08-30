@@ -17,16 +17,17 @@ import { useSpring, animated } from 'react-spring';
 const Details = ({ params }: any) => {
     const [project, setProject] = useState(projects.find(proj => proj.id == params.id));
 
+    const fadeInProps = useSpring({
+        from: { transform: 'translateY(0px)' },
+        to: { transform: 'translateY(-10px)' },
+        config: { tension: 100, friction: 8 },
+    });
+
     const BrowserWindow = () => {
-        const fadeInProps = useSpring({
-            from: { transform: 'translateY(0px)' },
-            to: { transform: 'translateY(-10px)' },
-            config: { tension: 100, friction: 8 },
-        });
 
         return (
-            <animated.div style={fadeInProps} className="relative flex flex-col h-full w-full dark:bg-stone-950 light:bg-white border dark:border-zinc-700 light:border-zinc-200 rounded-lg shadow-md">
-                <div className='relative h-8 w-full border-b border-zinc-200 dark:border-zinc-700 flex justify-center items-center'>
+            <animated.div style={fadeInProps} className="relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
+                <div className='relative h-8 w-full border-b border-zinc-200 dark:border-zinc-800 flex justify-center items-center'>
                     <div className="absolute left-2 h-full  flex flex-row justify-center items-center space-x-1">
                         <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"></div>
                         <div className="w-3 h-3 bg-yellow-500 rounded-full cursor-pointer"></div>
@@ -50,9 +51,9 @@ const Details = ({ params }: any) => {
         return (
             <div className="flex space-x-2">
                 {project?.technologies.map(technology => (
-                    <div className="w-min p-2 rounded-sm shadow-sm h-min dark:bg-stone-950 light:bg-white" key={technology}>
+                    <animated.div style={fadeInProps} className="w-min p-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 h-min dark:bg-stone-black light:bg-zinc-50" key={technology}>
                         {technology}
-                    </div>
+                    </animated.div>
                 ))}
             </div>
         );
@@ -62,66 +63,25 @@ const Details = ({ params }: any) => {
     return (
         <section className="h-screen" style={{ height: '150vh' }}>
             <Nav />
-            <Container>
-                <div className='h-24 py-20'>
-                    <div className='flex items-center'>
-                        <Link href='/'>
-                            <Tooltip title="Back">
-                                <ArrowBackIcon />
-                            </Tooltip>
-                        </Link>
-                        <h1 className='text-4xl'>{project?.title}</h1>
+            <div className='relative flex flex-col justify-center  h-1/6 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
+                <h1 className=' absolute text-4xl px-4'>Project</h1>
+            </div>
+
+
+            <div className="relative h-screen flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
+                <div className='absolute -top-12 flex flex-col justify-center items-center border dark:bg-gradient-to-b dark:from-black dark:to-stone-950 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 border-zinc-200 first-letter:rounded-lg' style={{ width: '80%', height: '80%' }}>
+                    <h1 className='text-2xl'>{project?.title}</h1>
+                    <BrowserWindow />
+                    <div className='w-full h-1/2 border-t dark:border-stone-800 light:border-zinc-200'>
+                        <h1>Details</h1>
+                        <h1>Check out the GitHub repo <span className="underline">here</span></h1>
+                        <h1 className='text-2xl'>{project?.description}</h1>
+                        <Technologies />
                     </div>
                 </div>
-                <div className="relative h-1/2 flex flex-col items-center justify-around bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-900 dark:border-zinc-700">
-                    <div className='w-full'>
-                        <h1 className='text-2xl'>{project?.description} </h1>
-                    </div>
-                    <div className='w-full h-1/2 flex flex-row justify-center items-center bg-zinc-50 border rounded-md border-zinc-200 dark:bg-stone-900 dark:border-zinc-700 overflow-hidden p-4'>
-                        <div className='w-1/3 h-full p-4 flex flex-col items-center justify-center'>
-                            <BrowserWindow />
-                        </div>
-                        <div className='w-2/3 h-full'>
-                            <div className="p-2 flex flex-col">
-                                <h1 className='text-zinc-300 font-thin'>Deployment</h1>
-                                <h1>{project?.deployment}<span><LaunchIcon /></span></h1>
-                            </div>
-                            <div className="p-2">
-                                <h1 className='text-zinc-300 font-thin'>Domains</h1>
-                                <h1>Stuff here</h1>
-                            </div>
-                            <div className="flex p-2">
-                                <div className=''>
-                                    <h1 className='text-zinc-300 font-thin'>Repo</h1>
-                                    <Link href={project?.link} target={'_blank'}><h1 className="underline">github</h1></Link>
-                                </div>
-                                <div className='px-2'>
-                                    <h1 className='text-zinc-300 font-thin'>Created</h1>
-                                    <h1>Stuff here</h1>
-                                </div>
-                            </div>
-                            <div>
-                                <h1 className='text-zinc-300 font-thin'>Tech Stack</h1>
-                                <Technologies />
-                            </div>
-                        </div>
-                    </div>
-                    <div className='w-full h-24 flex flex-row justify-between items-center bg-zinc-50 border rounded-md border-zinc-200 dark:bg-stone-900 dark:border-zinc-700'>
-                        <Link href={'/'} >
-                            <Tooltip title="Prev project">
-                                <KeyboardArrowLeftIcon className='text-4xl' />
-                            </Tooltip>
-                        </Link>
-                        <h1 className='text-2xl'>Subtitle </h1>
-                        <h1 className='text-2xl'>Subtitle 2</h1>
-                        <Link href={'/'}>
-                            <Tooltip title="Next project">
-                                <KeyboardArrowRightIcon className='text-4xl' />
-                            </Tooltip>
-                        </Link>
-                    </div>
-                </div >
-            </Container>
+            </div >
+
+
         </section>
     )
 }

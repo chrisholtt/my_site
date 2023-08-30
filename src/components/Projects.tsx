@@ -16,18 +16,17 @@ const ProjectsTable = () => {
 
 
     return (
-        <TableContainer component={Paper} style={{
-            backgroundColor: theme === 'light' ? 'white' : 'black',
-        }} >
+        <TableContainer component={Paper} className="dark:bg-black bg-zinc-50 dark:border-zinc-800 light:border-zinc-200">
             <Table>
                 <TableBody>
                     {projects.map((proj, i) => (
                         <TableRow
                             // key={proj.title}
                             sx={{
-                                '&:last-child td, &:last-child th': { border: 0 },
+                                '&:last-child td, &:last-child th': { border: 0 }
                             }}
                             key={i}
+                            className=" dark:border-zinc-700 light:border-zinc-200"
                         >
                             <TableCell component="th" scope="row">
                                 <Link href={'/project/' + proj.id} >
@@ -62,7 +61,7 @@ export default function Projects() {
                     <h1>WORK</h1>
                     <h1 className={headingStyle}>Projects I&apos;ve made</h1>
                     <h1 className={subHeadingStyle}>A list of some of my favourite works using various technologies. Click into one and have a look on how it was made or clone it from GitHub.</h1>
-                    <div className="bg-zinc-50 border w-full rounded-md border-zinc-200 dark:bg-stone-900 dark:border-zinc-700 overflow-hidden shadow-lg">
+                    <div className="p-10 bg-zinc-50 border-t border-b w-full rounded-md border-zinc-200 dark:bg-stone-950 dark:border-zinc-800 overflow-hidden" >
                         <ProjectsTable />
                     </div>
                 </div>

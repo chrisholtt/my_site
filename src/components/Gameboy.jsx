@@ -3,6 +3,7 @@ import { useGLTF, RoundedBox, Gltf, MeshStandardMaterial, Text, Sparkles, MeshPo
 import { useFrame } from '@react-three/fiber'
 import gsap from 'gsap'
 import { useTheme } from "next-themes";
+import { useSpring, animated } from 'react-spring';
 
 export function Gameboy(props) {
   const { nodes, materials } = useGLTF('/scene-transformed.glb');
@@ -16,6 +17,22 @@ export function Gameboy(props) {
   const handleScroll = () => {
     setScrollY(window.scrollY)
   }
+
+  const fadeInProps = (delay) => {
+    return useSpring({
+      from: {
+        transform: 'translateY(-10px)',
+        opacity: 0,
+      },
+      to: {
+        transform: 'translateY(0px)',
+        opacity: 1,
+      },
+      config: { tension: 100, friction: 8 },
+      delay: delay,
+    });
+  };
+
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)

@@ -18,20 +18,6 @@ export function Gameboy(props) {
     setScrollY(window.scrollY)
   }
 
-  const fadeInProps = (delay) => {
-    return useSpring({
-      from: {
-        transform: 'translateY(-10px)',
-        opacity: 0,
-      },
-      to: {
-        transform: 'translateY(0px)',
-        opacity: 1,
-      },
-      config: { tension: 100, friction: 8 },
-      delay: delay,
-    });
-  };
 
 
   useEffect(() => {

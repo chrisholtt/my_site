@@ -246,3 +246,9 @@ export const subHeadingStyle = "text-lg text-primary font-sans font-semibold tra
 
 
 export const secondaryColor = "bg-zinc-50 border-t border-zinc-200 dark:bg-stone-950 dark:border-zinc-800"
+
+
+const thingYouWantToDo = [
+    "Github API to display commits to projects/ display update info on portfolio site",
+
+]

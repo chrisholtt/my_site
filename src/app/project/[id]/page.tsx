@@ -21,7 +21,7 @@ const Page = ({ params }: any) => {
     }, []);
 
 
-    const fadeInProps = (delay: number) => {
+    const FadeInProps = (delay: number) => {
         return useSpring({
             from: {
                 transform: 'translateY(-20px) rotate(-5deg)',
@@ -39,7 +39,7 @@ const Page = ({ params }: any) => {
 
     const BrowserWindow = () => {
         return (
-            <animated.div style={fadeInProps(0)} className="w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
+            <animated.div style={FadeInProps(0)} className="w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
                 <div className='relative h-8 w-full border-b border-zinc-200 dark:border-zinc-800 flex justify-center items-center'>
                     <div className="absolute left-2 h-full  flex flex-row justify-center items-center space-x-1">
                         <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"></div>
@@ -74,7 +74,7 @@ const Page = ({ params }: any) => {
 
     const Details = ({ element, delay }: any) => {
         return (
-            <animated.div style={fadeInProps(delay)} className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900'>
+            <animated.div style={FadeInProps(delay)} className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900'>
                 {element}
             </animated.div>
         )

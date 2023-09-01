@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import { projects } from '@/utils/utils'
 import Nav from '@/components/Nav'
 import Link from 'next/link';
@@ -12,23 +12,26 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Image from 'next/image';
 import { Container } from '@mui/material';
 import { useSpring, animated } from 'react-spring';
-
+import Footer from '@/components/Footer';
 
 const Page = ({ params }: any) => {
     const [project, setProject] = useState(projects.find(proj => proj.id == params.id));
+    useLayoutEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
 
     const fadeInProps = (delay: number) => {
         return useSpring({
             from: {
-                transform: 'translateY(-10px)',
+                transform: 'translateY(-20px) rotate(-5deg)',
                 opacity: 0,
             },
             to: {
-                transform: 'translateY(0px)',
+                transform: 'translateY(0px) rotate(0deg)',
                 opacity: 1,
             },
-            config: { tension: 100, friction: 8 },
+            config: { tension: 50, friction: 10 },
             delay: delay,
         });
     };
@@ -61,7 +64,7 @@ const Page = ({ params }: any) => {
         return (
             <div className="h-full w-full flex flex-col justify-around items-center">
                 {project?.technologies.map(technology => (
-                    <div className="w-min p-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 h-min dark:bg-stone-950 light:bg-zinc-50" key={technology}>
+                    <div className="w-min p-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 h-min dark:bg-stone-950 bg-zinc-50" key={technology}>
                         <h1 className="dark:text-zinc-200">{technology}</h1>
                     </div>
                 ))}
@@ -79,38 +82,38 @@ const Page = ({ params }: any) => {
 
 
     return (
-        <section className="h-screen" >
+        <>
             <Nav />
-            <div className='relative flex flex-col justify-center  h-1/4 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
-                <h1 className='absolute text-4xl px-4'>Project</h1>
-            </div>
-
-
-            <div className="relative h-screen flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
-
-                <div className='absolute -top-12 flex flex-col justify-center items-center border rounded dark:bg-gradient-to-b dark:from-black dark:to-stone-950 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 border-zinc-200 shadow-xl dark:shadow-zinc-900' style={{ width: '80%', height: '80%' }}>
-                    <div className="w-full pt-4 h-1/2 flex flex-col items-center bg-white dark:bg-black">
-                        <h1 className='text-2xl p-2'>{project?.title}</h1>
-                        <BrowserWindow />
-                    </div>
-                    <div className="w-full h-1/2 flex flex-col items-center justify-around bg-zinc-50 dark:bg-stone-900">
-                        <div className='w-full pl-4 flex flex-col justify-start items-start border-t border-zinc-200 dark:border-zinc-900'>
-                            <h1 className='text-xl'>Details</h1>
-                            <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline">here{<LaunchIcon />}</span></h1>
-                        </div>
-                        <div className='grid grid-cols-3 gap-3'>
-                            <Details element={<h1 className="dark:text-zinc-200">{project?.description}</h1>} delay={100} />
-                            <Details element={project?.description} delay={200} />
-                            <Details element={<Technologies />} delay={300} />
-                        </div>
-                    </div>
-
-
+            <section className="h-screen" >
+                <div className='relative flex flex-col justify-center  h-1/4 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
+                    <h1 className='absolute text-4xl px-4'>Project</h1>
                 </div>
-            </div >
 
 
-        </section>
+                <div className="relative h-screen flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
+
+                    <div className='absolute -top-12 flex flex-col justify-center items-center border rounded dark:bg-gradient-to-b dark:from-black dark:to-stone-950 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 border-zinc-200 shadow-xl dark:shadow-zinc-900' style={{ width: '80%', height: '80%' }}>
+                        <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
+                            <h1 className='text-2xl'>{project?.title}</h1>
+                            <BrowserWindow />
+                            <h1 className="text-md dark:text-zinc-200">{project?.description}</h1>
+                        </div>
+                        <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-900">
+                            <div className='w-full pl-4 flex flex-col justify-start items-start'>
+                                <h1 className='text-xl'>Details</h1>
+                                <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline">here{<LaunchIcon />}</span></h1>
+                            </div>
+                            <div className='grid grid-cols-3 gap-3'>
+                                <Details element={<h1 className="dark:text-zinc-200">{project?.description}</h1>} delay={100} />
+                                <Details element={project?.description} delay={200} />
+                                <Details element={<Technologies />} delay={300} />
+                            </div>
+                        </div>
+                    </div>
+                </div >
+            </section>
+            <Footer />
+        </>
     )
 }
 

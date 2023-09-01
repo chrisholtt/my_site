@@ -6,8 +6,7 @@ import Scene from '../components/Scene'
 import Projects from '../components/Projects';
 import React, { useEffect, useState, Suspense } from 'react';
 import Contact from '../components/Contact'
-import LoadingIcons from 'react-loading-icons'
-import Image from 'next/image';
+import Footer from '../components/Footer'
 
 async function serverTest() {
     const req = await fetch(`http:/localhost:3000/api/hello`);
@@ -25,6 +24,7 @@ export default function Page() {
             <Skills />
             <Projects />
             <Contact />
+            <Footer />
         </>
     )
 }

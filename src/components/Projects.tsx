@@ -16,7 +16,7 @@ const ProjectsTable = () => {
 
 
     return (
-        <TableContainer component={Paper} className="dark:bg-black bg-zinc-50 dark:border-zinc-800 light:border-zinc-200">
+        <TableContainer component={Paper} className="dark:bg-black bg-zinc-50">
             <Table>
                 <TableBody>
                     {projects.map((proj, i) => (
@@ -26,7 +26,6 @@ const ProjectsTable = () => {
                                 '&:last-child td, &:last-child th': { border: 0 }
                             }}
                             key={i}
-                            className=" dark:border-zinc-700 light:border-zinc-200"
                         >
                             <TableCell component="th" scope="row">
                                 <Link href={'/project/' + proj.id} >

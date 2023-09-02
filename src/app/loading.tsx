@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { titleStyle, subHeadingStyle } from '@/utils/utils';
 import { Container } from '@mui/material';
 import Image from 'next/image';
-import Nav from '@/components/Nav';
+import Nav from '@/app/components/Nav';
 
 export default function Loading() {
     return (

@@ -2,6 +2,8 @@
 import './globals.css'
 import ThemeProvider from "./theme-provider";
 import { Analytics } from '@vercel/analytics/react';
+import { ProjectProvider } from './contexts/ProjectContext';
+
 require('dotenv').config();
 
 // Initialize Firebase
@@ -20,13 +22,14 @@ export default function RootLayout({
 
       </head>
 
-
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <body className="bg-white dark:bg-black">
-          {children}
-          <Analytics />
-        </body>
-      </ThemeProvider>
+      <ProjectProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <body className="bg-white dark:bg-black">
+            {children}
+            <Analytics />
+          </body>
+        </ThemeProvider>
+      </ProjectProvider>
 
     </html>
   )

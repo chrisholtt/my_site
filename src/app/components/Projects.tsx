@@ -1,3 +1,4 @@
+"use client"
 import { headingStyle, subHeadingStyle } from "@/utils/utils"
 import { Tooltip } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
@@ -10,14 +11,37 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Container } from "@mui/material";
 import { useTheme } from "next-themes";
+import { stringify } from "querystring";
+import { useEffect, useState } from 'react'
+import { useProjectContext } from "../contexts/ProjectContext";
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
+export default function Projects() {
+    const [projects, setProjects] = useLocalStorage('projects', []);
 
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                const req = await fetch(`/api/firebase`);
+                if (req.ok) {
+                    const res = await req.json();
+                    setProjects(res);
+                } else {
+                    console.error('Failed to fetch data from the API');
+                }
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
+        }
+        !projects.length && fetchData()
+    }, []);
 
-
-export default function Projects({ projects }: any) {
-    console.log(projects)
     const ProjectsTable = () => {
-        const { theme, setTheme } = useTheme();
+        const { setProjectData } = useProjectContext();
+        const handleLinkClick = (proj: any) => {
+            setProjectData(proj);
+        };
+
         return (
             <TableContainer component={Paper} className="dark:bg-black bg-zinc-50">
                 <Table>
@@ -31,7 +55,7 @@ export default function Projects({ projects }: any) {
                                 key={i}
                             >
                                 <TableCell component="th" scope="row">
-                                    <Link href={'/project/' + proj.id} >
+                                    <Link href={'/project/' + proj.id} onClick={() => handleLinkClick(proj)}>
                                         <Tooltip title="View project">
                                             <h1 className="dark:text-white text-black">{proj.title}</h1 >
                                         </Tooltip>

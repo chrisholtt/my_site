@@ -2,17 +2,7 @@
 import './globals.css'
 import ThemeProvider from "./theme-provider";
 import { Analytics } from '@vercel/analytics/react';
-import { initializeApp } from "firebase/app";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCKO0W5gzyxVhst4GSoHEchbUMeASSPx-E",
-  authDomain: "portfolio-2bb4a.firebaseapp.com",
-  projectId: "portfolio-2bb4a",
-  storageBucket: "portfolio-2bb4a.appspot.com",
-  messagingSenderId: "109746109965",
-  appId: "1:109746109965:web:5b6bd3a8be2bfa697ddf44",
-  measurementId: "G-NPRX2MT446"
-};
+require('dotenv').config();
 
 // Initialize Firebase
 export default function RootLayout({
@@ -20,8 +10,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // const app = initializeApp(firebaseConfig);
-
   return (
     <html lang="en" >
       <head>

@@ -10,9 +10,9 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Image from 'next/image';
-import { Container } from '@mui/material';
 import { useSpring, animated } from 'react-spring';
 import Footer from '@/components/Footer';
+import Rating from '@/components/Rating';
 
 const Page = ({ params }: any) => {
     const [project, setProject] = useState(projects.find(proj => proj.id == params.id));
@@ -24,7 +24,7 @@ const Page = ({ params }: any) => {
     const FadeInProps = (delay: number) => {
         return useSpring({
             from: {
-                transform: 'translateY(-20px) rotate(-5deg)',
+                transform: 'translateY(-20px) rotate(0deg)',
                 opacity: 0,
             },
             to: {
@@ -46,7 +46,7 @@ const Page = ({ params }: any) => {
                         <div className="w-3 h-3 bg-yellow-500 rounded-full cursor-pointer"></div>
                         <div className="w-3 h-3 bg-green-500 rounded-full cursor-pointer"></div>
                     </div>
-                    <div className="relative w-1/2 h-3/5 dark:bg-stone-800 bg-stone-100 flex justify-center items-center rounded-sm">
+                    <div className="relative w-1/2 h-3/5 dark:bg-stone-900 bg-stone-100 flex justify-center items-center rounded-sm">
                         <h1 className='text-xs'>{project?.displayDomain}</h1>
                         <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
                     </div>
@@ -93,13 +93,13 @@ const Page = ({ params }: any) => {
 
                 <div className="relative h-screen flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
 
-                    <div className='absolute -top-12 flex flex-col justify-center items-center border rounded dark:bg-gradient-to-b dark:from-black dark:to-stone-950 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 border-zinc-200 shadow-lg dark:shadow-zinc-900' style={{ width: '80%', height: '80%' }}>
+                    <div className='absolute -top-12 flex flex-col justify-center items-center border rounded dark:bg-gradient-to-b dark:from-black dark:to-stone-950 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 border-zinc-200 shadow-md dark:shadow-black' style={{ width: '80%', height: '80%' }}>
                         <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
-                            <h1 className='text-2xl'>{project?.title}</h1>
+                            <h1 className='text-2xl'>{project?.title.slice(2)}</h1>
                             <BrowserWindow />
                             <h1 className="text-md dark:text-zinc-200">{project?.description}</h1>
                         </div>
-                        <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-900">
+                        <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-950">
                             <div className='w-full px-10 flex flex-row justify-between items-start'>
                                 <div className='text-start'>
                                     <h1 className='text-xl'>Details</h1>
@@ -110,7 +110,7 @@ const Page = ({ params }: any) => {
                             <div className='grid grid-cols-3 gap-6'>
                                 <Details element={<h1 className="dark:text-zinc-200">{project?.description}</h1>} delay={100} />
                                 <Details element={project?.description} delay={200} />
-                                <Details element={project?.description} delay={300} />
+                                <Details element={<Rating rating={2.5} />} delay={300} />
                             </div>
                         </div>
                     </div>

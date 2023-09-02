@@ -16,7 +16,7 @@ export default function Contact() {
                 <div className="flex flex-col justify-between items-center space-y-6">
                     <h1>CONTACT</h1>
                     <h1 className={headingStyle}>Get in touch</h1>
-                    <h1 className={subHeadingStyle}>Need Assistance on a Project? Interested in Tech Talk? Feel free to complete the form below, and I&apos;ll be in touch shortly.</h1>
+                    <h1 className={subHeadingStyle}>If you have any enquires, fill in this form and I&apos;ll be get back to you soon.</h1>
                 </div>
                 <div className="w-full h-60 bg-white border rounded-md border-zinc-200 dark:bg-black dark:border-zinc-800 overflow-hidden shadow-md dark:shadow-zinc-950">
                 </div>

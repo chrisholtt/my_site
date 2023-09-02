@@ -49,7 +49,7 @@ export const skills = [
 export const projects = [
     {
         id: 1,
-        title: "Calorie Tracker",
+        title: "🍔 Calorie Tracker",
         lang: "Python",
         technologies: [
             "Python",
@@ -67,7 +67,7 @@ export const projects = [
     },
     {
         id: 2,
-        title: "Blackjack",
+        title: "🃏 Blackjack",
         lang: "Javascript",
         technologies: [
             "Python",
@@ -88,7 +88,7 @@ export const projects = [
     },
     {
         id: 3,
-        title: "CRAZY BEANZ",
+        title: "🍋 CRAZY BEANZ",
         lang: "Solidity",
         technologies: [
             "Python",
@@ -107,7 +107,7 @@ export const projects = [
     },
     {
         id: 4,
-        title: "Coin Tracker",
+        title: "📈 Coin Tracker",
         lang: "Javascript",
         technologies: [
             "Python",
@@ -127,7 +127,7 @@ export const projects = [
     },
     {
         id: 5,
-        title: "Portfolio Site V1",
+        title: "🎨 Portfolio Site 1.0",
         lang: "Javascript",
         technologies: [
             "Python",
@@ -147,7 +147,7 @@ export const projects = [
     },
     {
         id: 6,
-        title: "Pool Buddies",
+        title: "🐠 Pool Buddies",
         lang: "Javascript",
         technologies: [
             "Python",
@@ -165,7 +165,7 @@ export const projects = [
     },
     {
         id: 7,
-        title: "Desk Booking App",
+        title: "🖥 Desk Booking App",
         lang: "Power FX",
         technologies: [
             "Python",
@@ -177,24 +177,6 @@ export const projects = [
         displayDomain: "deskbooking.com",
         deployment: "PowerApps, Azure",
         difficulty: 2,
-        images: [
-            "/projects/calorie1.png"
-        ]
-    },
-    {
-        id: 7,
-        title: "Vet Web Scrapers",
-        lang: "Javascript",
-        technologies: [
-            "Python",
-            "Flask",
-            "PostgreSQL"
-        ],
-        description: "NodeJS, Azure logic app",
-        link: "https://github.com/chrisholtt/Calorie-tracker-app",
-        displayDomain: "webscrapers.com",
-        deployment: "Serverless Azure logic app",
-        difficulty: 1,
         images: [
             "/projects/calorie1.png"
         ]

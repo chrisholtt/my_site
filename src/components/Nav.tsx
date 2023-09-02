@@ -31,9 +31,6 @@ export default function Nav() {
                         </Tooltip>
                     </Link>
                 </li>
-                <li>
-                    <ThemeSwitches />
-                </li>
             </ul>
         </nav>
     )

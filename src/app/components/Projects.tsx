@@ -13,6 +13,7 @@ import { Container } from "@mui/material";
 import { useEffect, useState } from 'react'
 import { useProjectContext } from "../contexts/ProjectContext";
 
+
 export default function Projects() {
     const [projects, setProjects] = useState([])
 

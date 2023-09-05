@@ -3,7 +3,8 @@ import './globals.css'
 import ThemeProvider from "./theme-provider";
 import { Analytics } from '@vercel/analytics/react';
 import { ProjectProvider } from './contexts/ProjectContext';
-
+import Nav from "./components/Nav"
+import Footer from "./components/Footer"
 require('dotenv').config();
 
 // Initialize Firebase
@@ -25,7 +26,9 @@ export default function RootLayout({
       <ProjectProvider>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <body className="bg-white dark:bg-black">
+            {/* <Nav /> */}
             {children}
+            {/* <Footer /> */}
             <Analytics />
           </body>
         </ThemeProvider>

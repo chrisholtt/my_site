@@ -1,93 +1,31 @@
-"use client"
 import React, { useState, useLayoutEffect, useEffect } from 'react'
-import Nav from '@/app/components/Nav'
 import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LaunchIcon from '@mui/icons-material/Launch';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import { useSpring, animated } from 'react-spring';
-import Footer from '@/app/components/Footer';
-import Rating from '@/app/components/Rating';
-import { useProjectContext } from '@/app/contexts/ProjectContext';
+import BrowserWindow from '@/app/components/project-page/BrowserWindow';
+import Detail from '@/app/components/project-page/Detail';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
+import Rating from "../../components/Rating"
 
+async function getRatings(id: number) {
+    const urlPrefix = "http://localhost:3000"
+    const res = await fetch(urlPrefix + "/api/getRatings");
+    const req = await res.json();
+    return req;
+}
 
-export default function Page({ params }: any) {
+async function getProject(id: number) {
+    const urlPrefix = "http://localhost:3000"
+    const res = await fetch(urlPrefix + `/api/getProject?id=${id}`);
+    const req = await res.json();
+    return req;
+}
+
+export default async function Page({ params }: any) {
     const { id } = params;
-    const { projectData } = useProjectContext();
-    const [ratingsMap, setRatingsMap] = useState({});
-    const [numberOfVotesMap, setNumberOfVotesMap] = useState(0);
-
-    useLayoutEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-
-    useEffect(() => {
-        const getRatingData = async () => {
-            console.log("fired");
-            const res = await fetch("/api/getRatings");
-            const req = await res.json();
-            console.log(req)
-            setRatingsMap(req[0]);
-            setNumberOfVotesMap(req[1]);
-        }
-        getRatingData();
-    }, [])
-
-
-
-    const FadeInProps = (delay: number) => {
-        return useSpring({
-            from: {
-                transform: 'translateY(-20px) rotate(0deg)',
-                opacity: 0,
-            },
-            to: {
-                transform: 'translateY(0px) rotate(0deg)',
-                opacity: 1,
-            },
-            config: { tension: 50, friction: 10 },
-            delay: delay,
-        });
-    };
-
-    const Images = () => {
-        return (
-            <div className='w-[300px]'>
-                <Carousel showThumbs={false}>
-                    <img src="/projects/calorie1.png" />
-                    <img src="/projects/calorie1.png" />
-                    <img src="/projects/calorie1.png" />
-                </Carousel>
-            </div>
-
-        )
-    }
-
-
-
-    const BrowserWindow = () => {
-        return (
-            <animated.div style={FadeInProps(0)} className="w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
-                <div className='relative h-8 w-full border-b border-zinc-200 dark:border-zinc-800 flex justify-center items-center'>
-                    <div className="absolute left-2 h-full  flex flex-row justify-center items-center space-x-1">
-                        <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"></div>
-                        <div className="w-3 h-3 bg-yellow-500 rounded-full cursor-pointer"></div>
-                        <div className="w-3 h-3 bg-green-500 rounded-full cursor-pointer"></div>
-                    </div>
-                    <div className="relative w-1/2 h-3/5 dark:bg-stone-900 bg-stone-100 flex justify-center items-center rounded-sm">
-                        <h1 className='text-xs'>{projectData?.displayLink}</h1>
-                        <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
-                    </div>
-                </div>
-                <div className='flex flex-col h-full justify-center items-center'>
-                    <Images />
-                </div>
-            </animated.div>
-        )
-    }
+    const projectData = await getProject(id);
+    const ratingData = await getRatings(id);
+    const [ratingsMap, numberOfVotesMap] = ratingData;
 
     const Technologies = () => {
         return (
@@ -101,18 +39,8 @@ export default function Page({ params }: any) {
         );
     };
 
-    const Details = ({ element, delay }: any) => {
-        return (
-            <animated.div style={FadeInProps(delay)} className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900'>
-                {element}
-            </animated.div>
-        )
-    }
-
-
     return (
         <>
-            <Nav />
             <section className="h-screen" >
                 <div className='relative flex flex-row justify-start items-center  h-1/4 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
                     <Link href="/"><ArrowBackIcon /></Link>
@@ -121,27 +49,26 @@ export default function Page({ params }: any) {
                 <div className="relative h-screen flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
                     <div className='absolute -top-12 flex flex-col justify-center items-center border rounded dark:bg-gradient-to-b dark:from-black dark:to-stone-950 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 border-zinc-200 shadow-md dark:shadow-black' style={{ width: '80%', height: '80%' }}>
                         <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
-                            <h1 className='text-2xl'>{projectData?.title}</h1>
-                            <BrowserWindow />
-                            <h1 className="text-md dark:text-zinc-200">{projectData?.description}</h1>
+                            <h1 className='text-2xl'>{projectData.title}</h1>
+                            <BrowserWindow displayLink={projectData.displayLink} />
+                            <h1 className="text-md dark:text-zinc-200">{projectData.description}</h1>
                         </div>
                         <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-950">
                             <div className='w-full px-10 flex flex-row justify-between items-start'>
                                 <div className='text-start'>
                                     <h1 className='text-xl'>Details</h1>
-                                    <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"><Link href={projectData?.link} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
+                                    <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"><Link href={projectData.link} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
                                 </div>
                                 <Technologies />
                             </div>
                             <div className='grid grid-cols-3 gap-6'>
-                                <Details element={<h1 className="dark:text-zinc-200">{projectData?.description}</h1>} delay={100} />
-                                <Details element={projectData?.description} delay={200} />
-                                <Details element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={projectData?.id} />} delay={300} />
+                                <Detail element={<h1 className="dark:text-zinc-200">{projectData.description}</h1>} delay={100} />
+                                <Detail element={projectData.description} delay={200} />
+                                <Detail element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={projectData.id} />} delay={300} />
                             </div>
                         </div>
                     </div>
                 </div >
-                <Footer />
             </section>
         </>
     )

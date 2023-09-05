@@ -1,7 +1,7 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { createContext, useContext } from 'react';
 
 const firebaseConfig = {
@@ -17,18 +17,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function GET(req: Request) {
-    const data = await req.json()
-    const { projectId } = data;
-    console.log(projectId)
+export async function GET(req: NextRequest, res: NextResponse) {
+    const { url } = req
+    const urlTemp = new URL(url);
+    const id = urlTemp.searchParams.get("id");
+    console.log(id)
     try {
-        // const snapshot = await getDocs(collection(db, "Projects"));
-        // const data = snapshot.docs.map((doc) => doc.data());
-        // // Get list of doc ID's
-        // const iDs = []
-        // snapshot.forEach(doc => iDs.push(doc.id))
-        // const docsWithIds = data.map((doc, i) => ({ ...doc, id: iDs[i] }));
-        // return NextResponse.json(docsWithIds)
+        const docRef = doc(db, "Projects", id);
+        const docSnap = await getDoc(docRef);
+        const data = docSnap.data()
+        console.log(data)
+        return NextResponse.json(data)
 
     } catch (err) {
         return NextResponse.json({ message: 'Internal server error' })

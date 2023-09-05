@@ -13,8 +13,8 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 
 
-export default function Page({ params }: any) {
 
+export default function Page({ params }: any) {
 
     useLayoutEffect(() => {
         window.scrollTo(0, 0);

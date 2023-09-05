@@ -1,10 +1,10 @@
-import Nav from './components/Nav';
+import Nav from './components/common/Nav';
 import Hero from './components/Hero';
-import Skills from './components/Skills';
+import Skills from './components/home-page/Skills';
 import Scene from './components/Scene';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Projects from './components/home-page/Projects';
+import Contact from './components/home-page/Contact';
+import Footer from './components/common/Footer';
 
 export default function Page() {
 

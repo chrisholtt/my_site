@@ -1,7 +1,7 @@
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Link from 'next/link';
-import ThemeSwitches from "./ThemeSwitches"
+import ThemeSwitches from "../ThemeSwitches"
 import { Tooltip } from '@mui/material';
 
 

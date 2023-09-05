@@ -21,20 +21,23 @@
   animation: pulse .7s infinite;
 }
 
-/* .loading-container {
-  animation: loading 2s linear infinite;
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200% 100%;
-  animation: loading 2s linear infinite;
-}
-
-@keyframes loading {
+@keyframes blinkBackground {
   0% {
-    background-position: -200% 0;
+    background-color: #00000000;
+    ;
+  }
 
+  50% {
+    background-color: #00000006;
   }
 
   100% {
-    background-position: 200% 0;
+    background-color: #00000000;
+    ;
   }
-} */
+}
+
+.blinking-background {
+  animation: blinkBackground 1s infinite ease-in-out;
+  /* You can adjust the animation duration as needed */
+}

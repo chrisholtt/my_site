@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import Nav from '@/app/components/Nav'
+import Nav from '@/app/components/common/Nav'
 
 const page = () => {
     return (

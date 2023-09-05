@@ -1,48 +1,20 @@
 "use client"
 import React, { useState, useLayoutEffect, useEffect } from 'react'
-import Nav from '@/app/components/Nav'
+import Nav from '@/app/components/common/Nav'
 import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import LaunchIcon from '@mui/icons-material/Launch';
 import RefreshIcon from '@mui/icons-material/Refresh';
-import { useSpring, animated } from 'react-spring';
-import Footer from '@/app/components/Footer';
-import Rating from '@/app/components/Rating';
-import { useProjectContext } from '@/app/contexts/ProjectContext';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel';
-
-
+import Footer from '@/app/components/common/Footer';
 
 export default function Page({ params }: any) {
 
     useLayoutEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-
-
-
-    const FadeInProps = (delay: number) => {
-        return useSpring({
-            from: {
-                transform: 'translateY(-20px) rotate(0deg)',
-                opacity: 0,
-            },
-            to: {
-                transform: 'translateY(0px) rotate(0deg)',
-                opacity: 1,
-            },
-            config: { tension: 50, friction: 10 },
-            delay: delay,
-        });
-    };
-
-
+        window.scrollTo(0, 0)
+    }, [])
 
     const BrowserWindow = () => {
         return (
-            <animated.div style={FadeInProps(0)} className="w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
+            <div className="blinking-background w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
                 <div className='relative h-8 w-full border-b border-zinc-200 dark:border-zinc-800 flex justify-center items-center'>
                     <div className="absolute left-2 h-full  flex flex-row justify-center items-center space-x-1">
                         <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"></div>
@@ -56,7 +28,7 @@ export default function Page({ params }: any) {
                 </div>
                 <div className='flex flex-col h-full justify-center items-center'>
                 </div>
-            </animated.div>
+            </div>
         )
     }
 
@@ -74,12 +46,11 @@ export default function Page({ params }: any) {
 
     const Details = ({ element, delay }: any) => {
         return (
-            <animated.div style={FadeInProps(delay)} className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900'>
+            <div className='blinking-background w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900'>
                 {element}
-            </animated.div>
+            </div>
         )
     }
-
 
     return (
         <>

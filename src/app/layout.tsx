@@ -2,9 +2,8 @@
 import './globals.css'
 import ThemeProvider from "./theme-provider";
 import { Analytics } from '@vercel/analytics/react';
-import { ProjectProvider } from './contexts/ProjectContext';
-import Nav from "./components/Nav"
-import Footer from "./components/Footer"
+import Nav from "./components/common/Nav"
+import Footer from "./components/common/Footer"
 require('dotenv').config();
 
 // Initialize Firebase
@@ -22,18 +21,14 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@500&family=Roboto:ital,wght@0,400;1,100;1,300&display=swap" rel="stylesheet" />
 
       </head>
-
-      <ProjectProvider>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <body className="bg-white dark:bg-black">
-            {/* <Nav /> */}
-            {children}
-            {/* <Footer /> */}
-            <Analytics />
-          </body>
-        </ThemeProvider>
-      </ProjectProvider>
-
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <body className="bg-white dark:bg-black">
+          {/* <Nav /> */}
+          {children}
+          {/* <Footer /> */}
+          <Analytics />
+        </body>
+      </ThemeProvider>
     </html>
   )
 }

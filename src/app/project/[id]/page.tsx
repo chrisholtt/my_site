@@ -1,11 +1,11 @@
-import React, { useState, useLayoutEffect, useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LaunchIcon from '@mui/icons-material/Launch';
 import BrowserWindow from '@/app/components/project-page/BrowserWindow';
 import Detail from '@/app/components/project-page/Detail';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import Rating from "../../components/Rating"
+import Rating from "../../components/project-page/Rating"
 
 async function getRatings(id: number) {
     const urlPrefix = "http://localhost:3000"
@@ -26,6 +26,7 @@ export default async function Page({ params }: any) {
     const projectData = await getProject(id);
     const ratingData = await getRatings(id);
     const [ratingsMap, numberOfVotesMap] = ratingData;
+
 
     const Technologies = () => {
         return (

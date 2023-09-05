@@ -5,7 +5,6 @@ import StarIcon from '@mui/icons-material/Star';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import { useSpring, animated } from 'react-spring';
 import { Tooltip } from '@mui/material';
-import { useProjectContext } from '@/app/contexts/ProjectContext';
 
 interface RatingReq {
     rating: number;
@@ -13,8 +12,6 @@ interface RatingReq {
 }
 
 export default function Rating({ rating, projectId, numberOfVotes }: any) {
-    const { projectData } = useProjectContext();
-
 
     const FadeInProps = (delay: number, i: number) => {
         return useSpring({

@@ -10,14 +10,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Container } from "@mui/material";
-import { useTheme } from "next-themes";
-import { stringify } from "querystring";
 import { useEffect, useState } from 'react'
 import { useProjectContext } from "../contexts/ProjectContext";
-import { useLocalStorage } from '../hooks/useLocalStorage'
 
 export default function Projects() {
-    const [projects, setProjects] = useLocalStorage('projects', []);
+    const [projects, setProjects] = useState([])
 
     useEffect(() => {
         async function fetchData() {
@@ -55,7 +52,10 @@ export default function Projects() {
                                 key={i}
                             >
                                 <TableCell component="th" scope="row">
-                                    <Link href={'/project/' + proj.id} onClick={() => handleLinkClick(proj)}>
+                                    <Link href={{
+                                        pathname: '/project/' + proj.id,
+                                    }}
+                                        onClick={() => handleLinkClick(proj)}>
                                         <Tooltip title="View project">
                                             <h1 className="dark:text-white text-black">{proj.title}</h1 >
                                         </Tooltip>

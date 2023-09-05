@@ -14,27 +14,12 @@ import { Carousel } from 'react-responsive-carousel';
 
 
 export default function Page({ params }: any) {
-    const { id } = params;
-    const { projectData } = useProjectContext();
-    const [ratingsMap, setRatingsMap] = useState({});
-    const [numberOfVotesMap, setNumberOfVotesMap] = useState(0);
+
 
     useLayoutEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-
-    useEffect(() => {
-        const getRatingData = async () => {
-            console.log("fired");
-            const res = await fetch("/api/getRatings");
-            const req = await res.json();
-            console.log(req)
-            setRatingsMap(req[0]);
-            setNumberOfVotesMap(req[1]);
-        }
-        getRatingData();
-    }, [])
 
 
 
@@ -53,19 +38,6 @@ export default function Page({ params }: any) {
         });
     };
 
-    const Images = () => {
-        return (
-            <div className='w-[300px]'>
-                <Carousel showThumbs={false}>
-                    <img src="/projects/calorie1.png" />
-                    <img src="/projects/calorie1.png" />
-                    <img src="/projects/calorie1.png" />
-                </Carousel>
-            </div>
-
-        )
-    }
-
 
 
     const BrowserWindow = () => {
@@ -78,12 +50,11 @@ export default function Page({ params }: any) {
                         <div className="w-3 h-3 bg-green-500 rounded-full cursor-pointer"></div>
                     </div>
                     <div className="relative w-1/2 h-3/5 dark:bg-stone-900 bg-stone-100 flex justify-center items-center rounded-sm">
-                        <h1 className='text-xs'>{projectData?.displayLink}</h1>
+                        <h1 className='text-xs'>Loading</h1>
                         <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
                     </div>
                 </div>
                 <div className='flex flex-col h-full justify-center items-center'>
-                    <Images />
                 </div>
             </animated.div>
         )
@@ -92,7 +63,7 @@ export default function Page({ params }: any) {
     const Technologies = () => {
         return (
             <div className="flex flex-row justify-around items-center">
-                {projectData?.technologies.map(technology => (
+                {[1, 2, 3].map(technology => (
                     <div className="w-min py-2 px-4 mx-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 h-min dark:bg-stone-950 bg-white" key={technology}>
                         <h1 className="dark:text-zinc-200">{technology}</h1>
                     </div>
@@ -118,25 +89,25 @@ export default function Page({ params }: any) {
                     <Link href="/"><ArrowBackIcon /></Link>
                     <h1 className='text-4xl px-4'>Project</h1>
                 </div>
-                <div className="relative h-screen flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
+                <div className=" relative h-screen flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
                     <div className='absolute -top-12 flex flex-col justify-center items-center border rounded dark:bg-gradient-to-b dark:from-black dark:to-stone-950 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 border-zinc-200 shadow-md dark:shadow-black' style={{ width: '80%', height: '80%' }}>
                         <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
-                            <h1 className='text-2xl'>{projectData?.title}</h1>
+                            <h1 className='text-2xl'>Loading</h1>
                             <BrowserWindow />
-                            <h1 className="text-md dark:text-zinc-200">{projectData?.description}</h1>
+                            <h1 className="text-md dark:text-zinc-200">Loading</h1>
                         </div>
                         <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-950">
                             <div className='w-full px-10 flex flex-row justify-between items-start'>
                                 <div className='text-start'>
                                     <h1 className='text-xl'>Details</h1>
-                                    <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"><Link href={projectData?.link} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
+                                    <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"></span></h1>
                                 </div>
                                 <Technologies />
                             </div>
                             <div className='grid grid-cols-3 gap-6'>
-                                <Details element={<h1 className="dark:text-zinc-200">{projectData?.description}</h1>} delay={100} />
-                                <Details element={projectData?.description} delay={200} />
-                                <Details element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={projectData?.id} />} delay={300} />
+                                <Details element="Loain" />
+                                <Details element="Loain" />
+                                <Details element="Loain" />
                             </div>
                         </div>
                     </div>

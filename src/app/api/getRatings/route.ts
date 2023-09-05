@@ -19,13 +19,36 @@ const db = getFirestore(app);
 
 export async function GET(req: Request) {
     try {
-        const snapshot = await getDocs(collection(db, "Projects"));
+        const snapshot = await getDocs(collection(db, "Ratings"));
         const data = snapshot.docs.map((doc) => doc.data());
         // Get list of doc ID's
         const iDs = [];
-        snapshot.forEach(doc => iDs.push(doc.id))
-        const docsWithIds = data.map((doc, i) => ({ ...doc, id: iDs[i] }));
-        return NextResponse.json(docsWithIds)
+        snapshot.forEach(doc => iDs.push({ [doc.id]: "hey" }))
+
+        const generateCountMap = () => {
+            const ratingsObj = {};
+            const projectToVotesObj = {};
+            const realRating = {};
+            data.forEach(doc => {
+                ratingsObj[doc.projectId] = 0
+                projectToVotesObj[doc.projectId] = 0
+                realRating[doc.projectId] = 0
+            });
+
+            data.forEach(doc => {
+                const { projectId, rating } = doc
+                ratingsObj[projectId] += rating
+                projectToVotesObj[projectId] += 1
+            })
+
+            const keys = Object.keys(ratingsObj)
+            keys.forEach(key => {
+                ratingsObj[key] = ratingsObj[key] / projectToVotesObj[key]
+            })
+            return [ratingsObj, projectToVotesObj]
+        }
+        const countMap = generateCountMap()
+        return NextResponse.json(countMap)
 
     } catch (err) {
         return NextResponse.json({ message: 'Internal server error' })

@@ -200,6 +200,7 @@ const skillsFull = {
         "Power DAX",
         "Power FX",
         "C#",
+        "Prisma"
     ],
     frameworks: [
         "React",

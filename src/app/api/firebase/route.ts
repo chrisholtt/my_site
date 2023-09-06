@@ -22,7 +22,7 @@ export async function GET(req: Request) {
         const snapshot = await getDocs(collection(db, "Projects"));
         const data = snapshot.docs.map((doc) => doc.data());
         // Get list of doc ID's
-        const iDs = [];
+        const iDs: String[] = [];
         snapshot.forEach(doc => iDs.push(doc.id))
         const docsWithIds = data.map((doc, i) => ({ ...doc, id: iDs[i] }));
         return NextResponse.json(docsWithIds)

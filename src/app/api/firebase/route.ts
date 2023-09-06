@@ -1,8 +1,6 @@
 import { NextResponse } from 'next/server';
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
-import { createContext, useContext } from 'react';
+import { getFirestore, Firestore, collection, getDocs } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -15,7 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db: Firestore = getFirestore();
 
 export async function GET(req: Request) {
     try {

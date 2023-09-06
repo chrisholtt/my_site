@@ -1,8 +1,7 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, doc, setDoc, addDoc } from "firebase/firestore";
-import { createContext, useContext } from 'react';
+import { collection, getDocs, doc, setDoc, addDoc, Firestore } from "firebase/firestore";
 
 interface RatingEntry {
     projectId: string;
@@ -22,7 +21,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db: Firestore = getFirestore(app);
 
 
 export async function POST(req: Request, res: Response) {

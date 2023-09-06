@@ -13,7 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db: Firestore = getFirestore();
+const db: Firestore = getFirestore(app);
 
 export async function GET(req: Request) {
     try {

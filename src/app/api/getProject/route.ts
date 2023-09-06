@@ -1,8 +1,6 @@
 import { NextResponse, NextRequest } from 'next/server';
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, doc, getDoc } from "firebase/firestore";
-import { createContext, useContext } from 'react';
+import { getFirestore, Firestore, doc, getDoc } from "firebase/firestore";
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -15,7 +13,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db: Firestore = getFirestore(app);
 
 export async function GET(req: NextRequest, res: NextResponse) {
     const { url } = req
@@ -23,7 +21,7 @@ export async function GET(req: NextRequest, res: NextResponse) {
     const id = urlTemp.searchParams.get("id");
     console.log(id)
     try {
-        const docRef = doc(db, "Projects", id);
+        const docRef = doc(db, "Projects", String(id));
         const docSnap = await getDoc(docRef);
         const data = docSnap.data()
         console.log(data)

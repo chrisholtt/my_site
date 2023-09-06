@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, getFirestore, Firestore } from "firebase/firestore";
 import { createContext, useContext } from 'react';
 
 const firebaseConfig = {
@@ -15,7 +14,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db: Firestore = getFirestore(app);
 
 type Rating = {
     projectId: string,
@@ -49,14 +48,6 @@ export async function GET(req: Request, res: Response) {
                     projectToVotesObj[projectId] = 1
                 }
             })
-            console.log("---------")
-            console.log("---------")
-            console.log("---------")
-            console.log(mapping)
-            console.log(projectToVotesObj)
-            console.log("---------")
-            console.log("---------")
-            console.log("---------")
             return [mapping, projectToVotesObj]
         }
         const countMap = generateCountMap()

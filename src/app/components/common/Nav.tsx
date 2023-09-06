@@ -1,3 +1,4 @@
+"use client"
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Link from 'next/link';
@@ -8,6 +9,7 @@ import { Tooltip } from '@mui/material';
 export default function Nav() {
     return (
         <nav className='fixed dark:bg-black bg-zinc-50 w-screen flex flex-row justify-between px-2 border-b dark:border-stone-800 light:border-zinc-200' style={{ zIndex: 10 }}>
+            <div className="absolute bottom-0 left-0 w-10 h-1 bg-red-500"></div>
             <ul className="flex flex-row items-center">
                 <li className="p-1 cursor-pointer font-roboto text-3xl align-middle justify-center border-b-2 dark:border-lime-300 border-slate-500">
                     <Link href='/'>

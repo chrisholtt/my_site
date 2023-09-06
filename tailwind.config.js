@@ -11,6 +11,11 @@ module.exports = {
   darkMode: ["class"],
   theme: {
     extend: {
+      keyframes: {
+        shimmer: {
+          '100%': { transform: 'translateX(100%)' }
+        }
+      },
       backgroundImage: {
         backdrop: "url('/bg.png')",
       },
@@ -31,6 +36,7 @@ module.exports = {
         },
         bg: '#0d0d0d'
       },
+
 
     },
   },

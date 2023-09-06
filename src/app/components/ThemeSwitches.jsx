@@ -28,7 +28,7 @@ export default function ThemeSwitcher() {
                     <DarkModeIcon />
                 </Tooltip>
             </button>
-            <button className="cursor-pointer" onClick={() => setTheme("light")} className="">
+            <button className="cursor-pointer" onClick={() => setTheme("light")}>
                 <Tooltip title={'Light Mode'}>
                     <LightModeIcon />
                 </Tooltip>

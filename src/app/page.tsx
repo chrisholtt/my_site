@@ -10,13 +10,13 @@ export default function Page() {
 
     return (
         <>
-            {/* <Nav /> */}
+            <Nav />
             <Scene />
             <Hero />
             <Skills />
             <Projects />
             <Contact />
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 }

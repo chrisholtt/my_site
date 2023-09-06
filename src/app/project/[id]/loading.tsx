@@ -36,8 +36,8 @@ export default function Page({ params }: any) {
         return (
             <div className="flex flex-row justify-around items-center">
                 {[1, 2, 3].map(technology => (
-                    <div className="w-min py-2 px-4 mx-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 h-min dark:bg-stone-950 bg-white" key={technology}>
-                        <h1 className="dark:text-zinc-200">{technology}</h1>
+                    <div className="w-32 h-10 py-2 px-4 mx-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 dark:bg-stone-950 relative space-y-3 overflow-hidden bg-white p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]" key={technology}>
+                        <h1 className="dark:text-zinc-200"></h1>
                     </div>
                 ))}
             </div>
@@ -62,7 +62,7 @@ export default function Page({ params }: any) {
                 </div>
                 <div className=" relative h-screen flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
                     <div className='absolute -top-12 flex flex-col justify-center items-center border rounded dark:bg-gradient-to-b dark:from-black dark:to-stone-950 dark:border-zinc-800 bg-gradient-to-b from-white to-zinc-50 border-zinc-200 shadow-md dark:shadow-black' style={{ width: '80%', height: '80%' }}>
-                        <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
+                        <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4 ">
                             <h1 className='text-2xl'>Loading</h1>
                             <BrowserWindow />
                             <h1 className="text-md dark:text-zinc-200">Loading</h1>
@@ -76,9 +76,9 @@ export default function Page({ params }: any) {
                                 <Technologies />
                             </div>
                             <div className='grid grid-cols-3 gap-6'>
-                                <Details element="Loain" />
-                                <Details element="Loain" />
-                                <Details element="Loain" />
+                                <Details element="Loading" />
+                                <Details element="Loading" />
+                                <Details element="Loading" />
                             </div>
                         </div>
                     </div>

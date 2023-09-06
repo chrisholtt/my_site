@@ -8,14 +8,14 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Rating from "../../components/project-page/Rating"
 
 async function getRatings(id: number) {
-    const urlPrefix = "http://localhost:3000"
+    const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
     const res = await fetch(urlPrefix + "/api/getRatings");
     const req = await res.json();
     return req;
 }
 
 async function getProject(id: number) {
-    const urlPrefix = "http://localhost:3000"
+    const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
     const res = await fetch(urlPrefix + `/api/getProject?id=${id}`);
     const req = await res.json();
     return req;

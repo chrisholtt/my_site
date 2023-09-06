@@ -12,8 +12,10 @@ import { Container } from "@mui/material";
 // import { useEffect, useState } from 'react'
 // import { useProjectContext } from "../contexts/ProjectContext";
 import ProjectsTable from "./ProjectTable"
+
+
 async function getProjects() {
-    const urlPrefix = "http://localhost:3000"
+    const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
     const req = await fetch(urlPrefix + `/api/firebase`);
     const res = await req.json();
     return res;

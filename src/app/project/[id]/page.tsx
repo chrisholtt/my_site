@@ -30,10 +30,12 @@ export default async function Page({ params }: any) {
 
 
     const Technologies = () => {
+        const projectsArr: String[] = projectData.technologies
         return (
             <div className="flex flex-row justify-around items-center">
-                {projectData?.technologies.map(technology => (
-                    <div className="w-auto py-2 px-4 mx-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 h-min dark:bg-stone-950 bg-white" key={technology}>
+                {projectsArr.map((technology, i) => (
+
+                    <div className="w-auto py-2 px-4 mx-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 h-min dark:bg-stone-950 bg-white" key={i}>
                         <h1 className="dark:text-zinc-200">{technology}</h1>
                     </div>
                 ))}

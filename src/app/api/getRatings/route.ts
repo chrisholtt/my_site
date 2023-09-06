@@ -17,35 +17,47 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export async function GET(req: Request) {
+type Rating = {
+    projectId: string,
+    rating: number,
+    ratedBy: string
+}
+
+export async function GET(req: Request, res: Response) {
+
     try {
         const snapshot = await getDocs(collection(db, "Ratings"));
-        const data = snapshot.docs.map((doc) => doc.data());
-        // Get list of doc ID's
-        const iDs = [];
-        snapshot.forEach(doc => iDs.push({ [doc.id]: "hey" }))
+        const data: Rating[] = snapshot.docs.map((doc) => doc.data() as Rating);
 
         const generateCountMap = () => {
-            const ratingsObj = {};
-            const projectToVotesObj = {};
-            const realRating = {};
-            data.forEach(doc => {
-                ratingsObj[doc.projectId] = 0
-                projectToVotesObj[doc.projectId] = 0
-                realRating[doc.projectId] = 0
-            });
-
-            data.forEach(doc => {
-                const { projectId, rating } = doc
-                ratingsObj[projectId] += rating
-                projectToVotesObj[projectId] += 1
+            const mapping: Record<string, number> = {};
+            data.forEach(ratingObj => {
+                const { projectId, rating } = ratingObj
+                if (projectId in mapping) {
+                    mapping[projectId] += rating
+                } else {
+                    mapping[projectId] = rating
+                }
             })
 
-            const keys = Object.keys(ratingsObj)
-            keys.forEach(key => {
-                ratingsObj[key] = ratingsObj[key] / projectToVotesObj[key]
+            const projectToVotesObj: Record<string, number> = {};
+            data.forEach(ratingObj => {
+                const { projectId } = ratingObj
+                if (projectId in projectToVotesObj) {
+                    projectToVotesObj[projectId] += 1
+                } else {
+                    projectToVotesObj[projectId] = 1
+                }
             })
-            return [ratingsObj, projectToVotesObj]
+            console.log("---------")
+            console.log("---------")
+            console.log("---------")
+            console.log(mapping)
+            console.log(projectToVotesObj)
+            console.log("---------")
+            console.log("---------")
+            console.log("---------")
+            return [mapping, projectToVotesObj]
         }
         const countMap = generateCountMap()
         return NextResponse.json(countMap)

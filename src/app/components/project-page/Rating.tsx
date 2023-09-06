@@ -16,7 +16,7 @@ export default function Rating({ rating, projectId, numberOfVotes }: any) {
     const FadeInProps = (delay: number, i: number) => {
         return useSpring({
             from: {
-                transform: `translateY(-10px) rotate(0deg)`,
+                transform: `translateY(-14px) rotate(0deg)`,
                 opacity: 0,
             },
             to: {

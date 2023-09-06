@@ -46,7 +46,7 @@ export default function Page({ params }: any) {
 
     const Details = ({ element, delay }: any) => {
         return (
-            <div className='blinking-background w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900'>
+            <div className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden bg-white p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
                 {element}
             </div>
         )

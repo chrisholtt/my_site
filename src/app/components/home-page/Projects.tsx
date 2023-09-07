@@ -5,9 +5,17 @@ import ProjectsTable from "./ProjectTable"
 
 async function getProjects() {
     const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
-    const req = await fetch(urlPrefix + `/api/firebase`);
-    const res = await req.json();
-    return res;
+    try {
+        const res = await fetch(urlPrefix + `/api/firebase`);
+        if (res.ok) {
+            const data = await res.json();
+            return data;
+        }
+
+    } catch (e) {
+        console.log(e)
+    }
+
 }
 
 

@@ -16,7 +16,7 @@ export default function ProjectsTable({ projects }: any) {
         <TableContainer component={Paper} className="dark:bg-black bg-zinc-50">
             <Table>
                 <TableBody>
-                    {!!projects.length && projects.map((proj: any, i: number) => (
+                    {!!projects && projects.map((proj: any, i: number) => (
                         <TableRow
                             // key={proj.title}
                             sx={{

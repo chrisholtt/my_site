@@ -54,7 +54,7 @@ export default function Rating({ rating, projectId, numberOfVotes }: any) {
 
 
 
-    const Stars = () => {
+    const Stars: ReactElement<any, any> = () => {
         const initialDelay = 300;
         const stars = [];
         for (let i = 0; i < 5; i++) {

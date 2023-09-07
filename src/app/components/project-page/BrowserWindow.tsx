@@ -2,6 +2,7 @@
 import { useSpring, animated } from 'react-spring';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { Carousel } from 'react-responsive-carousel';
+import Image from 'next/image';
 
 export default function BrowserWindow({ displayLink }: any) {
     const FadeInProps = (delay: number) => {
@@ -24,9 +25,9 @@ export default function BrowserWindow({ displayLink }: any) {
         return (
             <div className='w-[300px]'>
                 <Carousel showThumbs={false} autoPlay>
-                    <img src="/projects/calorie1.png" />
-                    <img src="/projects/calorie1.png" />
-                    <img src="/projects/calorie1.png" />
+                    <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />
+                    <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />
+                    <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />
                 </Carousel>
             </div>
 

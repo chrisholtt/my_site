@@ -7,11 +7,8 @@ async function getProjects() {
     const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
     try {
         const res = await fetch(urlPrefix + `/api/firebase`);
-        if (res.ok) {
-            const data = await res.json();
-            return data;
-        }
-
+        const data = await res.json();
+        return data;
     } catch (e) {
         console.log(e)
     }

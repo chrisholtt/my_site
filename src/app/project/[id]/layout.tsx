@@ -11,9 +11,9 @@ export default function ProjectLayout({
             <head>
             </head>
             <body>
-                <Nav />
+                {/* <Nav /> */}
                 {children}
-                <Footer />
+                {/* <Footer /> */}
             </body>
         </html>
     )

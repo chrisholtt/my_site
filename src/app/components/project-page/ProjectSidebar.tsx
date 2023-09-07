@@ -6,13 +6,28 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { headingStyle, subHeadingStyle } from "@/utils/utils"
 import { Tooltip } from '@mui/material';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import { useSpring, animated } from 'react-spring';
 
-export default function ProjectsTable({ projects }: any) {
+
+const FadeInProps = (i: number) => {
+    return useSpring({
+        from: {
+            transform: `translateY(0px) rotate(0deg)`,
+            opacity: 0,
+        },
+        to: {
+            transform: 'translateY(0px) rotate(0deg)',
+            opacity: 1,
+        },
+        config: { tension: 62, friction: 16 },
+        delay: 75 * i,
+    });
+};
+
+export default function ProjectsSidebar({ projects }: any) {
     return (
-        <TableContainer component={Paper} className="dark:bg-black bg-zinc-50">
+        <TableContainer component={Paper} className="dark:bg-black bg-white">
             <Table>
                 <TableBody>
                     {!!projects && projects.map((proj: any, i: number) => (
@@ -29,16 +44,7 @@ export default function ProjectsTable({ projects }: any) {
                                 }}
                                 >
                                     <Tooltip title="View project">
-                                        <h1 className="dark:text-white text-black">{proj.title}</h1 >
-                                    </Tooltip>
-                                </Link>
-                            </TableCell>
-                            <TableCell align="right" className="dark:text-zinc-200 text-black">{proj.lang}</TableCell>
-                            <TableCell align="right" className="dark:text-zinc-200 text-black">{proj.description}</TableCell>
-                            <TableCell align="right">
-                                <Link href={proj.link} target={'_blank'} className="dark:text-zinc-200 text-black">
-                                    <Tooltip title="View repo">
-                                        <GitHubIcon />
+                                        <animated.h1 style={FadeInProps(i)} className="dark:text-white text-black">{proj.title}</animated.h1 >
                                     </Tooltip>
                                 </Link>
                             </TableCell>

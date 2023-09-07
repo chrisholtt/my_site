@@ -12,9 +12,7 @@ async function getProjects() {
     } catch (e) {
         console.log(e)
     }
-
 }
-
 
 export default async function Projects() {
     const projects = await getProjects();

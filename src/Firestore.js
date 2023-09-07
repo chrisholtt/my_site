@@ -1,8 +1,4 @@
 import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
-import { createContext, useContext } from 'react';
-
 
 const firebaseConfig = {
     apiKey: "AIzaSyCKO0W5gzyxVhst4GSoHEchbUMeASSPx-E",
@@ -15,15 +11,7 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+
+export default app;
 
 
-
-export const querySnapshot = async () => {
-    const snapshot = await getDocs(collection(db, "Projects"));
-    snapshot.docs.forEach((doc) => {
-        console.log(doc.data())
-    })
-}
-
-querySnapshot();

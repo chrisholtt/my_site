@@ -4,7 +4,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Link from 'next/link';
 import { Tooltip } from '@mui/material';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { app } from "../../../Firestore";
+import app from "../../../Firestore";
 
 const handleSignIn = () => {
     const auth = getAuth();

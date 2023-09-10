@@ -2,8 +2,6 @@
 import './globals.css'
 import ThemeProvider from "./theme-provider";
 import { Analytics } from '@vercel/analytics/react';
-import Nav from "./components/common/Nav"
-import Footer from "./components/common/Footer"
 import Providers from "../app/components/common/Providers"
 require('dotenv').config();
 

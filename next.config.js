@@ -1,6 +1,9 @@
 module.exports = {
     experimental: {
         appDir: true,
-        serverActions: true
+        serverActions: true,
+    },
+    images: {
+        domains: ['lh3.googleusercontent.com'],
     },
 };

@@ -41,7 +41,7 @@ export default function RatingComponent({ rating, projectId, numberOfVotes }: an
             <>
                 <Tooltip className="cursor-pointer" title={session && session.user ? "Leave a rating" : "Sign in to leave a rating"}>
                     <div className='flex flex-row'>
-                        <Rating name="half-rating" defaultValue={(rating / numberOfVotes) ?? 0} precision={0.5} onChange={(e, i) => createRating(i)} disabled={(!session && !session?.user)} />
+                        <Rating name="half-rating" defaultValue={(rating / numberOfVotes) ?? 0} precision={0.5} onChange={(e, i) => createRating(i)} disabled={(!session)} />
                     </div>
                 </Tooltip>
                 <h1>{`(${numberOfVotes ?? 0}) votes`}</h1>

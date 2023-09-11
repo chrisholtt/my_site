@@ -1,57 +1,42 @@
 "use client"
 import Link from "next/link";
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import { Tooltip } from '@mui/material';
-import { useSpring, animated } from 'react-spring';
-
-
-const FadeInProps = (i: number) => {
-    return useSpring({
-        from: {
-            transform: `translateY(0px) rotate(0deg)`,
-            opacity: 0,
-        },
-        to: {
-            transform: 'translateY(0px) rotate(0deg)',
-            opacity: 1,
-        },
-        config: { tension: 62, friction: 16 },
-        delay: 75 * i,
-    });
-};
+import { usePathname } from 'next/navigation';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Divider from '@mui/material/Divider';
 
 export default function ProjectsSidebar({ projects }: any) {
+    const currentRoute = usePathname();
     return (
-        <TableContainer component={Paper} className="dark:bg-black bg-white">
-            <Table>
-                <TableBody>
-                    {!!projects && projects.map((proj: any, i: number) => (
-                        <TableRow
-                            // key={proj.title}
-                            sx={{
-                                '&:last-child td, &:last-child th': { border: 0 }
-                            }}
-                            key={i}
+        <List component="nav" aria-label="main mailbox folders"
+            sx={{
+                width: '100%',
+                maxWidth: 360,
+                bgcolor: 'background.paper',
+                position: 'relative',
+                overflow: 'auto',
+                maxHeight: 'auto',
+                '& ul': { padding: 0 },
+            }}
+            subheader={"projects"}
+        >
+            <ListItemText primary="Projects" />
+            <Divider />
+            {
+                !!projects && projects.map((proj: any, i: number) => (
+                    <Link href={{
+                        pathname: '/project/' + proj.id,
+                    }}
+                    >
+                        <ListItemButton
+                            selected={currentRoute == "/project/" + proj.id}
                         >
-                            <TableCell component="th" scope="row">
-                                <Link href={{
-                                    pathname: '/project/' + proj.id,
-                                }}
-                                >
-                                    <Tooltip title="View project">
-                                        <animated.h1 style={FadeInProps(i)} className="dark:text-white text-black">{proj.title}</animated.h1 >
-                                    </Tooltip>
-                                </Link>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer >
+                            <ListItemText primary={proj.title} />
+                        </ListItemButton>
+                    </Link>
+                ))
+            }
+        </List>
     );
 }

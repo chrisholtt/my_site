@@ -28,6 +28,7 @@ export default function ProjectsSidebar({ projects }: any) {
                     <Link href={{
                         pathname: '/project/' + proj.id,
                     }}
+                        key={i}
                     >
                         <ListItemButton
                             selected={currentRoute == "/project/" + proj.id}

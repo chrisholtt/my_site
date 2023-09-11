@@ -24,7 +24,6 @@ export default function Nav() {
                             <GitHubIcon />
                         </Tooltip>
                     </Link>
-
                 </li>
                 <li className="p-1">
                     <Link href="https://www.linkedin.com/in/chrisphilholt/" target="_blank">

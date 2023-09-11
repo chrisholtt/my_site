@@ -5,6 +5,7 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
+import ListSubheader from '@mui/material/ListSubheader';
 
 export default function ProjectsSidebar({ projects }: any) {
     const currentRoute = usePathname();
@@ -16,13 +17,12 @@ export default function ProjectsSidebar({ projects }: any) {
                 bgcolor: 'background.paper',
                 position: 'relative',
                 overflow: 'auto',
-                maxHeight: 'auto',
+                maxHeight: 300,
+                padding: 0,
                 '& ul': { padding: 0 },
             }}
-            subheader={"projects"}
         >
-            <ListItemText primary="Projects" />
-            <Divider />
+            <ListSubheader>Projects</ListSubheader>
             {
                 !!projects && projects.map((proj: any, i: number) => (
                     <Link href={{

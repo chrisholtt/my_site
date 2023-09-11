@@ -70,9 +70,6 @@ export default async function Page({ params }: any) {
 
                 <div className="absolute -top-14 flex flex-row gap-3">
                     <div className='w-[300px] h-[600px] border border-zinc-200 dark:border-stone-800 overflow-scroll rounded-lg shadow-md bg-white' style={{ direction: 'rtl' }}>
-                        <div className="sticky top-0 h-14 px-4 bg-white dark:bg-black border-b border-zinc-200 flex flex-col items-end justify-center" >
-                            <h1 className='text-2xl'>Projects</h1>
-                        </div>
                         <ProjectSidebar projects={projects} />
                     </div>
 

@@ -1,9 +1,5 @@
 "use client"
 import { useSpring, animated } from 'react-spring';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-
 
 export default function Detail({ element, delay }: any) {
     const FadeInProps = (delay: number) => {
@@ -21,13 +17,8 @@ export default function Detail({ element, delay }: any) {
         });
     };
     return (
-        <animated.div style={FadeInProps(delay)}>
-            <Card variant="outlined" className="bg-white dark:bg-black flex flex-col justify-center items-center">
-                <CardContent>
-                    {element}
-                </CardContent>
-            </Card>
+        <animated.div style={FadeInProps(delay)} className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900'>
+            {element}
         </animated.div>
-
     )
 }

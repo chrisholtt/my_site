@@ -6,9 +6,11 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { headingStyle, subHeadingStyle } from "@/utils/utils"
 import { Tooltip } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import Chip from '@mui/material/Chip';
+import Button from '@mui/material/Button';
+
 
 export default function ProjectsTable({ projects }: any) {
     return (
@@ -29,11 +31,15 @@ export default function ProjectsTable({ projects }: any) {
                                 }}
                                 >
                                     <Tooltip title="View project">
-                                        <h1 className="dark:text-white text-black">{proj.title}</h1 >
+                                        <Button variant="text" className=" text-black dark:text-white hover:bg-white cursor-pointer">{proj.title}</Button>
                                     </Tooltip>
                                 </Link>
                             </TableCell>
-                            <TableCell align="right" className="dark:text-zinc-200 text-black">{proj.lang}</TableCell>
+                            <TableCell align="right" className="dark:text-zinc-200 text-black">
+                                <Tooltip title="Language">
+                                    <Chip label={proj.lang} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white cursor-default" />
+                                </Tooltip>
+                            </TableCell>
                             <TableCell align="right" className="dark:text-zinc-200 text-black">{proj.description}</TableCell>
                             <TableCell align="right">
                                 <Link href={proj.link} target={'_blank'} className="dark:text-zinc-200 text-black">

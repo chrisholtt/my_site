@@ -1,6 +1,4 @@
 "use client"
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import Link from 'next/link';
 import { Tooltip } from '@mui/material';
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -17,22 +15,8 @@ export default function Nav() {
                     </Link>
                 </li>
             </ul>
-            <ul className='flex flex-row items-center'>
-                <li className="p-1">
-                    <Link href="https://github.com/chrisholtt" target="_blank">
-                        <Tooltip title="GitHub">
-                            <GitHubIcon />
-                        </Tooltip>
-                    </Link>
-                </li>
-                <li className="p-1">
-                    <Link href="https://www.linkedin.com/in/chrisphilholt/" target="_blank">
-                        <Tooltip title="LinkedIn">
-                            <LinkedInIcon />
-                        </Tooltip>
-                    </Link>
-                </li>
-                <li>
+            <ul className='flex flex-row items-center gap-2'>
+                <li >
                     <SignInButton />
                 </li>
             </ul>

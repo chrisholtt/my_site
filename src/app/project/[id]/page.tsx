@@ -9,6 +9,9 @@ import Rating from "../../components/project-page/Rating"
 import ProjectSidebar from "../../components/project-page/ProjectSidebar"
 import Nav from '../../components/common/Nav'
 import Footer from '../../components/common/Footer'
+import Chip from '@mui/material/Chip';
+import { Tooltip } from '@mui/material';
+
 
 async function getRatings(id: number) {
     const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
@@ -47,27 +50,27 @@ export default async function Page({ params }: any) {
     const Technologies = () => {
         const projectsArr: String[] = projectData.technologies;
         return (
-            <div className="flex flex-row justify-around items-center">
+            <div className="flex flex-row justify-around items-center gap-2">
                 {!!projectsArr.length && projectsArr.map((technology, i) => (
-
-                    <div className="w-auto py-2 px-4 mx-2 rounded-sm shadow-sm border light:border-zinc-200 dark:border-zinc-800 dark:shadow-zinc-900 h-min dark:bg-stone-950 bg-white" key={i}>
-                        <h1 className="dark:text-zinc-200">{technology}</h1>
-                    </div>
+                    <Tooltip title="Technology used">
+                        <Chip label={technology} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white shadow-sm cursor-default" />
+                    </Tooltip>
                 ))}
             </div>
         );
     };
 
     return (
-        <section className="h-screen" >
+        <section className="h-screen">
             <Nav />
-            <div className='relative flex flex-row justify-start items-center h-1/4 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
-                <Link href="/"><ArrowBackIcon /></Link>
-                <h1 className='text-4xl px-4'>Project</h1>
+
+            <div className='pl-4 relative flex flex-row justify-start items-center h-1/4 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
+                <Tooltip title="Go back">
+                    <Chip icon={<ArrowBackIcon />} className="bg-white" label="Projects" component="a" href="/" clickable />
+                </Tooltip>
             </div>
 
             <div className="relative h-3/4 flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
-
                 <div className="absolute -top-14 flex flex-row gap-3">
                     <div className='w-[300px] h-[600px] border border-zinc-200 dark:border-stone-800 overflow-scroll rounded-lg shadow-md bg-white' style={{ direction: 'rtl' }}>
                         <ProjectSidebar projects={projects} />

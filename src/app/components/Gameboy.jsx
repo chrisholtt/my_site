@@ -46,10 +46,11 @@ export function Gameboy(props) {
       <Screen />
       <RoundedBox
         args={[0, 0, 0]} // Width, height, depth. Default is [1, 1, 1]
-        radius={0.05} // Radius of the rounded corners. Default is 0.05
+        radius={0.00} // Radius of the rounded corners. Default is 0.05
         smoothness={4} // The number of curve segments. Default is 4
         creaseAngle={0.4} // Smooth normals everywhere except faces that meet at an angle greater than the crease angle
         position={[0, 1.3, 1]}
+
       >
         <Text
           scale={[0.1, 0.1, 0.1]}

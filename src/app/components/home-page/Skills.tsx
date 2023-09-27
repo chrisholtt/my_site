@@ -51,7 +51,6 @@ export default function Hero() {
     return (
         <section className="relative h-screen w-screen flex flex-col items-center justify-center bg-zinc-50 border-t border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
             <Container style={{ textAlign: 'center' }}>
-                <div className="w-1 h-6 bg-gradient-to-b from-transparent to-white"></div>
                 <div className="flex flex-col justify-between items-center text-center space-y-6">
                     <h1>SKILLS</h1>
                     <h1 className={headingStyle}>Technologies I like</h1>

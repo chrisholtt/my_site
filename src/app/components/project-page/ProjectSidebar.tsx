@@ -22,7 +22,7 @@ export default function ProjectsSidebar({ projects }: any) {
                 '& ul': { padding: 0 },
             }}
         >
-            <ListSubheader>Projects</ListSubheader>
+
             {
                 !!projects && projects.map((proj: any, i: number) => (
                     <Link href={{

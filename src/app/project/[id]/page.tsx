@@ -39,9 +39,9 @@ async function getProjects() {
 }
 
 
-async function getGitCommits(id: string) {
+async function getGitCommits(repo: string) {
     console.log("fired get commits");
-    const res = await fetch(urlPrefix + `/api/getGithubCommits?id=${id}`);
+    const res = await fetch(urlPrefix + `/api/getGithubCommits?repo=${repo}`);
     const data = await res.json();
     return data;
 }
@@ -54,7 +54,7 @@ export default async function Page({ params }: any) {
     const projectData = await getProject(id);
     const ratingData = await getRatings(id);
     const projects = await getProjects();
-    const commits = await getGitCommits(id);
+    const commits = await getGitCommits(projectData.repo);
     const [ratingsMap, numberOfVotesMap] = ratingData;
 
 

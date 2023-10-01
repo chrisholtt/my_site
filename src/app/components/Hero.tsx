@@ -9,7 +9,7 @@ export default function Hero() {
         <section className="z-10 h-screen w-screen flex items-center justify-center">
             <div className="flex flex-col justify-between w-auto items-center space-y-6 ">
                 <h1 className={`${titleStyle} drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]`}>Creative Develope<span className="bg-transparent animate-pulse">r</span></h1>
-                {/* <p className={`${subHeadingStyle} `}>Software engineer with experience in front-end and back-end development, I enjoy refining existing code and streamlining processes.</p> */}
+                <p className={`${subHeadingStyle} `}>Software engineer with experience in front-end and back-end development, I enjoy refining existing code and streamlining processes.</p>
             </div>
         </section>
     )

@@ -112,9 +112,9 @@ export default function Page({ params }: any) {
                                     <Technologies />
                                 </div>
                                 <div className='grid grid-cols-3 gap-x-3'>
-                                    <Details element="..." />
-                                    <Details element="..." />
-                                    <Details element="..." />
+                                    <Details element="" />
+                                    <Details element="" />
+                                    <Details element="" />
                                 </div>
                             </div>
                         </div>

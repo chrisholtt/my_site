@@ -11,24 +11,24 @@ import Nav from '../../components/common/Nav'
 import Footer from '../../components/common/Footer'
 import Chip from '@mui/material/Chip';
 import { Tooltip } from '@mui/material';
+import { getAllCommits } from '../../../utils/octokit'
+import GithubCommits from '@/app/components/home-page/GithubCommits';
 
+const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
 
-async function getRatings(id: number) {
-    const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
+async function getRatings(id: string) {
     const res = await fetch(urlPrefix + "/api/getRatings");
     const req = await res.json();
     return req;
 }
 
-async function getProject(id: number) {
-    const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
+async function getProject(id: string) {
     const res = await fetch(urlPrefix + `/api/getProject?id=${id}`);
     const req = await res.json();
     return req;
 }
 
 async function getProjects() {
-    const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
     try {
         const res = await fetch(urlPrefix + `/api/firebase`);
         const data = await res.json();
@@ -38,11 +38,23 @@ async function getProjects() {
     }
 }
 
+
+async function getGitCommits(id: string) {
+    console.log("fired get commits");
+    const res = await fetch(urlPrefix + `/api/getGithubCommits?id=${id}`);
+    const data = await res.json();
+    return data;
+}
+
+
+
+
 export default async function Page({ params }: any) {
     const { id } = params;
     const projectData = await getProject(id);
     const ratingData = await getRatings(id);
     const projects = await getProjects();
+    const commits = await getGitCommits(id);
     const [ratingsMap, numberOfVotesMap] = ratingData;
 
 
@@ -92,7 +104,7 @@ export default async function Page({ params }: any) {
                             </div>
                             <div className='grid grid-cols-3 gap-x-3'>
                                 <Detail element={<h1 className="dark:text-zinc-200">{projectData.description}</h1>} delay={100} />
-                                <Detail element={projectData.description} delay={200} />
+                                <Detail element={<GithubCommits commits={commits} />} delay={200} />
                                 <Detail element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={id} />} delay={300} />
                             </div>
                         </div>

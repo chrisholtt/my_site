@@ -68,7 +68,7 @@ export default function Page({ params }: any) {
         return (
             <div className="flex flex-row justify-around items-center">
                 {[1, 2, 3].map(technology => (
-                    <Chip label={null} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white shadow-sm cursor-default before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]" />
+                    <Chip label={null} key={technology} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white shadow-sm cursor-default before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]" />
                 ))}
             </div>
         );

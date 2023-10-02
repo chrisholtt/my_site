@@ -11,7 +11,6 @@ import Nav from '../../components/common/Nav'
 import Footer from '../../components/common/Footer'
 import Chip from '@mui/material/Chip';
 import { Tooltip } from '@mui/material';
-import { getAllCommits } from '../../../utils/octokit'
 import GithubCommits from '@/app/components/home-page/GithubCommits';
 
 const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL

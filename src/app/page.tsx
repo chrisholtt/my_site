@@ -14,7 +14,7 @@ export default function Page() {
             <Scene />
             <Hero />
             <Skills />
-            <Projects />
+            {/* <Projects /> */}
             <Contact />
             <Footer />
         </>

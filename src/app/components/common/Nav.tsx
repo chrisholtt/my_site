@@ -1,8 +1,5 @@
 "use client"
 import Link from 'next/link';
-import { Tooltip } from '@mui/material';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import app from "../../../Firestore";
 import SignInButton from './SignInButton';
 
 export default function Nav() {

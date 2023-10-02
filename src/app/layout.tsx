@@ -3,9 +3,7 @@ import './globals.css'
 import ThemeProvider from "./theme-provider";
 import { Analytics } from '@vercel/analytics/react';
 import Providers from "../app/components/common/Providers"
-require('dotenv').config();
 
-// Initialize Firebase
 export default function RootLayout({
   children,
 }: {

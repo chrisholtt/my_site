@@ -11,7 +11,7 @@ export default function Loading() {
             <Nav />
             <section className="z-10 h-screen w-screen flex items-center justify-center">
                 <div className="absolute flex flex-col justify-center items-center text-center mb-32 ml-12 z-[-1]">
-                    <Image src="/loaders/giphy.gif" alt="gameboy" width={500} height={500} style={{ opacity: 0.2 }} />
+                    <Image src="/loaders/giphy.gif" alt="gameboy" priority={true} width={500} height={500} style={{ opacity: 0.2 }} />
                 </div>
                 <Container style={{ textAlign: 'center' }}>
                     <div className="flex flex-col justify-between items-center space-y-6">

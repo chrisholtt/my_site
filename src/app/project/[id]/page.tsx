@@ -54,7 +54,8 @@ export default async function Page({ params }: any) {
     const projectData = await getProject(id);
     const ratingData = await getRatings(id);
     const projects = await getProjects();
-    const commits = await getGitCommits(projectData.repo);
+    const repo: string = projectData.repo
+    const commits = await getGitCommits(repo);
     const [ratingsMap, numberOfVotesMap] = ratingData;
 
 
@@ -104,7 +105,8 @@ export default async function Page({ params }: any) {
                             </div>
                             <div className='grid grid-cols-3 gap-x-3'>
                                 <Detail element={<h1 className="dark:text-zinc-200">{projectData.description}</h1>} delay={100} />
-                                <Detail element={<GithubCommits commits={commits} />} delay={200} />
+                                {/* Need to move the below eleemnt outside of the details cmpnt because breaks with theme switcher */}
+                                <Detail element={<GithubCommits commits={commits} repo={repo} />} delay={200} />
                                 <Detail element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={id} />} delay={300} />
                             </div>
                         </div>

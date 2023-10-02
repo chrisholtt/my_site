@@ -99,9 +99,9 @@ export default function Page({ params }: any) {
 
                         <div className='w-[800px] h-[600px] rounded-lg overflow-hidden bg-yellow-300 shadow-md border dark:border-stone-800'>
                             <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
-                                <h1 className='text-2xl'>Loading</h1>
+                                <h1 className='text-2xl'>.</h1>
                                 <BrowserWindow />
-                                <h1 className="text-md dark:text-zinc-200">hey</h1>
+                                <h1 className="text-md dark:text-zinc-200">.</h1>
                             </div>
                             <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-950">
                                 <div className='w-full px-10 flex flex-row justify-between items-start'>

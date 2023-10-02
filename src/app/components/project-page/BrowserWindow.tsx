@@ -23,8 +23,8 @@ export default function BrowserWindow({ displayLink }: any) {
 
     const Images = () => {
         return (
-            <div className='w-[300px]'>
-                <Carousel showThumbs={false} autoPlay>
+            <div>
+                <Carousel showThumbs={false} autoPlay className='w-[300px]'>
                     <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />
                     <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />
                     <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />

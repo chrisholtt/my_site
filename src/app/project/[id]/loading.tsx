@@ -46,7 +46,7 @@ export default function Page({ params }: any) {
 
     const BrowserWindow = () => {
         return (
-            <div className="blinking-background w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
+            <div className=" w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
                 <div className='relative h-8 w-full border-b border-zinc-200 dark:border-zinc-800 flex justify-center items-center'>
                     <div className="absolute left-2 h-full  flex flex-row justify-center items-center space-x-1">
                         <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"></div>
@@ -54,11 +54,10 @@ export default function Page({ params }: any) {
                         <div className="w-3 h-3 bg-green-500 rounded-full cursor-pointer"></div>
                     </div>
                     <div className="relative w-1/2 h-3/5 dark:bg-stone-900 bg-stone-100 flex justify-center items-center rounded-sm">
-                        <h1 className='text-xs'>Loading</h1>
                         <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
                     </div>
                 </div>
-                <div className='flex flex-col h-full justify-center items-center'>
+                <div className='blinking-background flex flex-col justify-center items-center h-full before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
                 </div>
             </div>
         )
@@ -109,7 +108,7 @@ export default function Page({ params }: any) {
                                         <h1 className='text-xl'>Details</h1>
                                         <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"><Link href={'/'} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
                                     </div>
-                                    <Technologies />
+                                    {/* <Technologies /> */}
                                 </div>
                                 <div className='grid grid-cols-3 gap-x-3'>
                                     <Details element="" />

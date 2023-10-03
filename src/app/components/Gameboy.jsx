@@ -23,7 +23,7 @@ export function Gameboy(props) {
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
     ref.current.rotation.y = scrollY * 0.004
-    ref.current.position.y = scrollY * -0.003
+    ref.current.position.y = scrollY * -0.002
   }, [scrollY])
 
   const Screen = () => {

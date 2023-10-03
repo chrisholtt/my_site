@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
-import Image from 'next/image';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
@@ -21,7 +20,6 @@ const SignInButton = () => {
         setAnchorEl(null);
     };
 
-
     if (session && session.user) {
         return (
             <>
@@ -34,7 +32,7 @@ const SignInButton = () => {
                         onClick={handleMenu}
                         color="inherit"
                     >
-                        <Avatar alt="User image" src={session?.user?.image ?? ""} sx={{ width: 30, height: 30 }} />
+                        <Avatar alt="User image" src={session?.user?.image} sx={{ width: 30, height: 30 }} />
                     </IconButton>
                     <Menu
                         id="menu-appbar"

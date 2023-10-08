@@ -23,7 +23,7 @@ export default async function Projects() {
                 <div className="flex flex-col justify-between items-center space-y-6">
                     <h1>WORK</h1>
                     <h1 className={headingStyle}>Projects I&apos;ve made</h1>
-                    <h1 className={subHeadingStyle}>A list of some of my favourite works using various technologies. Click into one and have a look on how it was made or clone it from GitHub.</h1>
+                    <h1 className={subHeadingStyle}>A collection of projects using various technologies.</h1>
                     <div className="p-10 bg-zinc-50 border-t border-b w-full rounded-md border-zinc-200 dark:bg-stone-950 dark:border-zinc-800 overflow-hidden" >
                         <ProjectsTable projects={projects} />
                     </div>

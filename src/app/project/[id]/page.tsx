@@ -37,16 +37,12 @@ async function getProjects() {
     }
 }
 
-
 async function getGitCommits(repo: string) {
     console.log("fired get commits");
     const res = await fetch(urlPrefix + `/api/getGithubCommits?repo=${repo}`);
     const data = await res.json();
     return data;
 }
-
-
-
 
 export default async function Page({ params }: any) {
     const { id } = params;
@@ -56,8 +52,6 @@ export default async function Page({ params }: any) {
     const repo: string = projectData.repo
     const commits = await getGitCommits(repo);
     const [ratingsMap, numberOfVotesMap] = ratingData;
-
-
 
     const Technologies = () => {
         const projectsArr: String[] = projectData.technologies;
@@ -113,10 +107,6 @@ export default async function Page({ params }: any) {
 
 
                 </div>
-
-
-
-
             </div >
             <Footer />
         </section>

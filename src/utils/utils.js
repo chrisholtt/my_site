@@ -44,6 +44,11 @@ export const skills = [
         title: "MUI",
         source: "./icons/material.svg",
     },
+    {
+        color: "#000",
+        title: "Azure Cloud",
+        source: "./icons/material.svg",
+    },
 ];
 
 export const projects = [

@@ -29,7 +29,7 @@ async function getProject(id: string) {
 
 async function getProjects() {
     try {
-        const res = await fetch(urlPrefix + `/api/firebase`);
+        const res = await fetch(urlPrefix + `/api/getProjects`);
         const data = await res.json();
         return data;
     } catch (e) {
@@ -38,7 +38,6 @@ async function getProjects() {
 }
 
 async function getGitCommits(repo: string) {
-    console.log("fired get commits");
     const res = await fetch(urlPrefix + `/api/getGithubCommits?repo=${repo}`);
     const data = await res.json();
     return data;
@@ -85,7 +84,7 @@ export default async function Page({ params }: any) {
                     <div className='w-[800px] h-[600px] rounded-lg overflow-hidden bg-yellow-300 shadow-md border dark:border-stone-800'>
                         <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
                             <h1 className='text-2xl'>{projectData.title}</h1>
-                            <BrowserWindow displayLink={projectData.displayLink} />
+                            <BrowserWindow displayLink={projectData.displayLink} images={projectData.images} />
                             <h1 className="text-md dark:text-zinc-200">{projectData.description}</h1>
                         </div>
                         <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-950">

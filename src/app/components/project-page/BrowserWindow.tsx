@@ -4,7 +4,7 @@ import RefreshIcon from '@mui/icons-material/Refresh';
 import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 
-export default function BrowserWindow({ displayLink }: any) {
+export default function BrowserWindow({ displayLink, images }: any) {
     const FadeInProps = (delay: number) => {
         return useSpring({
             from: {
@@ -21,18 +21,18 @@ export default function BrowserWindow({ displayLink }: any) {
     };
 
 
+
     const Images = () => {
         return (
             <div>
                 <Carousel showThumbs={false} autoPlay className='w-[300px]'>
-                    <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />
-                    <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />
-                    <Image src="/projects/calorie1.png" alt="project image" width={300} height={200} />
+                    {images.map((image, index) => (
+                        <Image key={index} src={image} alt="project image" width={300} height={200} />
+                    ))}
                 </Carousel>
             </div>
-
-        )
-    }
+        );
+    };
 
     return (
         <animated.div style={FadeInProps(0)} className="w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">

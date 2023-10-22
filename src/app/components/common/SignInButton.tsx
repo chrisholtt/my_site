@@ -6,6 +6,7 @@ import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Avatar from '@mui/material/Avatar';
+import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 
 
 const SignInButton = () => {
@@ -20,10 +21,21 @@ const SignInButton = () => {
         setAnchorEl(null);
     };
 
+    const CvDownload = () => {
+        return (
+            <a href="/misc/ChrisHoltCV.pdf" download="Chris-Holts-CV.pdf" className='flex'>
+                <HistoryEduIcon />
+                <h1>Download CV</h1>
+            </a>
+        )
+    }
+
+
+
     if (session && session.user) {
         return (
             <>
-                <div>
+                <div >
                     <IconButton
                         size="large"
                         aria-label="account of current user"
@@ -49,7 +61,7 @@ const SignInButton = () => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        <MenuItem onClick={handleClose}>Profile</MenuItem>
+                        <MenuItem ><CvDownload /></MenuItem>
                         <MenuItem onClick={handleClose}>{session?.user?.email}</MenuItem>
                         <MenuItem onClick={() => signOut()}>Sign out</MenuItem>
                     </Menu>

@@ -71,21 +71,20 @@ export default async function Page({ params }: any) {
 
             <div className='pl-4 pt-[50px] relative flex flex-row justify-start items-center h-1/6 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
                 <Tooltip title="Go back">
-                    <Chip icon={<ArrowBackIcon />} className="bg-white" label="Projects" component="a" href="/" clickable />
+                    <Chip icon={<ArrowBackIcon className="dark:text-white" />} className="dark:text-white dark:bg-stone-900 bg-zinc-50" label="Projects" component="a" href="/" clickable />
                 </Tooltip>
             </div>
 
             <div className="relative h-5/6 flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
                 <div className="-top-14 flex flex-row gap-3">
-                    <div className='w-[300px] h-[600px] border border-zinc-200 dark:border-stone-800 overflow-scroll rounded-lg shadow-md bg-white' style={{ direction: 'rtl' }}>
+                    <div className='w-[300px] h-[600px] border border-zinc-200 dark:border-stone-800 overflow-scroll rounded-lg shadow-md dark:bg-black bg-white' style={{ direction: 'rtl' }}>
                         <ProjectSidebar projects={projects} />
                     </div>
 
                     <div className='w-[800px] h-[600px] rounded-lg overflow-hidden bg-yellow-300 shadow-md border dark:border-stone-800'>
-                        <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
+                        <div className="p-4 w-full h-1/2 flex flex-col items-center justify-around bg-white dark:bg-black">
                             <h1 className='text-2xl'>{projectData.title}</h1>
                             <BrowserWindow displayLink={projectData.displayLink} images={projectData.images} />
-                            <h1 className="text-md dark:text-zinc-200">{projectData.description}</h1>
                         </div>
                         <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-950">
                             <div className='w-full px-10 flex flex-row justify-between items-start'>
@@ -97,7 +96,6 @@ export default async function Page({ params }: any) {
                             </div>
                             <div className='grid grid-cols-3 gap-x-3'>
                                 <Detail element={<h1 className="dark:text-zinc-200">{projectData.description}</h1>} delay={100} />
-                                {/* Need to move the below eleemnt outside of the details cmpnt because breaks with theme switcher */}
                                 <Detail element={<GithubCommits commits={commits} repo={repo} />} delay={200} />
                                 <Detail element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={id} />} delay={300} />
                             </div>

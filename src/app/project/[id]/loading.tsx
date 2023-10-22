@@ -92,15 +92,15 @@ export default function Page({ params }: any) {
 
                 <div className="relative h-5/6 flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
                     <div className="-top-14 flex flex-row gap-3">
-                        <div className='w-[300px] h-[600px] border border-zinc-200 dark:border-stone-800 overflow-scroll rounded-lg shadow-md bg-white' style={{ direction: 'rtl' }}>
+                        <div className='w-[300px] h-[600px] border border-zinc-200 dark:border-stone-800 overflow-scroll rounded-lg shadow-md dark:bg-black bg-white' style={{ direction: 'rtl' }}>
                             <ProjectSidebar projects={loadingProjects} />
                         </div>
 
                         <div className='w-[800px] h-[600px] rounded-lg overflow-hidden bg-yellow-300 shadow-md border dark:border-stone-800'>
                             <div className="w-full h-1/2 flex flex-col items-center justify-center bg-white dark:bg-black space-y-4">
-                                <h1 className='text-2xl'>.</h1>
+                                <h1 className='text-2xl'></h1>
                                 <BrowserWindow />
-                                <h1 className="text-md dark:text-zinc-200">.</h1>
+                                <h1 className="text-md dark:text-zinc-200"></h1>
                             </div>
                             <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-950">
                                 <div className='w-full px-10 flex flex-row justify-between items-start'>

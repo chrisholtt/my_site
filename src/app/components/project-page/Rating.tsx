@@ -44,7 +44,7 @@ export default function RatingComponent({ rating, projectId, numberOfVotes }: an
                         <Rating name="half-rating" value={(rating / numberOfVotes) ?? 0} precision={0.5} onChange={(e, i) => createRating(i ?? 3)} disabled={(!session)} />
                     </div>
                 </Tooltip>
-                <h1>{`(${numberOfVotes ?? 0}) votes`}</h1>
+                <h1 className='dark:text-white'>{`(${numberOfVotes ?? 0}) votes`}</h1>
             </>
         )
     } else {
@@ -57,7 +57,7 @@ export default function RatingComponent({ rating, projectId, numberOfVotes }: an
                         </Link>
                     </div>
                 </Tooltip>
-                <h1>{`(${numberOfVotes ?? 0}) votes`}</h1>
+                <h1 className='dark:text-white'>{`(${numberOfVotes ?? 0}) votes`}</h1>
             </>
         )
     }

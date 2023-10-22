@@ -10,11 +10,10 @@ import ListSubheader from '@mui/material/ListSubheader';
 export default function ProjectsSidebar({ projects }: any) {
     const currentRoute = usePathname();
     return (
-        <List component="nav" aria-label="main mailbox folders"
+        <List component="nav" aria-label="main mailbox folders" className="dark:bg-black"
             sx={{
                 width: '100%',
                 maxWidth: 360,
-                bgcolor: 'background.paper',
                 position: 'relative',
                 overflow: 'auto',
                 maxHeight: 300,

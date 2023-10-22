@@ -1,8 +1,8 @@
 "use client"
 import './globals.css'
-import ThemeProvider from "../theme-provider";
+import ThemeProvider from "../../theme-provider";
 import { Analytics } from '@vercel/analytics/react';
-import Providers from "../../app/components/common/Providers"
+import Providers from "../../components/common/Providers"
 
 export default function RootLayout({
   children,

@@ -44,7 +44,7 @@ const SignInButton = () => {
                         onClick={handleMenu}
                         color="inherit"
                     >
-                        <Avatar alt="User image" src={session?.user?.image} sx={{ width: 30, height: 30 }} />
+                        <Avatar alt="User image" src={session?.user.image ?? ''} sx={{ width: 30, height: 30 }} />
                     </IconButton>
                     <Menu
                         id="menu-appbar"

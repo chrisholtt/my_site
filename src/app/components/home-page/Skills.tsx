@@ -11,8 +11,8 @@ import Avatar from '@mui/material/Avatar';
 
 export default function Hero() {
     const Skillsr = () => {
-        const skillsEls = skills.map((skill) => (
-            <div className='flex flex-row items-center justify-between p-2 bg-white dark:bg-black shadow w-[300px] h-[50px]'>
+        const skillsEls = skills.map((skill, i) => (
+            <div key={i} className='flex flex-row items-center justify-between p-2 bg-white dark:bg-black shadow w-[300px] h-[50px]'>
                 <Tooltip title={skill.title}>
                     <Avatar className="bg-stone-100 dark:bg-stone-600">
                         <Image src={skill.source} alt="" width={25} height={25} />

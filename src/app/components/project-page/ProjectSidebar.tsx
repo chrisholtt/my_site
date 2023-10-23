@@ -4,8 +4,7 @@ import { usePathname } from 'next/navigation';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-import ListSubheader from '@mui/material/ListSubheader';
+
 
 export default function ProjectsSidebar({ projects }: any) {
     const currentRoute = usePathname();

@@ -27,7 +27,7 @@ export default function BrowserWindow({ displayLink, images }: any) {
             <div>
                 <Carousel showThumbs={false} autoPlay className='w-[300px]'>
                     {images.map((image: string) => (
-                        <Image key={image} src={image} alt="project image" width={300} height={200} />
+                        <Image key={image} src={image} alt="project image" width={300} height={200} className="max-h-[200px]" />
                     ))}
                 </Carousel>
             </div>

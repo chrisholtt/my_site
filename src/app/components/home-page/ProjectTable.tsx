@@ -13,6 +13,7 @@ import Button from '@mui/material/Button';
 
 
 export default function ProjectsTable({ projects }: any) {
+    console.log("Hey from projects table component: " + process.env.NEXT_PUBLIC_LOCALHOST_URL)
     return (
         <TableContainer component={Paper} className="dark:bg-black bg-zinc-50">
             <Table>

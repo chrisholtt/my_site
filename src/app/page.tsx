@@ -8,6 +8,7 @@ import Footer from './components/common/Footer';
 
 export default function Page() {
 
+
     return (
         <>
             <Nav />

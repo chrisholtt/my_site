@@ -46,7 +46,7 @@ export default function Contact() {
 
     const DullButton = () => {
         return (
-            <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Sign In</Button>
+            <Button disabled={true} className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Sign In</Button>
         )
     }
 
@@ -65,7 +65,6 @@ export default function Contact() {
                 {
                     session && session.user ? <SendButton /> : <DullButton />
                 }
-                <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Send</Button>
             </Box>
         )
     }

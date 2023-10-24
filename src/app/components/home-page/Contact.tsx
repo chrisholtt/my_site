@@ -6,11 +6,18 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
+import { useSession, signIn, signOut } from "next-auth/react"
 
 
 export default function Contact() {
     const myEmailAddress = "chrisphilholt@gmail.com";
     const [copied, setCopied] = useState(false);
+    const [formInputs, setFormInputs] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+    })
 
     const handleEmail = () => {
         console.log("fired")
@@ -18,14 +25,43 @@ export default function Contact() {
         navigator.clipboard.writeText(myEmailAddress)
     }
 
+    const placeholderStyle = {
+        color: '#707070'
+    };
+
+    const handleChange = (e: any) => {
+        const { name, value } = e.target;
+        setFormInputs((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    }
+
+
+    const SendButton = () => {
+        <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Send</Button>
+    }
+
+    const DullButton = () => {
+        <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Sign In</Button>
+    }
+
+
+
+
     const ContactForm = () => {
+        const { data: session } = useSession();
+
         return (
-            <Box className=" grid grid-cols-2 gap-4 p-4 w-full h-auto bg-white border rounded-md border-zinc-200 dark:bg-black dark:border-zinc-800 shadow-md dark:shadow-zinc-950">
-                <TextField id="outlined-basic" label="Name" variant="outlined" />
-                <TextField id="outlined-basic" label="E-mail" variant="outlined" />
-                <TextField className="col-span-2" fullWidth id="outlined-basic" label="Subject" variant="outlined" />
-                <TextField className="col-span-2" fullWidth multiline id="outlined-basic" label="Message" variant="outlined" />
-                <Button className="col-span-2" variant="contained" endIcon={<SendIcon />}>Send</Button>
+            <Box className="grid grid-cols-2 gap-4 p-4 w-full h-auto bg-white border rounded-md border-zinc-200 dark:bg-black dark:border-zinc-800 shadow-md dark:shadow-zinc-950">
+                <TextField key={"name"} onChange={(e) => handleChange(e)} value={formInputs.name} className="dark:bg-stone-950" id="outlined-basic" name="name" label="Name" InputProps={{ placeholder: "", style: placeholderStyle }} InputLabelProps={{ style: placeholderStyle }} variant="outlined" />
+                <TextField key={"email"} onChange={(e) => handleChange(e)} value={formInputs.email} className='dark:bg-stone-950' id="outlined-basic" label="E-mail" name="email" variant="outlined" InputProps={{ placeholder: "", style: placeholderStyle }} InputLabelProps={{ style: placeholderStyle }} />
+                <TextField key={"subject"} onChange={(e) => handleChange(e)} value={formInputs.subject} className="col-span-2 dark:bg-stone-950" fullWidth id="outlined-basic" label="Subject" name="subject" variant="outlined" InputProps={{ placeholder: "", style: placeholderStyle }} InputLabelProps={{ style: placeholderStyle }} />
+                <TextField key={"message"} onChange={(e) => handleChange(e)} value={formInputs.message} className="col-span-2 dark:bg-stone-950" fullWidth multiline id="outlined-basic" name="message" label="Message" variant="outlined" InputProps={{ placeholder: "", style: placeholderStyle }} InputLabelProps={{ style: placeholderStyle }} />
+                {
+                    session && session.user ? <SendButton /> : <DullButton />
+                }
+                <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Send</Button>
             </Box>
         )
     }
@@ -45,5 +81,3 @@ export default function Contact() {
         </section >
     )
 }
-
-

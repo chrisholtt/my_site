@@ -21,7 +21,8 @@ export default function ProjectsTable({ projects }: any) {
                     {!!projects && projects.map((proj: any, i: number) => (
                         <TableRow
                             sx={{
-                                '&:last-child td, &:last-child th': { border: 0 }
+                                '&:last-child td, &:last-child th': { border: 0 },
+                                '*': { borderColor: '#5b5b5b' }
                             }}
                             key={i}
                         >
@@ -37,14 +38,15 @@ export default function ProjectsTable({ projects }: any) {
                             </TableCell>
                             <TableCell align="right" className="dark:text-zinc-200 text-black">
                                 <Tooltip title="Language">
-                                    <Chip label={proj.lang} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white cursor-default" />
+                                    <Chip label={proj.lang} component="a" className="bg-white dark:bg-stone-900 text-black dark:text-white cursor-default" />
                                 </Tooltip>
                             </TableCell>
                             <TableCell align="right">
                                 <div className="hidden sm:block dark:hidden dark:sm:block dark:text-zinc-200 text-black">
                                     {proj.description}
                                 </div>
-                            </TableCell>                            <TableCell align="right" className="">
+                            </TableCell>
+                            <TableCell align="right" className="">
                                 <Link href={proj.link} target={'_blank'} className="dark:text-zinc-200 text-black">
                                     <Tooltip title="View repo">
                                         <GitHubIcon />

@@ -57,7 +57,7 @@ export default function Page({ params }: any) {
                         <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
                     </div>
                 </div>
-                <div className='blinking-background flex flex-col justify-center items-center h-full before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
+                <div className='blinking-background flex flex-col justify-center items-center h-full before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-800 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
                 </div>
             </div>
         )
@@ -67,7 +67,7 @@ export default function Page({ params }: any) {
         return (
             <div className="flex flex-row justify-around items-center">
                 {[1, 2, 3].map(technology => (
-                    <Chip label={null} key={technology} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white shadow-sm cursor-default before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]" />
+                    <Chip label={null} key={technology} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white shadow-sm cursor-default before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-800 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]" />
                 ))}
             </div>
         );
@@ -75,7 +75,7 @@ export default function Page({ params }: any) {
 
     const Details = ({ element, delay }: any) => {
         return (
-            <div className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden bg-white p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
+            <div className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-800 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
                 {element}
             </div>
         )

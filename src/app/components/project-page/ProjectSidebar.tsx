@@ -36,6 +36,6 @@ export default function ProjectsSidebar({ projects }: any) {
                     </Link>
                 ))
             }
-        </List>
+        </List >
     );
 }

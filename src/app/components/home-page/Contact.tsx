@@ -39,11 +39,15 @@ export default function Contact() {
 
 
     const SendButton = () => {
-        <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Send</Button>
+        return (
+            <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Send</Button>
+        )
     }
 
     const DullButton = () => {
-        <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Sign In</Button>
+        return (
+            <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Sign In</Button>
+        )
     }
 
 

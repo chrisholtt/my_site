@@ -26,11 +26,7 @@ export default function Hero() {
         return skillsEls;
     }
 
-    const ImageIcon = ({ src }: string) => {
-        return (
-            <Image src={src} alt="skill" width={20} height={20} />
-        )
-    }
+
 
     const SkillsNew = () => {
         return (

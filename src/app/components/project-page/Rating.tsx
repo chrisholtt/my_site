@@ -36,20 +36,6 @@ export default function RatingComponent({ rating, projectId, numberOfVotes, vote
         }
     }
 
-    async function updateRating(score: number) {
-        console.log("user has voted")
-    }
-
-    // Need to fix voters object and handling of rating updates
-
-    function handleRating(score: number) {
-        if (votersObj[session?.user?.email]) {
-            updateRating(score)
-        } else {
-            createRating(score);
-        }
-    }
-
 
     if (session && session.user) {
 
@@ -57,7 +43,7 @@ export default function RatingComponent({ rating, projectId, numberOfVotes, vote
             <>
                 <Tooltip className="cursor-pointer" title={"Leave a rating"}>
                     <div className='flex flex-row'>
-                        <Rating name="half-rating" value={(rating / numberOfVotes) ?? 0} precision={0.5} onChange={(e, i) => handleRating(i ?? 3)} disabled={(!session || isLoading)} />
+                        <Rating name="half-rating" value={(rating / numberOfVotes) ?? 0} precision={0.5} onChange={(e, i) => createRating(i ?? 3)} disabled={(!session || isLoading)} />
                     </div>
                 </Tooltip>
                 <h1 className='dark:text-white'>{`(${numberOfVotes ?? 0}) votes`}</h1>

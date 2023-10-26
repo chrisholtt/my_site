@@ -1,3 +1,5 @@
-type Project = {
-    id: number
+export interface RatingReq {
+    rating: number;
+    projectId: string;
+    user: string;
 }

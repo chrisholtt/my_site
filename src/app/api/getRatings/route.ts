@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, getFirestore, Firestore } from "firebase/firestore";
 import { createContext, useContext } from 'react';
+import { RatingReq } from '../../types/types'
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -16,22 +17,18 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db: Firestore = getFirestore(app);
 
-type Rating = {
-    projectId: string,
-    rating: number,
-    ratedBy: string
-}
-
 export async function GET(req: Request, res: Response) {
 
     try {
         const snapshot = await getDocs(collection(db, "Ratings"));
-        const data: Rating[] = snapshot.docs.map((doc) => doc.data() as Rating);
+        const data: RatingReq[] = snapshot.docs.map((doc) => doc.data() as RatingReq);
 
         const generateCountMap = () => {
             const mapping: Record<string, number> = {};
+            const voters: Record<string, boolean> = {};
             data.forEach(ratingObj => {
-                const { projectId, rating } = ratingObj
+                const { projectId, rating, user } = ratingObj
+                voters[user] = true;
                 if (projectId in mapping) {
                     mapping[projectId] += rating
                 } else {
@@ -48,10 +45,10 @@ export async function GET(req: Request, res: Response) {
                     projectToVotesObj[projectId] = 1
                 }
             })
-            return [mapping, projectToVotesObj]
+            return [mapping, projectToVotesObj, voters]
         }
-        const countMap = generateCountMap()
-        return NextResponse.json(countMap)
+        const countMaps = generateCountMap()
+        return NextResponse.json(countMaps)
 
     } catch (err) {
         return NextResponse.json({ message: 'Internal server error' })

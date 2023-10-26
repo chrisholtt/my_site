@@ -3,6 +3,7 @@ import { useSpring, animated } from 'react-spring';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 export default function BrowserWindow({ displayLink, images }: any) {
     const FadeInProps = (delay: number) => {
@@ -43,6 +44,7 @@ export default function BrowserWindow({ displayLink, images }: any) {
                     <div className="w-3 h-3 bg-green-500 rounded-full cursor-pointer"></div>
                 </div>
                 <div className="relative w-1/2 h-3/5 dark:bg-stone-900 bg-stone-100 flex justify-center items-center rounded-sm">
+                    <AutoAwesomeIcon style={{ width: '15px' }} />
                     <h1 className='text-xs'>{displayLink}</h1>
                     <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
                 </div>

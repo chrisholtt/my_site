@@ -50,7 +50,7 @@ export default async function Page({ params }: any) {
     const projects = await getProjects();
     const repo: string = projectData.repo
     const commits = await getGitCommits(repo);
-    const [ratingsMap, numberOfVotesMap] = ratingData;
+    const [ratingsMap, numberOfVotesMap, votersObj] = ratingData;
 
     const Technologies = () => {
         const projectsArr: String[] = projectData.technologies;
@@ -97,7 +97,7 @@ export default async function Page({ params }: any) {
                             <div className='grid grid-cols-3 gap-x-3'>
                                 <Detail element={<h1 className="dark:text-zinc-200">{projectData.description}</h1>} delay={100} />
                                 <Detail element={<GithubCommits commits={commits} repo={repo} />} delay={200} />
-                                <Detail element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={id} />} delay={300} />
+                                <Detail element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={id} votersObj={votersObj} />} delay={300} />
                             </div>
                         </div>
                     </div>

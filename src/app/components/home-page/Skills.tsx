@@ -6,6 +6,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@mui/material";
 import Avatar from '@mui/material/Avatar';
+import Chip from '@mui/material/Chip';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 
 
@@ -24,6 +26,22 @@ export default function Hero() {
         return skillsEls;
     }
 
+    const ImageIcon = ({ src }: string) => {
+        return (
+            <Image src={src} alt="skill" width={20} height={20} />
+        )
+    }
+
+    const SkillsNew = () => {
+        return (
+            skills.map(skill => {
+                return (
+                    <Chip label={skill.title} icon={<AutoAwesomeIcon />} className="dark:bg-black bg-white shadow dark:text-white w-[100px] flex justify-between" />
+                )
+            })
+        )
+    }
+
 
 
     return (
@@ -33,9 +51,9 @@ export default function Hero() {
                     <h1>SKILLS</h1>
                     <h1 className={headingStyle}>Technologies I like</h1>
                     <h1 className={subHeadingStyle}>An assortment of intriguing technologies that I enjoy exploring. With experience in both front-end and back-end development, I enjoy refining code and streamlining processes. For a full list of everything I&apos;ve experimented with click <span className='underline'><Link href='/skills-full'>here</Link></span></h1>
-                </div>
-                <div className="relative space-y-2 grid grid-cols-2 place-items-center">
-                    <Skillsr />
+                    <div className='flex space-x-2 flex-wrap'>
+                        <SkillsNew />
+                    </div>
                 </div>
             </Container>
         </section >

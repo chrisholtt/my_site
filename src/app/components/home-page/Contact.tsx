@@ -7,7 +7,8 @@ import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import { useSession, signIn, signOut } from "next-auth/react"
-
+import AutoFixOffIcon from '@mui/icons-material/AutoFixOff';
+import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 
 export default function Contact() {
     const myEmailAddress = "chrisphilholt@gmail.com";
@@ -40,13 +41,13 @@ export default function Contact() {
 
     const SendButton = () => {
         return (
-            <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Send</Button>
+            <Button className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<AutoFixHighIcon />}>Send</Button>
         )
     }
 
     const DullButton = () => {
         return (
-            <Button disabled={true} className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<SendIcon />}>Sign In</Button>
+            <Button onClick={() => signIn()} className="col-span-2 dark:hover:bg-stone-800 hover:bg-zinc-50 dark:text-white text-black" variant="contained" endIcon={<AutoFixOffIcon />}>Sign In</Button>
         )
     }
 

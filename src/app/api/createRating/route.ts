@@ -2,13 +2,7 @@ import { NextResponse, NextRequest } from 'next/server';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { collection, getDocs, doc, setDoc, addDoc, Firestore } from "firebase/firestore";
-
-interface RatingEntry {
-    projectId: string;
-    ratedBy: string;
-    rating: number
-}
-
+import { RatingReq } from '../../types/types'
 
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -26,13 +20,13 @@ const db: Firestore = getFirestore(app);
 
 export async function POST(req: Request, res: Response) {
     const data = await req.json()
-    const { rating, projectId } = data;
+    const { rating, projectId, user } = data;
     try {
         if (req.method == "POST") {
             console.log("--POST request received--");
-            const newRating: RatingEntry = {
+            const newRating: RatingReq = {
                 projectId: projectId,
-                ratedBy: "Chris",
+                user: user,
                 rating: rating
             }
             const docRef = await addDoc(collection(db, "Ratings"), newRating);

@@ -32,7 +32,7 @@ export default function Hero() {
         return (
             skills.map(skill => {
                 return (
-                    <Chip key={skill} label={skill.title} icon={<AutoAwesomeIcon />} className="dark:bg-black bg-white shadow dark:text-white w-[100px] flex justify-between" />
+                    <Chip key={skill?.title} label={skill.title} icon={<AutoAwesomeIcon />} className="dark:bg-black bg-white shadow dark:text-white w-[100px] flex justify-between" />
                 )
             })
         )

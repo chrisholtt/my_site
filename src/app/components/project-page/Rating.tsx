@@ -13,10 +13,11 @@ export default function RatingComponent({ rating, projectId, numberOfVotes, vote
     const { data: session } = useSession();
 
     async function createRating(score: number) {
+
         const ratingReq: RatingReq = {
             rating: score,
             projectId: projectId,
-            user: session?.user?.email
+            user: session?.user?.email ?? ''
         }
         try {
             setIsLoading(true)

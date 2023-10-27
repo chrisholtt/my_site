@@ -73,7 +73,7 @@ export default function Contact() {
 
 
     return (
-        <section className="relative h-screen w-screen flex flex-col items-center justify-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800" style={{ height: '75vh' }}>
+        <section className="relative h-[65vh] w-screen flex flex-col items-center justify-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
             <Container>
                 <div className="flex flex-col justify-between items-center space-y-6">
                     <h1>CONTACT</h1>

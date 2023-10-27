@@ -57,25 +57,25 @@ export default function Page({ params }: any) {
                         <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
                     </div>
                 </div>
-                <div className='blinking-background flex flex-col justify-center items-center h-full before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-800 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
-                </div>
+                <div className='w-full h-full flex flex-col justify-center items-center border dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-700 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'></div>
             </div>
         )
     }
 
     const Technologies = () => {
         return (
-            <div className="flex flex-row justify-around items-center">
-                {[1, 2, 3].map(technology => (
-                    <Chip label={null} key={technology} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white shadow-sm cursor-default before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-800 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]" />
-                ))}
+            <div className="flex flex-row justify-around items-center space-x-2">
+                <div className='w-[85px] h-[25px] flex flex-col justify-center items-center border bg-white dark:bg-stone-800 rounded-full dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-700 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'></div>
+                <div className='w-[85px] h-[25px] flex flex-col justify-center items-center border bg-white dark:bg-stone-800 rounded-full dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-700 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'></div>
+                <div className='w-[85px] h-[25px] flex flex-col justify-center items-center border bg-white dark:bg-stone-800 rounded-full dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-700 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'></div>
             </div>
+
         );
     };
 
     const Details = ({ element, delay }: any) => {
         return (
-            <div className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-800 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
+            <div className='w-48 h-48 flex flex-col justify-center items-center border bg-white border-zinc-200 dark:bg-black rounded dark:border-stone-800 shadow-sm dark:shadow-zinc-900 relative space-y-3 overflow-hidden p-3 before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent dark:before:via-stone-700 before:via-zinc-100 hover:shadow-lg before:animate-[shimmer_1.5s_infinite]'>
                 {element}
             </div>
         )
@@ -108,7 +108,7 @@ export default function Page({ params }: any) {
                                         <h1 className='text-xl'>Details</h1>
                                         <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"><Link href={'/'} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
                                     </div>
-                                    {/* <Technologies /> */}
+                                    <Technologies />
                                 </div>
                                 <div className='grid grid-cols-3 gap-x-3'>
                                     <Details element="" />

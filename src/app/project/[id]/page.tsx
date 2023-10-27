@@ -49,7 +49,7 @@ export default async function Page({ params }: any) {
     const ratingData = await getRatings(id);
     const projects = await getProjects();
     const repo: string = projectData.repo
-    const commits = await getGitCommits(repo);
+    const commits = repo ? await getGitCommits(repo) : null;
     const [ratingsMap, numberOfVotesMap, votersObj] = ratingData;
 
     const Technologies = () => {

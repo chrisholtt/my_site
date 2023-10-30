@@ -22,15 +22,6 @@ const SignInButton = () => {
         setAnchorEl(null);
     };
 
-    const CvDownload = () => {
-        return (
-            <a href="/misc/ChrisHoltCV.pdf" download="Chris-Holts-CV.pdf" className='flex'>
-                <HistoryEduIcon />
-                <h1>Download CV</h1>
-            </a>
-        )
-    }
-
 
 
     if (session && session.user) {
@@ -62,7 +53,6 @@ const SignInButton = () => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        <MenuItem ><CvDownload /></MenuItem>
                         <MenuItem onClick={handleClose}>{session?.user?.email}</MenuItem>
                         <MenuItem onClick={() => signOut()}>Sign out</MenuItem>
                     </Menu>

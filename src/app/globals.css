@@ -19,7 +19,7 @@ body {
   }
 
   50% {
-    background-color: #26FF0082;
+    background-color: #000000;
   }
 }
 
@@ -46,4 +46,42 @@ body {
 .blinking-background {
   animation: blinkBackground 1s infinite ease-in-out;
   /* You can adjust the animation duration as needed */
+}
+
+
+@keyframes bobbing {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+    /* Adjust the value as needed for the desired bobbing effect */
+  }
+}
+
+@keyframes bobbing_secondary {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(-10px);
+    /* Adjust the value as needed for the desired bobbing effect */
+  }
+}
+
+
+.star {
+  animation: bobbing 2s ease-in-out infinite;
+  /* Adjust the duration and easing as needed */
+}
+
+.star_secondary {
+  animation: bobbing_secondary 1.8s ease-in-out infinite;
+  /* Adjust the duration and easing as needed */
 }

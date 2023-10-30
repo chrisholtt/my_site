@@ -81,7 +81,7 @@ const SignInButton = () => {
                 onClick={handleMenu}
                 color="inherit"
             >
-                <Image src='/icons/avatar_blank.svg' width={30} height={30} className="rounded-full" />
+                <Image src='/icons/avatar_blank.svg' width={30} height={30} className="rounded-full" alt="blank_avatar" />
             </IconButton>
             <Menu
                 id="menu-appbar"

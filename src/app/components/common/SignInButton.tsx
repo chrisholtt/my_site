@@ -7,6 +7,7 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import Avatar from '@mui/material/Avatar';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+import Image from 'next/image';
 
 
 const SignInButton = () => {
@@ -80,7 +81,7 @@ const SignInButton = () => {
                 onClick={handleMenu}
                 color="inherit"
             >
-                <AccountCircle />
+                <Image src='/icons/avatar_blank.svg' width={30} height={30} className="rounded-full" />
             </IconButton>
             <Menu
                 id="menu-appbar"

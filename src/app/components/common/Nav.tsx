@@ -7,7 +7,7 @@ import { Button } from '@mui/material';
 export default function Nav() {
     const CvDownload = () => {
         return (
-            <Button className='border-stone-800 text-stone-300 hover:border-stone-600' variant="outlined">
+            <Button className='dark:border-stone-800 border-zinc-200 text-black dark:text-stone-300 hover:border-zinc-400 dark:hover:border-stone-600' variant="outlined">
                 <a href="/misc/ChrisHoltCV.pdf" download="Chris-Holts-CV.pdf" className='flex'>
                     <h1>RESUME</h1>
                 </a>

@@ -10,7 +10,7 @@ export default function Page() {
     return (
         <>
             <Nav />
-            {/* <Scene /> */}
+            <Scene />
             <Hero />
             <Skills />
             <Projects />

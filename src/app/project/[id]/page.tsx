@@ -12,6 +12,7 @@ import Footer from '../../components/common/Footer'
 import Chip from '@mui/material/Chip';
 import { Tooltip } from '@mui/material';
 import GithubCommits from '@/app/components/home-page/GithubCommits';
+import Image from 'next/image';
 
 const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
 
@@ -69,10 +70,13 @@ export default async function Page({ params }: any) {
         <section className="h-screen">
             <Nav />
 
-            <div className='pl-4 pt-[50px] relative flex flex-row justify-start items-center h-1/6 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
+            <div className='mx-4 pt-[50px] relative flex flex-row justify-start items-center h-1/6 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
                 <Tooltip title="Go back">
                     <Chip icon={<ArrowBackIcon className="dark:text-white" />} className="dark:text-white dark:bg-stone-900 bg-zinc-50" label="Projects" component="a" href="/" clickable />
                 </Tooltip>
+                <Image src={`/images/star_white.svg`} alt="star" className={`absolute mix-blend-difference star bottom-50 right-0`} width={50} height={50}></Image>
+                <Image src={`/images/star_white.svg`} alt="star" className={`absolute mix-blend-difference star_secondary bottom-10 right-7`} width={30} height={30}></Image>
+
             </div>
 
             <div className="relative h-5/6 flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
@@ -81,7 +85,7 @@ export default async function Page({ params }: any) {
                         <ProjectSidebar projects={projects} />
                     </div>
 
-                    <div className='w-[800px] h-[600px] rounded-lg overflow-hidden bg-yellow-300 shadow-md border dark:border-stone-800'>
+                    <div className='relative w-[800px] h-[600px] rounded-lg overflow-hidden bg-yellow-300 shadow-md border dark:border-stone-800'>
                         <div className="p-4 w-full h-1/2 flex flex-col items-center justify-around bg-white dark:bg-black">
                             <h1 className='text-2xl'>{projectData.title}</h1>
                             <BrowserWindow displayLink={projectData.displayLink} images={projectData.images} />

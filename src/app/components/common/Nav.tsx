@@ -20,7 +20,7 @@ export default function Nav() {
         <nav className='fixed dark:bg-black bg-zinc-50 w-screen flex flex-row justify-between px-2 border-b border dark:border-stone-800 light:border-zinc-200' style={{ zIndex: 10 }}>
             <ul className="flex flex-row items-center">
                 <li>
-                    <Image src="/images/logo.svg" className='mix-blend-difference' width={40} height={40} alt="star" />
+                    <Image src="/images/logo.svg" className='mix-blend-difference' width={30} height={30} alt="star" />
                 </li>
                 <li className="p-1 cursor-pointer font-roboto text-3xl align-middle justify-center">
                     <Link href='/'>

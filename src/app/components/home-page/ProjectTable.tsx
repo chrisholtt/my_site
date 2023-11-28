@@ -1,4 +1,5 @@
 "use client"
+import React, { FC } from 'react';
 import Link from "next/link";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,16 +10,36 @@ import Paper from '@mui/material/Paper';
 import { Tooltip } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Chip from '@mui/material/Chip';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import Button from '@mui/material/Button';
+import { Project } from "../../types/types";
 
 
 export default function ProjectsTable({ projects }: any) {
-    console.log("Hey from projects table component: " + process.env.NEXT_PUBLIC_LOCALHOST_URL)
+
+    interface SpecialLinkProps {
+        project: Project;
+    }
+
+    const SpecialLink: FC<SpecialLinkProps> = ({ project }) => {
+        if (project.link) {
+            return (
+                <Link href={project.link} target={'_blank'} className="dark:text-zinc-200 text-black">
+                    <Tooltip title="View project">
+                        <AutoAwesomeIcon />
+                    </Tooltip>
+                </Link>
+            )
+        } else {
+            return <></>
+        }
+    }
+
     return (
         <TableContainer component={Paper} className="dark:bg-black bg-zinc-50">
             <Table>
                 <TableBody>
-                    {!!projects && projects.map((proj: any, i: number) => (
+                    {!!projects && projects.map((proj: Project, i: number) => (
                         <TableRow
                             sx={{
                                 '&:last-child td, &:last-child th': { border: 0 },
@@ -47,11 +68,7 @@ export default function ProjectsTable({ projects }: any) {
                                 </div>
                             </TableCell>
                             <TableCell align="right" className="">
-                                <Link href={proj.link} target={'_blank'} className="dark:text-zinc-200 text-black">
-                                    <Tooltip title="View repo">
-                                        <GitHubIcon />
-                                    </Tooltip>
-                                </Link>
+                                <SpecialLink project={proj} />
                             </TableCell>
                         </TableRow>
                     ))}

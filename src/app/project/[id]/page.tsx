@@ -13,6 +13,7 @@ import Chip from '@mui/material/Chip';
 import { Tooltip } from '@mui/material';
 import GithubCommits from '@/app/components/home-page/GithubCommits';
 import Image from 'next/image';
+import { Project } from "../../types/types";
 
 const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
 
@@ -46,7 +47,7 @@ async function getGitCommits(repo: string) {
 
 export default async function Page({ params }: any) {
     const { id } = params;
-    const projectData = await getProject(id);
+    const projectData: Project = await getProject(id);
     const ratingData = await getRatings(id);
     const projects = await getProjects();
     const repo: string = projectData.repo
@@ -94,7 +95,7 @@ export default async function Page({ params }: any) {
                             <div className='w-full px-10 flex flex-row justify-between items-start'>
                                 <div className='text-start'>
                                     <h1 className='text-xl'>Details</h1>
-                                    <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"><Link href={projectData.link} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
+                                    <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"><Link href={projectData.GitHubRepoLink} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
                                 </div>
                                 <Technologies />
                             </div>

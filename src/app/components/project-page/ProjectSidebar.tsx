@@ -9,7 +9,7 @@ import ListItemText from '@mui/material/ListItemText';
 export default function ProjectsSidebar({ projects }: any) {
     const currentRoute = usePathname();
     return (
-        <List component="nav" aria-label="main mailbox folders" className="dark:bg-black overflow-hidden"
+        <List component="nav" aria-label="main mailbox folders" className="dark:bg-black hideScrollBar"
             sx={{
                 width: '100%',
                 maxWidth: 360,

@@ -28,10 +28,10 @@ export default function Hero() {
 
 
             <animated.div style={FadeInProps(10)} className="flex w-full pl-52 mb-[10%] flex-col justify-between items-start space-y-6">
-                <h2 className={`${subHeadingStyle} `}>Hi, I'm Chris.</h2>
+                <h2 className={`${subHeadingStyle} `}>Hi, I&apos;m Chris.</h2>
                 <h1 className={`${titleStyle} drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]`}>Creative Develope<span className="bg-transparent animate-pulse">r</span></h1>
                 <h2 className={`${subHeadingStyle} `}>I like building things on the web and experimenting with new technologies.</h2>
-                <Chip icon={<GitHub className="dark:text-white" />} className="dark:text-white dark:bg-stone-900 bg-zinc-50" label="Projects" component="a" href="/" clickable />
+                <Chip icon={<GitHub className="dark:text-white" />} className="dark:text-white dark:bg-stone-900 bg-zinc-50" label="Github" component="a" href="/" clickable />
             </animated.div>
             <div className="w-full h-full">
                 <Scene />

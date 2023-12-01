@@ -75,7 +75,7 @@ export default async function Page({ params }: any) {
 
             <div className='mx-4 pt-[50px] relative flex flex-row justify-start items-center h-1/6 bg-white border-zinc-200 dark:bg-black dark:border-zinc-800'>
                 <Tooltip title="Go back">
-                    <Chip icon={<ArrowBackIcon className="dark:text-white" />} className="dark:text-white dark:bg-stone-900 bg-zinc-50" label="Projects" component="a" href="/" clickable />
+                    <Chip icon={<ArrowBackIcon className="dark:text-white" />} className="dark:text-white dark:bg-stone-900 bg-zinc-50" label="Home" component="a" href="/" clickable />
                 </Tooltip>
                 <Image src={`/images/star_white.svg`} alt="star" className={`absolute mix-blend-difference star bottom-50 right-0`} width={50} height={50}></Image>
                 <Image src={`/images/star_white.svg`} alt="star" className={`absolute mix-blend-difference star_secondary bottom-10 right-7`} width={30} height={30}></Image>

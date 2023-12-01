@@ -57,7 +57,7 @@ body {
   }
 
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     /* Adjust the value as needed for the desired bobbing effect */
   }
 }
@@ -69,8 +69,8 @@ body {
     transform: translateY(0);
   }
 
-  40% {
-    transform: translateY(-10px);
+  30% {
+    transform: translateY(-5px);
     /* Adjust the value as needed for the desired bobbing effect */
   }
 }

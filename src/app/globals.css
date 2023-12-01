@@ -85,3 +85,13 @@ body {
   animation: bobbing_secondary 1.8s ease-in-out infinite;
   /* Adjust the duration and easing as needed */
 }
+
+
+.frosted {
+  background: rgba(255, 255, 255, 0.07);
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.7px);
+  -webkit-backdrop-filter: blur(9.7px);
+}

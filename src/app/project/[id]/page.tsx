@@ -54,6 +54,8 @@ export default async function Page({ params }: any) {
     const commits = repo ? await getGitCommits(repo) : null;
     const [ratingsMap, numberOfVotesMap, votersObj] = ratingData;
 
+    console.log(repo, commits)
+
     const Technologies = () => {
         const projectsArr: String[] = projectData.technologies;
         return (

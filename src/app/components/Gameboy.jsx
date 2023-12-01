@@ -19,6 +19,13 @@ export function Gameboy(props) {
   }
 
 
+  useFrame((state) => {
+    // const t = state.clock.getElapseTime();
+    // ref.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 20;
+    // ref.current.rotation.x = Math.cos(t / 4) / 8;
+    // ref.current.rotation.y = Math.sin(t / 4) / 8;
+    // ref.current.position.y = - (1 + Math.sin(t / 1.5)) / 10;
+  })
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)

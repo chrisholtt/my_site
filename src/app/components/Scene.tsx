@@ -25,7 +25,7 @@ import LoadingStars from './home-page/LoadingStars';
 
 const CameraDolly = () => {
     useFrame((state) => {
-        state.camera.lookAt(0, 0, 0)
+        state.camera.lookAt(0, 0, 0);
     })
     return null;
 }

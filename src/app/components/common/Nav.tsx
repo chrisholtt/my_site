@@ -17,7 +17,7 @@ export default function Nav() {
     }
 
     return (
-        <nav className='fixed dark:bg-black bg-zinc-50 w-screen flex flex-row justify-between px-2 border-b border dark:border-stone-800 light:border-zinc-200' style={{ zIndex: 10 }}>
+        <nav className='fixed frosted w-screen flex flex-row justify-between px-2 border-b border dark:border-stone-800 light:border-zinc-200' style={{ zIndex: 10 }}>
             <ul className="flex flex-row items-center">
                 <li className="p-1 cursor-pointer font-roboto text-3xl align-middle justify-center">
                     <Link href='/' className='flex flex-row'>

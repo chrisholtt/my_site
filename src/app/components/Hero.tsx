@@ -27,7 +27,7 @@ export default function Hero() {
         <section className="relative h-screen w-screen flex flex-row items-center justify-center">
 
 
-            <animated.div style={FadeInProps(10)} className="flex w-full pl-52 mb-[10%] flex-col justify-between items-start space-y-6">
+            <animated.div style={FadeInProps(10)} className="flex w-full pl-10 mb-[10%] flex-col justify-between items-start space-y-6">
                 <h2 className={`${subHeadingStyle} `}>Hi, I&apos;m Chris.</h2>
                 <h1 className={`${titleStyle} drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]`}>Creative Develope<span className="bg-transparent animate-pulse">r</span></h1>
                 <h2 className={`${subHeadingStyle} `}>I like building things on the web and experimenting with new technologies.</h2>

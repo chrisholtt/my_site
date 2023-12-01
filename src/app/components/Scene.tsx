@@ -33,11 +33,11 @@ import LoadingStars from './home-page/LoadingStars';
 
 export default function Scene() {
     const testing = false;
-    const scaleMultplier: number = 0.001;
+    const original: number = 0.5;
     const [scale, setScale] = useState(0.5);
 
     const adjustSize = () => {
-        setScale(scaleMultplier * (window.innerWidth / 3))
+        setScale(original * (window.innerWidth * 0.0008))
     }
 
     useEffect(() => {

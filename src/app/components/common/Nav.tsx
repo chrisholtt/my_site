@@ -22,7 +22,6 @@ export default function Nav() {
                 <li className="p-1 cursor-pointer font-roboto text-3xl align-middle justify-center">
                     <Link href='/' className='flex flex-row'>
                         <Image src="/images/logo.svg" className='mix-blend-difference' width={30} height={30} alt="star" />
-                        <h1>CH</h1>
                     </Link>
                 </li>
             </ul>

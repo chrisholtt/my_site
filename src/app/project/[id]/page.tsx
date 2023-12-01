@@ -50,7 +50,7 @@ export default async function Page({ params }: any) {
     const projectData: Project = await getProject(id);
     const ratingData = await getRatings(id);
     const projects = await getProjects();
-    const repo: string = projectData.repo
+    const repo: string = projectData.repo;
     const commits = repo ? await getGitCommits(repo) : null;
     const [ratingsMap, numberOfVotesMap, votersObj] = ratingData;
 

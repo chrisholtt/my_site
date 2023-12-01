@@ -10,28 +10,15 @@ export function Gameboy(props) {
   const { theme, setTheme } = useTheme();
   const ref = useRef();
 
-  const [scrollY, setScrollY] = useState(window.scrollY)
-
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
-
-  const handleScroll = () => {
-    setScrollY(window.scrollY)
-  }
-
 
   useFrame((state) => {
-    // const t = state.clock.getElapseTime();
-    // ref.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 20;
-    // ref.current.rotation.x = Math.cos(t / 4) / 8;
-    // ref.current.rotation.y = Math.sin(t / 4) / 8;
-    // ref.current.position.y = - (1 + Math.sin(t / 1.5)) / 10;
+    const t = state.clock.getElapsedTime();
+    ref.current.rotation.z = -0.2 - (1 + Math.sin(t / 1.5)) / 20;
+    ref.current.rotation.x = Math.cos(t / 4) / 8;
+    ref.current.rotation.y = Math.sin(t / 4) / 8;
+    ref.current.position.y = - (1 + Math.sin(t / 1.5)) / 10;
   })
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll)
-    ref.current.rotation.y = scrollY * 0.004
-    ref.current.position.y = scrollY * -0.002
-  }, [scrollY])
 
   const Screen = () => {
     return (
@@ -48,7 +35,7 @@ export function Gameboy(props) {
   }
 
   return (
-    <group {...props} dispose={null} ref={ref}>
+    <group {...props} dispose={null} ref={ref} scale={props.scale}>
       <mesh geometry={nodes.defaultMaterial.geometry} material={materials.DefaultMaterial} scale={1} position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} />
       <Screen />
       <RoundedBox

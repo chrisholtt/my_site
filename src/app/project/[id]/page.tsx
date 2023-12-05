@@ -83,7 +83,7 @@ export default async function Page({ params }: any) {
             </div>
 
             <div className="relative h-5/6 flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
-                <div className="-top-14 w-4/5 flex xl:flex-row sm:flex-col gap-3">
+                <div className="-top-14 w-3/5 flex xl:flex-row sm:flex-col flex-col gap-3">
                     <ProjectSidebar projects={projects} />
 
                     <div className='relative w-full h-[600px] rounded-lg  bg-yellow-300 shadow-md border dark:border-stone-800'>

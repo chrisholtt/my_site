@@ -53,7 +53,7 @@ export default function ProjectsTable({ projects }: any) {
                                 }}
                                 >
                                     <Tooltip title="View project">
-                                        <Button variant="text" className="text-sm text-black dark:text-white dark:hover:bg-stone-800 hover:bg-white cursor-pointer">{proj.title}</Button>
+                                        <Button variant="text" className="text-xs text-black dark:text-white dark:hover:bg-stone-800 hover:bg-white cursor-pointer">{proj.title}</Button>
                                     </Tooltip>
                                 </Link>
                             </TableCell>

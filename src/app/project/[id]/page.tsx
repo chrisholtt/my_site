@@ -83,12 +83,10 @@ export default async function Page({ params }: any) {
             </div>
 
             <div className="relative h-5/6 flex flex-col items-center justify-center text-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
-                <div className="-top-14 flex flex-row gap-3">
-                    <div className='w-[300px] h-[600px] border border-zinc-200 dark:border-stone-800 overflow-hidden rounded-lg shadow-md dark:bg-black bg-white' style={{ direction: 'rtl' }}>
-                        <ProjectSidebar projects={projects} />
-                    </div>
+                <div className="-top-14 w-4/5 flex xl:flex-row sm:flex-col gap-3">
+                    <ProjectSidebar projects={projects} />
 
-                    <div className='relative w-[800px] h-[600px] rounded-lg overflow-hidden bg-yellow-300 shadow-md border dark:border-stone-800'>
+                    <div className='relative w-full h-[600px] rounded-lg  bg-yellow-300 shadow-md border dark:border-stone-800'>
                         <div className="p-4 w-full h-1/2 flex flex-col items-center justify-around bg-white dark:bg-black">
                             <h1 className='text-2xl'>{projectData.title}</h1>
                             <BrowserWindow displayLink={projectData.displayLink} images={projectData.images} />
@@ -97,7 +95,7 @@ export default async function Page({ params }: any) {
                             <div className='w-full px-10 flex flex-row justify-between items-start'>
                                 <div className='text-start'>
                                     <h1 className='text-xl'>Details</h1>
-                                    <h1 className='text-md dark:text-zinc-200'>Check out the GitHub repo <span className="underline"><Link href={projectData.GitHubRepoLink} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
+                                    <h1 className='text-md dark:text-zinc-200'>View on GitHub <span className="underline"><Link href={projectData.GitHubRepoLink} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
                                 </div>
                                 <Technologies />
                             </div>

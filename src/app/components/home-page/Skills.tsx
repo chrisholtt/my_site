@@ -30,7 +30,7 @@ export default function Hero() {
                     <h1 className='text-lg text-greenCode font-helvetica font-bold tracking-tighter dark:text-greenCode'>SKILLS</h1>
                     <h1 className={headingStyle}>Technologies I like</h1>
                     <h1 className={subHeadingStyle}>A collection of intriguing technologies I find myself using on a daily basis. </h1>
-                    <div className='flex space-x-2 flex-wrap'>
+                    <div className='flex space-x-2 space-y-2 flex-wrap justify-center items-center'>
                         <Skills />
                     </div>
                 </div>

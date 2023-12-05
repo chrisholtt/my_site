@@ -14,7 +14,7 @@ export default function Hero() {
             <Chip
                 key={title}
                 label={title}
-                icon={<AutoAwesomeIcon />}
+                icon={<AutoAwesomeIcon className="text-red-400" />}
                 className="dark:bg-black bg-white shadow dark:text-white w-[100px] flex justify-between"
             />
         ))

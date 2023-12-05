@@ -69,7 +69,7 @@ const SignInButton = () => {
                                 <h1>Download CV</h1>
                             </a>
                         </MenuItem>
-                        <MenuItem onClick={() => signOut()}>{`Sign Out (${session?.user?.email.substring(0, 5)}...)`}</MenuItem>
+                        <MenuItem onClick={() => signOut()}>{`Sign Out (${session?.user?.email?.substring(0, 5)}...)`}</MenuItem>
                     </Menu>
                 </div>
             </>

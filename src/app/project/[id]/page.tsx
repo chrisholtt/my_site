@@ -92,14 +92,14 @@ export default async function Page({ params }: any) {
                             <BrowserWindow displayLink={projectData.displayLink} images={projectData.images} />
                         </div>
                         <div className="w-full h-1/2 flex flex-col items-center justify-around border-t dark:border-zinc-800 border-zinc-200 bg-zinc-50 dark:bg-stone-950">
-                            <div className='w-full px-10 flex flex-row justify-between items-start'>
+                            <div className='w-full px-10 flex xl:flex-row sm:flex-col justify-between items-start'>
                                 <div className='text-start'>
                                     <h1 className='text-xl'>Details</h1>
                                     <h1 className='text-md dark:text-zinc-200'>View on GitHub <span className="underline"><Link href={projectData.GitHubRepoLink} target="_blank">here{<LaunchIcon className='text-xs' />}</Link></span></h1>
                                 </div>
                                 <Technologies />
                             </div>
-                            <div className='grid grid-cols-3 gap-x-3'>
+                            <div className='grid grid-cols-3 gap-x-3 p-2'>
                                 <Detail element={<h1 className="dark:text-zinc-200">{projectData.description}</h1>} delay={100} />
                                 <Detail element={<GithubCommits commits={commits} repo={repo} />} delay={200} />
                                 <Detail element={<Rating rating={ratingsMap[id]} numberOfVotes={numberOfVotesMap[id]} projectId={id} votersObj={votersObj} />} delay={300} />

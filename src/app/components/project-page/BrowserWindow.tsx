@@ -2,8 +2,6 @@
 import { useSpring, animated } from 'react-spring';
 import RefreshIcon from '@mui/icons-material/Refresh';
 import { Carousel } from 'react-responsive-carousel';
-import Image from 'next/image';
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 
 export default function BrowserWindow({ displayLink, images }: any) {
     const FadeInProps = (delay: number) => {
@@ -26,9 +24,9 @@ export default function BrowserWindow({ displayLink, images }: any) {
     const Images = () => {
         return (
             <div>
-                <Carousel showThumbs={false} autoPlay className='w-[300px]'>
+                <Carousel showThumbs={false} autoPlay className='w-[300px] rounded-lg overflow-hidden'>
                     {images.map((image: string) => (
-                        <Image key={image} src={image} alt="project image" width={300} height={200} className="max-h-[200px]" />
+                        <img key={image} src={image} alt="project image" className="w-auto h-auto" />
                     ))}
                 </Carousel>
             </div>
@@ -36,7 +34,7 @@ export default function BrowserWindow({ displayLink, images }: any) {
     };
 
     return (
-        <animated.div style={FadeInProps(0)} className="w-[400px] h-[250px] relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
+        <animated.div style={FadeInProps(0)} className="w-auto h-[250px] p-2 relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
             <div className='relative h-8 w-full border-b border-zinc-200 dark:border-zinc-800 flex justify-center items-center'>
                 <div className="absolute left-2 h-full  flex flex-row justify-center items-center space-x-1">
                     <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"></div>
@@ -44,7 +42,6 @@ export default function BrowserWindow({ displayLink, images }: any) {
                     <div className="w-3 h-3 bg-green-500 rounded-full cursor-pointer"></div>
                 </div>
                 <div className="relative w-1/2 h-3/5 dark:bg-stone-900 bg-stone-100 flex justify-center items-center rounded-sm">
-                    <AutoAwesomeIcon style={{ width: '15px' }} />
                     <h1 className='text-xs'>{displayLink}</h1>
                     <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
                 </div>

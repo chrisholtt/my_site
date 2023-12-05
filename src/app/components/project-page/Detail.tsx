@@ -22,7 +22,7 @@ export default function Detail({ element, delay }: any) {
     };
     return (
         <animated.div style={FadeInProps(delay)}>
-            <Card variant="outlined" className="h-40 w-40 bg-white dark:bg-black flex flex-col justify-center items-center">
+            <Card variant="outlined" className="h-40 w-auto bg-white dark:bg-black flex flex-col justify-center items-center">
                 <CardContent>
                     {element}
                 </CardContent>

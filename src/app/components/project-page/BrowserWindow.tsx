@@ -23,18 +23,16 @@ export default function BrowserWindow({ displayLink, images }: any) {
 
     const Images = () => {
         return (
-            <div>
-                <Carousel showThumbs={false} autoPlay className='w-[300px] rounded-lg overflow-hidden'>
-                    {images.map((image: string) => (
-                        <img key={image} src={image} alt="project image" className="w-auto h-auto" />
-                    ))}
-                </Carousel>
-            </div>
+            <Carousel showThumbs={false} autoPlay className='rounded-lg overflow-hidden flex flex-col justify-center items-center'>
+                {images.map((image: string) => (
+                    <img key={image} src={image} alt="project image" className="max-w-[300px]" />
+                ))}
+            </Carousel>
         );
     };
 
     return (
-        <animated.div style={FadeInProps(0)} className="w-auto h-[250px] p-2 relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
+        <animated.div style={FadeInProps(0)} className="xl:w-[400px] sm:w-[300px] h-[250px] space-y-2 relative flex flex-col light:bg-white border dark:border-zinc-800 light:border-zinc-200 rounded-lg shadow-md dark:shadow-zinc-900">
             <div className='relative h-8 w-full border-b border-zinc-200 dark:border-zinc-800 flex justify-center items-center'>
                 <div className="absolute left-2 h-full  flex flex-row justify-center items-center space-x-1">
                     <div className="w-3 h-3 bg-red-500 rounded-full cursor-pointer"></div>
@@ -46,9 +44,7 @@ export default function BrowserWindow({ displayLink, images }: any) {
                     <RefreshIcon className="absolute right-1 cursor-pointer" style={{ width: '15px' }} />
                 </div>
             </div>
-            <div className='flex flex-col h-full justify-center items-center'>
-                <Images />
-            </div>
+            <Images />
         </animated.div>
     )
 }

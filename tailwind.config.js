@@ -34,6 +34,7 @@ module.exports = {
           100: '#999999', // Add custom shades of secondary color
           200: '#555555',
         },
+        greenCode: "#32CD32",
         bg: '#0d0d0d'
       },
 

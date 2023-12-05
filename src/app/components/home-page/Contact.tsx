@@ -91,7 +91,7 @@ export default function Contact() {
         <section className="relative h-[65vh] w-screen flex flex-col items-center justify-center bg-zinc-50 border-t border-b border-zinc-200 dark:bg-stone-950 dark:border-zinc-800">
             <Container>
                 <div className="flex flex-col justify-between items-center space-y-6">
-                    <h1>CONTACT</h1>
+                    <h1 className='text-lg text-greenCode font-helvetica font-bold tracking-tighter dark:text-greenCode'>CONTACT</h1>
                     <h1 className={headingStyle}>Get in touch</h1>
                     <h1 className={subHeadingStyle}>If you have any enquiries or collaboration opportunities, submit the form below and I&apos;ll get back to you soon. Or you can email me <Tooltip title={copied ? "✔️ E-mail copied" : "Copy email"} onClick={handleEmail} onMouseLeave={() => setTimeout(() => setCopied(false), 300)}><span className='underline cursor-pointer'>here</span></Tooltip></h1>
 

@@ -8,7 +8,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import Avatar from '@mui/material/Avatar';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import Image from 'next/image';
-
+import { Button } from '@mui/material';
 
 const SignInButton = () => {
     const { data: session } = useSession();
@@ -21,6 +21,17 @@ const SignInButton = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+
+    const CvDownload = () => {
+        return (
+            <Button className='dark:border-stone-800 border-zinc-200 text-black dark:text-stone-300 hover:border-zinc-400 dark:hover:border-stone-600' variant="outlined">
+                <a href="/misc/ChrisHoltCV.pdf" download="Chris-Holts-CV.pdf" className='flex' target="_blank" rel="noopener noreferrer">
+                    <h1>DOWNLOAD CV</h1>
+                </a>
+            </Button>
+        )
+    }
 
 
 
@@ -53,8 +64,12 @@ const SignInButton = () => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                     >
-                        <MenuItem onClick={handleClose}>{session?.user?.email}</MenuItem>
-                        <MenuItem onClick={() => signOut()}>Sign out</MenuItem>
+                        <MenuItem >
+                            <a href="/misc/ChrisHoltCV.pdf" download="Chris-Holts-CV.pdf" className='flex' target="_blank" rel="noopener noreferrer">
+                                <h1>Download CV</h1>
+                            </a>
+                        </MenuItem>
+                        <MenuItem onClick={() => signOut()}>{`Sign Out (${session?.user?.email.substring(0, 5)}...)`}</MenuItem>
                     </Menu>
                 </div>
             </>

@@ -1,7 +1,6 @@
 "use client"
 import Link from 'next/link';
 import SignInButton from './SignInButton';
-import { Button } from '@mui/material';
 import Image from 'next/image';
 import { useTheme } from "next-themes";
 

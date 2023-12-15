@@ -14,7 +14,7 @@ export default function Nav() {
             <ul className="flex flex-row items-center">
                 <li className="p-1 cursor-pointer font-roboto text-3xl align-middle justify-center">
                     <Link href='/' className='flex flex-row'>
-                        <Image src={`/images/logo_${theme == 'dark' ? 'white' : 'black'}.svg`} width={30} height={30} alt="star" />
+                        <Image src={`/images/logo_${theme != 'dark' ? 'black' : 'white'}.svg`} width={30} height={30} priority alt="star" />
                     </Link>
                 </li>
             </ul>

@@ -24,6 +24,7 @@
     "@types/react-dom": "18.2.6",
     "@types/three": "^0.154.0",
     "@vercel/analytics": "^1.0.2",
+    "clsx": "^2.0.0",
     "dotenv": "^16.3.1",
     "eslint": "8.44.0",
     "eslint-config-next": "13.4.7",

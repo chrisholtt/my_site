@@ -6,7 +6,7 @@ import ProjectsTable from "./ProjectTable"
 async function getProjects() {
     const urlPrefix = process.env.NEXT_PUBLIC_LOCALHOST_URL
     try {
-        const res = await fetch(urlPrefix + `/api/getProjects`);
+        const res = await fetch(urlPrefix + `/api/getProjects`, { cache: 'no-store' });
         const data = await res.json();
         return data;
     } catch (e) {

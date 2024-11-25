@@ -24,7 +24,7 @@ export default function ProjectsTable({ projects }: any) {
     const SpecialLink: FC<SpecialLinkProps> = ({ project }) => {
         if (project.hasOwnProperty("link")) {
             return (
-                <Link href={project.link} target={'_blank'} className="dark:text-zinc-200 text-black">
+                <Link href={project?.link ?? "/"} target={'_blank'} className="dark:text-zinc-200 text-black">
                     <Tooltip title="View project">
                         <AutoAwesomeIcon />
                     </Tooltip>

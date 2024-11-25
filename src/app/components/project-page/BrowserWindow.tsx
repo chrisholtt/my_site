@@ -24,7 +24,7 @@ export default function BrowserWindow({ displayLink, images }: any) {
     const Images = () => {
         return (
             <Carousel showThumbs={false} autoPlay className='rounded-lg overflow-hidden flex flex-col justify-center items-center'>
-                {images.map((image: string) => (
+                {images?.map((image: string) => (
                     <img key={image} src={image} alt="project image" className="max-w-[300px]" />
                 ))}
             </Carousel>

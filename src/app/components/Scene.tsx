@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import {
     Cylinder,
     FlyControls,
     OrbitControls,
-    Stats, useHelper,
+    Stats,
     CameraControls,
     PerspectiveCamera,
     ContactShadows,
@@ -23,33 +23,35 @@ import { Gameboy } from './Gameboy';
 import * as THREE from 'three';
 import LoadingStars from './home-page/LoadingStars';
 
-// const CameraDolly = () => {
-//     useFrame((state) => {
-//         state.camera.lookAt(0, 0, 0);
-//     })
-//     return null;
-// }
-
-
 export default function Scene() {
     const testing = false;
     const originalScale: number = 0.5;
     const [scale, setScale] = useState(0.5);
+    const [zoom, setZoom] = useState(200); // Add zoom state
 
     const adjustSize = () => {
-        setScale(originalScale * (window.innerWidth * 0.0008))
-    }
+        const scaleFactor = window.innerWidth * 0.0005;
+        setScale(originalScale * scaleFactor);
+        setZoom(200 * (window.innerWidth / 1000)); // Adjust zoom based on window width
+    };
 
     useEffect(() => {
+        // Adding event listener
         window.addEventListener("resize", adjustSize);
-    })
+        adjustSize(); // Adjust size immediately on mount
+
+        // Cleanup function to remove the event listener
+        return () => {
+            window.removeEventListener("resize", adjustSize);
+        };
+    }, []);
 
     return (
         <Suspense fallback={<LoadingStars />}>
             <Canvas style={{ zIndex: -1 }} color={"#ffff"}>
                 <OrthographicCamera
                     makeDefault
-                    zoom={200}
+                    zoom={zoom} // Dynamically set zoom
                     near={0.1}
                     far={2000}
                     position={[0, 0, 40]}
@@ -63,9 +65,7 @@ export default function Scene() {
                 <ContactShadows frames={1} position={[0, -0.5, 0]} scale={10} opacity={0.4} far={1} blur={20} />
                 <pointLight position={[10, 10, 10]} />
                 <Gameboy scale={scale} />
-                {/* <CameraDolly /> */}
             </Canvas>
         </Suspense>
     );
-};
-
+}

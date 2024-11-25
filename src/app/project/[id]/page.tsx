@@ -59,7 +59,7 @@ export default async function Page({ params }: any) {
         const projectsArr: String[] = projectData.technologies;
         return (
             <div className="flex flex-row justify-around items-center gap-2">
-                {!!projectsArr.length && projectsArr.map((technology, i) => (
+                {!!projectsArr?.length && projectsArr.map((technology, i) => (
                     <Tooltip title="Technology used" key={i}>
                         <Chip label={technology} component="a" className="bg-white dark:bg-stone-800 text-black dark:text-white shadow-sm cursor-default" />
                     </Tooltip>

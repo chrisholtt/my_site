@@ -42,7 +42,7 @@ export default function Hero() {
                 <h1 className="text-6xl lg:text-8xl xl:text-8xl font-sans font-semibold tracking-tighter dark:bg-clip-text dark:text-transparent dark:bg-gradient-to-b dark:from-white dark:to-gray-300 bg-clip-text text-transparent bg-gradient-to-b from-slate-600 to-slate-900 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">Creative Develope<span className="bg-transparent animate-pulse">r</span></h1>
                 <h2 className={`${subHeadingStyle}`}>
                     I love crafting innovative web experiences and pushing the boundaries of new technology.
-                    I'm also the founder of <strong>0xtra</strong>, a platform that helps creators earn more.
+                    I&apos;m also the founder of <strong>0xtra</strong>, a platform that helps creators earn more.
                 </h2>
 
                 <div className="flex flex-row gap-2 items-center justify-center">

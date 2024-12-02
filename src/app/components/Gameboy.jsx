@@ -10,6 +10,7 @@ export function Gameboy(props) {
   const { theme, setTheme } = useTheme();
   const ref = useRef();
 
+  const [color, setColor] = useState('#ffffff')
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
@@ -20,6 +21,10 @@ export function Gameboy(props) {
   })
 
 
+  useEffect(() => {
+
+  }, [])
+
   const Screen = () => {
     return (
       <RoundedBox
@@ -29,7 +34,7 @@ export function Gameboy(props) {
         creaseAngle={0.4} // Smooth normals everywhere except faces that meet at an angle greater than the crease angle
         position={[0.035, 1.2, 0.55]}
       >
-        <meshPhongMaterial color={theme == 'dark' ? '#000000' : '#ffffff'} />
+        <meshPhongMaterial color={'#000000'} />
       </RoundedBox>
     )
   }

@@ -26,12 +26,17 @@ import LoadingStars from './home-page/LoadingStars';
 export default function Scene() {
     const testing = false;
     const originalScale: number = 0.5;
-    const [scale, setScale] = useState(0.5);
+    const minScale: number = 0.5; // Set the minimum scale
+    const [scale, setScale] = useState(originalScale);
     const [zoom, setZoom] = useState(200); // Add zoom state
 
     const adjustSize = () => {
         const scaleFactor = window.innerWidth * 0.0005;
-        setScale(originalScale * scaleFactor);
+        const newScale = originalScale * scaleFactor;
+
+        // Apply the minimum scale constraint
+        setScale(Math.max(newScale, minScale));
+
         setZoom(200 * (window.innerWidth / 1000)); // Adjust zoom based on window width
     };
 

@@ -13,7 +13,7 @@ export default function Home() {
       <div className="text-center max-w-2xl">
         <h1>
           <span className={title()}>Hi, I’m&nbsp;</span>
-          <span className={title({ color: "violet" })}>Chris Holt</span>
+          <span className={title({ color: "gradient" })}>Chris Holt</span>
           <br />
           <span className={title()}>
             A software engineer building useful tools & beautiful UIs.
@@ -53,7 +53,7 @@ export default function Home() {
         <Snippet hideCopyButton hideSymbol variant="bordered">
           <span>
             Working w/&nbsp;
-            <Code color="primary">VetsNow – OOH Pet Emergency Care.</Code>
+            <Code color="primary">VetsNow – OOH Pet Emergency Care. const thing = 2</Code>
           </span>
         </Snippet>
       </div>

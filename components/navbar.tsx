@@ -78,8 +78,9 @@ export const Navbar = () => {
               {item.label === "Download CV" ? (
                 <a
                   href={item.href}
-                  download
                   onClick={handleMenuItemClick}
+                  download
+                  target="_blank"
                   className={clsx("text-danger", "text-lg hover:underline")}
                 >
                   {item.label}

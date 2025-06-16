@@ -81,6 +81,7 @@ export const Navbar = () => {
                   onClick={handleMenuItemClick}
                   download
                   target="_blank"
+                  rel="noreferrer"
                   className={clsx("text-danger", "text-lg hover:underline")}
                 >
                   {item.label}

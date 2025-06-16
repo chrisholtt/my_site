@@ -53,7 +53,7 @@ export default function Home() {
         <Snippet hideCopyButton hideSymbol variant="bordered">
           <span>
             Working w/&nbsp;
-            <Code color="primary">VetsNow – OOH Pet Emergency Care. const thing = 2</Code>
+            <Code color="primary">VetsNow – OOH Pet Emergency Care.</Code>
           </span>
         </Snippet>
       </div>

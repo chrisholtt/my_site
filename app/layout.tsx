@@ -1,11 +1,9 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
-import { Link } from "@heroui/link";
 import clsx from "clsx";
 import { Providers } from "./providers";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
-import { GradientBackground } from "@/components/GradientBackground";
 
 export const metadata: Metadata = {
   title: "Chris Holt | Software Engineer & Web3 Developer",

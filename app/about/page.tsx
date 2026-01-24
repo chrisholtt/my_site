@@ -3,10 +3,10 @@
 import { motion } from "framer-motion";
 import { pageTransition } from "@/lib/animations";
 import { title } from "@/components/primitives";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
-import { Divider } from "@heroui/divider";
-import { Link } from "@heroui/link";
-import { Avatar } from "@heroui/avatar";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
+import { Divider } from "@heroui/react";
+import { Link } from "@heroui/react";
+import { Avatar } from "@heroui/react";
 
 export default function AboutPage() {
   return (

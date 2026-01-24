@@ -54,7 +54,6 @@ export function GradientBackground({
                     <div className="absolute top-[25%] left-[50%] h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-sky-400/08 blur-[200px]" />
 
                     {/* Ultra subtle noise */}
-                    <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02]" />
                 </>
             )}
 
@@ -66,9 +65,6 @@ export function GradientBackground({
                 </>
             )}
 
-
-            {/* Grain */}
-            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.03]" />
         </motion.div>
     );
 }

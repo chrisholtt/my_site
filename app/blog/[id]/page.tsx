@@ -6,8 +6,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import { title } from "@/components/primitives";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
-import { Link } from "@heroui/link";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
+import { Link } from "@heroui/react";
 import { pageTransition } from "@/lib/animations";
 import { blogs } from "@/lib/blogs";
 

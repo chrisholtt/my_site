@@ -8,9 +8,8 @@ import {
   NavbarBrand,
   NavbarItem,
   NavbarMenuItem,
-} from "@heroui/navbar";
-import { Link } from "@heroui/link";
-import { link as linkStyles } from "@heroui/theme";
+  Link
+} from "@heroui/react";
 import NextLink from "next/link";
 import clsx from "clsx";
 import { useEffect, useState } from "react";

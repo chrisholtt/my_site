@@ -1,17 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-// import { pageTransition } from "@/lib/animations";
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
-
+import { Link } from "@heroui/react";
 import { GithubIcon } from "@/components/icons";
 import { title, subtitle } from "@/components/primitives";
 import { siteConfig } from "@/config/site";
 import { GradientBackground } from "@/components/GradientBackground";
 import { pageTransition } from "@/lib/animations";
+import { Snippet } from "@heroui/snippet";
+import { Code } from "@heroui/code";
 
 
 export default function Home() {
@@ -43,11 +40,6 @@ export default function Home() {
       <div className="flex flex-wrap gap-3 justify-center mt-4">
         <Link
           href="/blog"
-          className={buttonStyles({
-            color: "primary",
-            radius: "full",
-            variant: "shadow",
-          })}
         >
           View Case Studies
         </Link>
@@ -55,10 +47,6 @@ export default function Home() {
         <Link
           isExternal
           href={siteConfig.links.github}
-          className={buttonStyles({
-            variant: "bordered",
-            radius: "full",
-          })}
         >
           <GithubIcon size={20} />
           GitHub

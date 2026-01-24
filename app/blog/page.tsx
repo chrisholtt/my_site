@@ -2,13 +2,13 @@
 
 import { useState } from "react";
 import { title } from "@/components/primitives";
-import { Card, CardHeader, CardBody, CardFooter } from "@heroui/card";
+import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { pageTransition } from "@/lib/animations";
 import { blogs } from "@/lib/blogs";
-import { Button } from "@heroui/button";
+import { Button } from "@heroui/react";
 
 const PAGE_SIZE = 6;
 

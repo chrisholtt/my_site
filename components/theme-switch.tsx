@@ -2,7 +2,7 @@
 
 import { FC } from "react";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
-import { SwitchProps, useSwitch } from "@heroui/switch";
+import { SwitchProps, useSwitch } from "@heroui/react";
 import { useTheme } from "next-themes";
 import { useIsSSR } from "@react-aria/ssr";
 import clsx from "clsx";
@@ -61,7 +61,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
               "rounded-full",
               "flex items-center justify-center",
               "group-data-[selected=true]:bg-transparent",
-              "!text-default-500",
+              "text-default-500!",
               "pt-px",
               "px-0",
               "mx-0",

@@ -63,7 +63,7 @@ export default function AboutPage() {
               that push my limits.
             </p>
 
-            <Link isExternal showAnchorIcon href="mailto:chris@example.com">
+            <Link isExternal showAnchorIcon href="mailto:chrisphilholt@gmail.com">
               Let’s build something ambitious.
             </Link>
           </div>

@@ -43,14 +43,6 @@ export default function Home() {
         >
           View Case Studies
         </Link>
-
-        <Link
-          isExternal
-          href={siteConfig.links.github}
-        >
-          <GithubIcon size={20} />
-          GitHub
-        </Link>
       </div>
 
       <div className="mt-10">

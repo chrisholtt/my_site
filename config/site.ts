@@ -12,10 +12,6 @@ export const siteConfig = {
       label: "Blog",
       href: "/blog",
     },
-    {
-      label: "Projects",
-      href: "/projects",
-    },
   ],
   navMenuItems: [
     {
@@ -25,10 +21,6 @@ export const siteConfig = {
     {
       label: "Blog",
       href: "/blog",
-    },
-    {
-      label: "Projects",
-      href: "/projects",
     },
     {
       label: "Download CV",

@@ -1,3 +1,7 @@
+"use client";
+
+import { motion } from "framer-motion";
+// import { pageTransition } from "@/lib/animations";
 import { Link } from "@heroui/link";
 import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
@@ -6,34 +10,46 @@ import { button as buttonStyles } from "@heroui/theme";
 import { GithubIcon } from "@/components/icons";
 import { title, subtitle } from "@/components/primitives";
 import { siteConfig } from "@/config/site";
+import { GradientBackground } from "@/components/GradientBackground";
+import { pageTransition } from "@/lib/animations";
+
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-6 py-12 md:py-20">
+    <motion.section
+      variants={pageTransition}
+      initial="hidden"
+      animate="show"
+      className="flex flex-col items-center justify-center gap-6 py-12 md:py-20"
+    >
+      <GradientBackground variant="home" />
+
       <div className="text-center max-w-2xl">
         <h1>
           <span className={title()}>Hi, I’m&nbsp;</span>
           <span className={title({ color: "gradient" })}>Chris Holt</span>
           <br />
           <span className={title()}>
-            A software engineer building useful tools & beautiful UIs.
+            I design & build production-grade software systems.
           </span>
         </h1>
-        <p className={subtitle({ class: "mt-6" })}>
-          I specialize in full-stack development, Web3 apps, and crafting elegant user experiences with modern tools.
+        <p className={subtitle({ class: "mt-8" })}>
+          Experienced full-stack engineer specialising in internal tools, platforms,
+          and real-world systems that teams rely on. I focus on scalability,
+          clarity, and long-term maintainability
         </p>
       </div>
 
       <div className="flex flex-wrap gap-3 justify-center mt-4">
         <Link
-          href="/projects"
+          href="/blog"
           className={buttonStyles({
             color: "primary",
             radius: "full",
             variant: "shadow",
           })}
         >
-          View Projects
+          View Case Studies
         </Link>
 
         <Link
@@ -57,6 +73,6 @@ export default function Home() {
           </span>
         </Snippet>
       </div>
-    </section>
+    </motion.section>
   );
 }

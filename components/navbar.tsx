@@ -13,87 +13,114 @@ import { Link } from "@heroui/link";
 import { link as linkStyles } from "@heroui/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { GithubIcon, Logo } from "@/components/icons";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleMenuItemClick = () => {
-    setIsMenuOpen(false);
-  };
+  const pathname = usePathname();
+
+  const closeMenu = () => setIsMenuOpen(false);
+
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 0);
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const hasBackground = isScrolled || isMenuOpen;
 
   return (
     <HeroUINavbar
-      maxWidth="xl"
       position="sticky"
+      maxWidth="full"
       isBlurred={false}
-      isBordered
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
+      className={clsx(
+        "h-16 transition-all duration-300",
+        hasBackground
+          ? "backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70"
+          : "bg-transparent"
+      )}
     >
-      <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        <NavbarBrand as="li" className="gap-3 max-w-fit">
-          <NextLink className="flex justify-start items-center gap-1" href="/">
+      {/* RIGHT-ALIGNED CONTENT */}
+      <NavbarContent className="h-16 flex items-center gap-6" justify="end">
+        {/* Brand */}
+        <NavbarBrand>
+          <NextLink
+            href="/"
+            onClick={closeMenu}
+            className="flex items-center gap-2 font-semibold"
+          >
             <Logo />
-            <p className="font-bold text-inherit">Chris Holt</p>
+            <span>Chris Holt</span>
           </NextLink>
         </NavbarBrand>
-        <ul className="hidden lg:flex gap-4 justify-start ml-2">
+
+        {/* Desktop Nav */}
+        <ul className="hidden lg:flex items-center gap-6">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
               <NextLink
-                className={clsx(
-                  linkStyles({
-                    color: item.label == "Projects" ? "primary" : "foreground",
-                  }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium"
-                )}
                 href={item.href}
+                className={clsx(
+                  "text-sm color-foreground"
+                )}
               >
                 {item.label}
               </NextLink>
             </NavbarItem>
           ))}
         </ul>
-      </NavbarContent>
 
-      <NavbarContent className="basis-1 pl-4" justify="end">
-        <Link isExternal aria-label="Github" href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500" />
+        {/* Actions */}
+        <Link
+          isExternal
+          aria-label="Github"
+          href={siteConfig.links.github}
+          className="p-1 border border-divider rounded-full text-default-600 hover:text-foreground transition-colors"
+        >
+          <GithubIcon />
         </Link>
+
         <ThemeSwitch />
-        <NavbarMenuToggle
-          className="lg:hidden"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        />
+
+        {/* Mobile Toggle */}
+        <NavbarMenuToggle className="lg:hidden" />
       </NavbarContent>
 
-      <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
+      {/* MOBILE MENU — visually part of navbar */}
+      <NavbarMenu className="top-16 backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70">
+        <div className="mx-4 mt-6 flex flex-col gap-4">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.label}-${index}`}>
               {item.label === "Download CV" ? (
                 <a
                   href={item.href}
-                  onClick={handleMenuItemClick}
                   download
                   target="_blank"
                   rel="noreferrer"
-                  className={clsx("text-danger", "text-lg hover:underline")}
+                  onClick={closeMenu}
+                  className="text-danger text-lg"
                 >
                   {item.label}
                 </a>
               ) : (
                 <NextLink
                   href={item.href}
-                  onClick={handleMenuItemClick}
+                  onClick={closeMenu}
                   className={clsx(
-                    "text-lg",
-                    index === 2 ? "text-primary" : "text-foreground",
-                    "hover:underline"
+                    "text-lg transition-colors"
                   )}
                 >
                   {item.label}
@@ -102,7 +129,7 @@ export const Navbar = () => {
             </NavbarMenuItem>
           ))}
         </div>
-      </NavbarMenu>
-    </HeroUINavbar>
+      </NavbarMenu >
+    </HeroUINavbar >
   );
 };

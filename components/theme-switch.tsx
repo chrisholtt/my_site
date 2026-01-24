@@ -58,13 +58,14 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
             [
               "w-auto h-auto",
               "bg-transparent",
-              "rounded-lg",
+              "rounded-full",
               "flex items-center justify-center",
               "group-data-[selected=true]:bg-transparent",
               "!text-default-500",
               "pt-px",
               "px-0",
               "mx-0",
+              "p-1 border border-divider"
             ],
             classNames?.wrapper,
           ),

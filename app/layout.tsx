@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/navbar";
+import { GradientBackground } from "@/components/GradientBackground";
 
 export const metadata: Metadata = {
   title: "Chris Holt | Software Engineer & Web3 Developer",
@@ -32,27 +33,16 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen text-foreground bg-background font-sans antialiased",
+          "min-h-screen text-foreground font-sans antialiased",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col min-h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+            <main className="container mx-auto max-w-7xl py-16 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="mailto:chrisphilholt@gmail.com"
-                title="Email Chris Holt"
-              >
-                <span className="text-default-600">Get in</span>
-                <p className="text-primary underline cursor-pointer">touch</p>
-              </Link>
-            </footer>
           </div>
         </Providers>
       </body>

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Link } from "@heroui/react";
 import { GithubIcon } from "@/components/icons";
 import { title, subtitle } from "@/components/primitives";
-import { siteConfig } from "@/config/site";
 import { GradientBackground } from "@/components/GradientBackground";
 import { pageTransition } from "@/lib/animations";
 import { Snippet } from "@heroui/snippet";

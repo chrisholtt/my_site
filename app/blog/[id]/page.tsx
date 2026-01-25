@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { blogs } from "@/lib/blogs";
 import BlogClient from "@/components/BlogClient";
 
-export const revalidate = 60 * 60;
+// export const revalidate = 60 * 60;
 
 export async function generateStaticParams() {
     return blogs.map((blog) => ({

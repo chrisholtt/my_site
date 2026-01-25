@@ -28,9 +28,6 @@ export function GradientBackground({
             exit={{ opacity: 0.25, scale: 1.02 }}
             transition={{ duration: 2, ease: "easeOut" }}
         >
-            {/* Base dark */}
-            <div className="absolute inset-0 bg-" />
-
             {variant === "home" && (
                 <>
                     <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-indigo-600/30 blur-[120px]" />

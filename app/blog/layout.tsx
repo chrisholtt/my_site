@@ -8,7 +8,7 @@ export default function BlogLayout({
   return (
     <section className="relative flex justify-center">
       <GradientBackground variant="home" />
-      <div className="w-full max-w-screen-xl px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-7xl">
         {children}
       </div>
     </section>

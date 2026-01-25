@@ -64,7 +64,7 @@ export default function AboutPage() {
             </p>
 
             <Link isExternal showAnchorIcon href="mailto:chrisphilholt@gmail.com">
-              Let’s build something ambitious.
+              Let’s work.
             </Link>
           </div>
         </CardFooter>

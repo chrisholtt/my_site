@@ -43,12 +43,13 @@ export const Navbar = () => {
       position="sticky"
       maxWidth="full"
       isBlurred={false}
+      disableAnimation
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
       className={clsx(
         "h-16 transition-all duration-300",
         hasBackground
-          ? "backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70"
+          ? "backdrop-blur-xl backdrop-saturate-150 supports-backdrop-filter:bg-white/80 dark:supports-backdrop-filter:bg-black/80"
           : "bg-transparent"
       )}
     >
@@ -65,8 +66,6 @@ export const Navbar = () => {
             <span>Chris Holt</span>
           </NextLink>
         </NavbarBrand>
-
-        {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-6">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
@@ -81,8 +80,6 @@ export const Navbar = () => {
             </NavbarItem>
           ))}
         </ul>
-
-        {/* Actions */}
         <Link
           isExternal
           aria-label="Github"
@@ -91,40 +88,22 @@ export const Navbar = () => {
         >
           <GithubIcon />
         </Link>
-
         <ThemeSwitch />
-
-        {/* Mobile Toggle */}
         <NavbarMenuToggle className="lg:hidden" />
       </NavbarContent>
-
-      {/* MOBILE MENU — visually part of navbar */}
-      <NavbarMenu className="top-16 backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-white/70 dark:supports-[backdrop-filter]:bg-black/70">
+      <NavbarMenu className="top-16 backdrop-blur-xl backdrop-saturate-150 supports-backdrop-filter:bg-white/80 dark:supports-backdrop-filter:bg-black/80">
         <div className="mx-4 mt-6 flex flex-col gap-4">
           {siteConfig.navMenuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.label}-${index}`}>
-              {item.label === "Download CV" ? (
-                <a
-                  href={item.href}
-                  download
-                  target="_blank"
-                  rel="noreferrer"
-                  onClick={closeMenu}
-                  className="text-danger text-lg"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <NextLink
-                  href={item.href}
-                  onClick={closeMenu}
-                  className={clsx(
-                    "text-lg transition-colors"
-                  )}
-                >
-                  {item.label}
-                </NextLink>
-              )}
+              <NextLink
+                href={item.href}
+                onClick={closeMenu}
+                className={clsx(
+                  "text-lg transition-colors"
+                )}
+              >
+                {item.label}
+              </NextLink>
             </NavbarMenuItem>
           ))}
         </div>

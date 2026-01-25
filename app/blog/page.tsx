@@ -21,9 +21,14 @@ export default function BlogPage() {
   return (
     <div className="space-y-12">
       {/* Header */}
-      <div className="text-center space-y-2">
+      <div className="text-center space-y-4 max-w-xl mx-auto">
         <h1 className={title()}>Blog</h1>
+        <p className="text-sm sm:text-base text-default-500 mt-1">
+          Notes on systems, engineering decisions, and things I’m building or
+          learning along the way.
+        </p>
       </div>
+
 
       {/* Animated Grid */}
       <motion.div
@@ -61,22 +66,28 @@ export default function BlogPage() {
                       />
                     )}
 
-                    <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-white/10" />
+                    <div className="absolute inset-0 bg-linear-to-tr from-black/60 via-transparent to-white/10" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.25),transparent_60%)]" />
                   </div>
                 </CardHeader>
 
                 <CardBody className="space-y-3 flex-1">
-                  <h3 className="text-xl font-semibold">{blog.title}</h3>
-                  <p className="text-sm text-default-400">{blog.excerpt}</p>
+                  <h3 className="text-lg font-semibold leading-snug">
+                    {blog.title}
+                  </h3>
+                  <p className="text-sm text-default-400 leading-relaxed">
+                    {blog.excerpt}
+                  </p>
                 </CardBody>
 
-                <CardFooter className="flex items-center justify-between text-sm text-default-500">
+
+                <CardFooter className="flex items-center justify-between text-xs text-default-500">
                   <span>{blog.date}</span>
                   <span className="text-primary font-medium group-hover:underline">
                     Read more →
                   </span>
                 </CardFooter>
+
               </Card>
             </Link>
           </motion.div>

@@ -7,6 +7,7 @@ import { Card, CardHeader, CardBody, CardFooter } from "@heroui/react";
 import { Divider } from "@heroui/react";
 import { Link } from "@heroui/react";
 import { Avatar } from "@heroui/react";
+import { GradientBackground } from "@/components/GradientBackground";
 
 export default function AboutPage() {
   return (
@@ -16,6 +17,7 @@ export default function AboutPage() {
       animate="show"
       className="mx-auto max-w-3xl flex flex-col items-center gap-10"
     >
+    <GradientBackground variant="about" />
       <h1 className={`${title()} text-5xl font-bold text-center`}>
         About Me
       </h1>

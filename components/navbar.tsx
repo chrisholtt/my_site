@@ -8,7 +8,6 @@ import {
   NavbarBrand,
   NavbarItem,
   NavbarMenuItem,
-  Link
 } from "@heroui/react";
 import NextLink from "next/link";
 import clsx from "clsx";
@@ -16,7 +15,6 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
-import { GithubIcon, Logo } from "@/components/icons";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,23 +47,53 @@ export const Navbar = () => {
       className={clsx(
         "h-16 transition-all duration-300",
         hasBackground
-          ? "backdrop-blur-xl backdrop-saturate-150 supports-backdrop-filter:bg-white/80 dark:supports-backdrop-filter:bg-black/80"
+          ? "backdrop-blur-xl backdrop-saturate-150 supports-backdrop-filter:bg-white/90 dark:supports-backdrop-filter:bg-black/90"
           : "bg-transparent"
       )}
     >
-      {/* RIGHT-ALIGNED CONTENT */}
       <NavbarContent className="h-16 flex items-center gap-6" justify="end">
-        {/* Brand */}
-        <NavbarBrand>
-          <NextLink
-            href="/"
-            onClick={closeMenu}
-            className="flex items-center gap-2 font-semibold"
-          >
-            <Logo />
-            <span>Chris Holt</span>
-          </NextLink>
+        <NavbarBrand className="flex items-center gap-2 font-semibold">
+        <NextLink
+          href="/"
+          onClick={closeMenu}
+          className="flex items-center gap-2"
+        >
+          $CH
+        </NextLink>
+
+        <span>/</span>
+
+        {pathname &&
+          pathname
+            .split("/")
+            .filter(Boolean)
+            .map((segment, index, arr) => {
+              const href = "/" + arr.slice(0, index + 1).join("/");
+              const isLast = index === arr.length - 1;
+
+              const label = segment
+                .replace(/[-_]/g, " ")
+                .replace(/\b\w/g, (c) => c.toUpperCase());
+
+              return (
+                <span key={href} className="flex items-center gap-2 text-sm">
+                  <NextLink
+                    href={href}
+                    onClick={closeMenu}
+                    className={clsx(
+                      "hover:underline",
+                      isLast && "text-foreground font-medium pointer-events-none"
+                    )}
+                  >
+                    {label}
+                  </NextLink>
+
+                  {!isLast && <span>/</span>}
+                </span>
+              );
+            })}
         </NavbarBrand>
+        
         <ul className="hidden lg:flex items-center gap-6">
           {siteConfig.navItems.map((item) => (
             <NavbarItem key={item.href}>
@@ -80,14 +108,6 @@ export const Navbar = () => {
             </NavbarItem>
           ))}
         </ul>
-        <Link
-          isExternal
-          aria-label="Github"
-          href={siteConfig.links.github}
-          className="p-1 border border-divider rounded-full text-default-600 hover:text-foreground transition-colors"
-        >
-          <GithubIcon />
-        </Link>
         <ThemeSwitch />
         <NavbarMenuToggle className="lg:hidden" />
       </NavbarContent>

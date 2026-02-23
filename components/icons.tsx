@@ -2,37 +2,6 @@ import * as React from "react";
 
 import { IconSvgProps } from "@/types";
 
-export const Logo: React.FC<IconSvgProps> = ({
-  size = 36,
-  width,
-  height,
-  ...props
-}) => (
-  <svg
-    fill="none"
-    viewBox="0 0 100 100"
-    width={size || width}
-    height={size || height}
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    {/* C Shape */}
-    <path
-      d="M60 20C45 20 30 35 30 50C30 65 45 80 60 80"
-      stroke="currentColor"
-      strokeWidth="10"
-      strokeLinecap="round"
-    />
-
-    {/* H Shape */}
-    <path
-      d="M70 20V80M70 50H90M90 20V80"
-      stroke="currentColor"
-      strokeWidth="10"
-      strokeLinecap="round"
-    />
-  </svg>
-);
 
 export const DiscordIcon: React.FC<IconSvgProps> = ({
   size = 24,

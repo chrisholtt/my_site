@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Link } from "@heroui/react";
-import { GithubIcon } from "@/components/icons";
 import { title, subtitle } from "@/components/primitives";
 import { GradientBackground } from "@/components/GradientBackground";
 import { pageTransition } from "@/lib/animations";
@@ -19,7 +18,6 @@ export default function Home() {
       className="flex flex-col items-center justify-center gap-6 py-12 md:py-20"
     >
       <GradientBackground variant="home" />
-
       <div className="text-center max-w-2xl">
         <h1>
           <span className={title()}>Hi, I’m&nbsp;</span>
@@ -35,7 +33,6 @@ export default function Home() {
           clarity, and long-term maintainability
         </p>
       </div>
-
       <div className="flex flex-wrap gap-3 justify-center mt-4">
         <Link
           href="/blog"
@@ -43,7 +40,6 @@ export default function Home() {
           View Case Studies
         </Link>
       </div>
-
       <div className="mt-10">
         <Snippet hideCopyButton hideSymbol variant="bordered">
           <span>

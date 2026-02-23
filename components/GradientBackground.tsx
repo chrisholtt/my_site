@@ -30,9 +30,9 @@ export function GradientBackground({
         >
             {variant === "home" && (
                 <>
-                    <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-indigo-600/20 blur-[120px]" />
-                    <div className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-purple-600/20 blur-[140px]" />
-                    <div className="absolute bottom-0 left-1/3 h-[400px] w-[400px] rounded-full bg-cyan-500/20 blur-[120px]" />
+                    <div className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-indigo-600/10 blur-[120px]" />
+                    <div className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-purple-600/10 blur-[140px]" />
+                    <div className="absolute bottom-0 left-1/3 h-[400px] w-[400px] rounded-full bg-cyan-500/10 blur-[120px]" />
                 </>
             )}
 
@@ -57,8 +57,8 @@ export function GradientBackground({
 
             {variant === "about" && (
                 <>
-                    <div className="absolute top-0 left-0 h-[600px] w-[600px] rounded-full bg-lime-500/20 blur-[160px]" />
-                    <div className="absolute bottom-0 right-0 h-[700px] w-[700px] rounded-full bg-emerald-500/20 blur-[180px]" />
+                    <div className="absolute top-0 left-0 h-[600px] w-[600px] rounded-full bg-lime-500/10 blur-[160px]" />
+                    <div className="absolute bottom-0 right-0 h-[700px] w-[700px] rounded-full bg-emerald-500/10 blur-[180px]" />
                 </>
             )}
 

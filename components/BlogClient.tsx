@@ -2,16 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Button, Divider, Link } from "@heroui/react";
-import {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter,
-    Code,
-} from "@heroui/react";
-
-import { title } from "@/components/primitives";
+import { Card, CardHeader, CardContent, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { pageTransition } from "@/lib/animations";
 import { Blog } from "@/lib/blogs";
 
@@ -29,13 +22,11 @@ export default function BlogClient({ blog }: BlogClientProps) {
         >
             <Link
                 href="/blog"
-                className="mb-6 inline-block text-sm text-default-500 hover:text-default-700"
+                className="mb-6 inline-block text-sm text-muted-foreground hover:text-foreground"
             >
-                ← Back to Blog
+                ← Back
             </Link>
-
-            <Card isBlurred className="w-full">
-                {/* Hero */}
+            <Card className="w-full bg-background/80 backdrop-blur-md border border-border shadow-xl">
                 <CardHeader className="p-0">
                     <div className="relative h-72 w-full overflow-hidden rounded-t-2xl">
                         <Image
@@ -46,67 +37,43 @@ export default function BlogClient({ blog }: BlogClientProps) {
                             sizes="(max-width: 768px) 100vw, 60vw"
                             className="object-cover"
                         />
-
-                        {/* Nice overlay like your example */}
                         <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                     </div>
                 </CardHeader>
-
-                {/* Title */}
-                <CardBody className="px-6 pt-6 pb-4 space-y-2">
-                    <h1 className={`${title()} text-4xl font-bold`}>
+                <CardContent className="px-6 pt-6 pb-4 space-y-2">
+                    <h1 className={`text-4xl font-bold`}>
                         {blog.title}
                     </h1>
-                    <time className="text-sm text-default-500">{blog.date}</time>
-                </CardBody>
-
-                {/* Content */}
-                <CardBody className="px-6 pt-0 pb-4 space-y-4 text-default-600 leading-relaxed">
+                    <time className="text-sm text-muted-foreground">{blog.date}</time>
+                </CardContent>
+                <CardContent className="px-6 pt-0 pb-4 space-y-4 text-muted-foreground leading-relaxed">
                     {blog.content.map((paragraph: string, index: number) => (
                         <p key={index}>{paragraph}</p>
                     ))}
-                </CardBody>
-
-                {/* Tech stack */}
+                </CardContent>
                 {blog.techStack && blog.techStack.length > 0 && (
-                    <CardBody className="px-6 pt-0 pb-4">
+                    <CardContent className="px-6 pt-0 pb-4">
                         <h2 className="text-lg font-semibold mb-3">Tech stack</h2>
                         <ul className="flex flex-wrap gap-2">
                             {blog.techStack.map((tech: string) => (
                                 <li
                                     key={tech}
-                                    className="px-3 py-1 rounded-full bg-default-100 text-default-600 text-small"
+                                    className="px-3 py-1 rounded-full bg-muted text-muted-foreground text-sm"
                                 >
                                     {tech}
                                 </li>
                             ))}
                         </ul>
-                    </CardBody>
+                    </CardContent>
                 )}
-
-                {/* Optional CTA Footer */}
                 {blog.link && (
-                    <>
-                        <Divider />
-                        <CardFooter className="justify-between gap-3  px-6 py-4">
-                            <p className="text-small text-default-500">
-                                {blog.link.label ?? "Related link"}
-                            </p>
-
-                            <Button
-                                as="a"
-                                href={blog.link.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                color="default"
-                                radius="lg"
-                                size="sm"
-                                variant="flat"
-                            >
-                                Visit →
-                            </Button>
-                        </CardFooter>
-                    </>
+                    <CardFooter className="px-6 pt-0 pb-4 flex gap-2">
+                        <Button asChild variant="link" className="p-0 h-auto w-fit">
+                            <a href={blog.link.href} target="_blank" rel="noopener noreferrer">
+                                {blog.link.label}
+                            </a>
+                        </Button>
+                    </CardFooter>
                 )}
             </Card>
         </motion.div>

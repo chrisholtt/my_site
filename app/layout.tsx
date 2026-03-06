@@ -3,11 +3,11 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import { Providers } from "./providers";
 import { fontSans } from "@/config/fonts";
-import { Navbar } from "@/components/navbar";
+import { CursorGlow } from "@/components/CursorGlow";
 
 export const metadata: Metadata = {
-  title: "Chris Holt | Software Engineer & Web3 Developer",
-  description: "Chris Holt — Creative software engineer based in Edinburgh, Scotland. Specializing in Web3, full-stack development, and innovative digital solutions.",
+  title: "Chris Holt | Frontend Software Engineer",
+  description: "Frontend Software Engineer building accessible, pixel-perfect digital experiences for the web.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: light)", color: "black" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
@@ -35,10 +35,10 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark", forcedTheme: "dark" }}>
           <div className="relative flex flex-col min-h-screen">
-            <Navbar />
-            <main className="container mx-auto max-w-7xl py-16  px-4 sm:px-6 lg:px-8 grow">
+            <CursorGlow />
+            <main className="grow">
               {children}
             </main>
           </div>

@@ -21,7 +21,8 @@ type Tech =
     | "WebFlow"
     | "Move"
     | "Veriff"
-    | "PowerApps";
+    | "PowerApps"
+    | "Shopify";
 
 export interface Blog {
     id: string;
@@ -110,7 +111,7 @@ export const blogs: Blog[] = [
             "Creators can mint digital assets, manage ownership, and track engagement through a clean, modern interface.",
             "It’s built on a secure blockchain stack for fast transactions and transparent ownership."
         ],
-        techStack: ["TypeScript", "Next.js", "Solidity", "GraphQL", "Tailwind CSS", "Veriff"]
+        techStack: ["TypeScript", "Next.js", "Solidity", "Tailwind CSS", "Veriff"]
     },
     {
         id: "wildheart-organics",
@@ -122,9 +123,9 @@ export const blogs: Blog[] = [
         content: [
             "Wildheart Organics is a curated marketplace for premium aromatherapy and wellness products.",
             "The focus is on clean product discovery and a seamless shopping experience.",
-            "Built with Stripe payments and a responsive Webflow site to keep the experience smooth across devices."
+            "This site was built with Shopify to keep the experience smooth across devices."
         ],
-        techStack: ["WebFlow", "Stripe"],
+        techStack: ["Shopify", "Stripe"],
         link: {
             href: "https://wildheartorganics.co.uk/",
             label: "wildheartorganics.co.uk"
@@ -148,18 +149,18 @@ export const blogs: Blog[] = [
             label: "crazybeanz.com"
         }
     },
-    {
-        id: "desk-booking",
-        title: "Desk Booking System",
-        imageSrc: "/images/desk-booking.png",
-        excerpt:
-            "Internal desk booking system for hybrid work environments.",
-        date: "Jan 7, 2025",
-        content: [
-            "A desk booking system built for hybrid teams, letting employees see office availability in real time and reserve desks.",
-            "The interface makes it easy to browse desks, book time slots, and manage reservations.",
-            "Built with PowerApps and Azure to integrate smoothly with corporate systems and scale as teams grow."
-        ],
-        techStack: ["PowerApps", "Azure"]
-    }
+    // {
+    //     id: "desk-booking",
+    //     title: "Desk Booking System",
+    //     imageSrc: "/images/desk-booking.png",
+    //     excerpt:
+    //         "Internal desk booking system for hybrid work environments.",
+    //     date: "Jan 7, 2025",
+    //     content: [
+    //         "A desk booking system built for hybrid teams, letting employees see office availability in real time and reserve desks.",
+    //         "The interface makes it easy to browse desks, book time slots, and manage reservations.",
+    //         "Built with PowerApps and Azure to integrate smoothly with corporate systems and scale as teams grow."
+    //     ],
+    //     techStack: ["PowerApps", "Azure"]
+    // }
 ];

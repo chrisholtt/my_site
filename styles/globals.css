@@ -6,36 +6,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-.gradient-text {
-    color: transparent;
-    background: linear-gradient(90deg,
-            #7f5af0,
-            #ff6ac1,
-            #ff5470,
-            #ffca3a,
-            #7f5af0);
-    background-size: 400% 400%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    animation: gradientAnimation 8s ease-in-out infinite;
-}
-
-@layer utilities {
-    @keyframes gradientAnimation {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-}
-
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
@@ -144,4 +114,15 @@
     --sidebar-accent-foreground: oklch(0.985 0 0);
     --sidebar-border: oklch(1 0 0 / 10%);
     --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Custom text selection color to match purple theme */
+::selection {
+    background-color: rgba(139, 92, 246, 0.3);
+    color: #c4b5fd;
+}
+
+::-moz-selection {
+    background-color: rgba(139, 92, 246, 0.3);
+    color: #c4b5fd;
 }

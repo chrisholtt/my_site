@@ -127,10 +127,7 @@ export default function Home() {
       </header>
 
       {/* Right Column - Scrollable Content */}
-      <motion.main
-        variants={pageTransition}
-        initial="hidden"
-        animate="show"
+      <div
         className="pt-24 lg:w-1/2 lg:py-24 lg:pr-10"
       >
         {/* About */}
@@ -258,7 +255,7 @@ export default function Home() {
             </ul>
           </div>
         </section>
-      </motion.main>
+      </div>
     </div>
   );
 }

@@ -46,7 +46,7 @@ export default function Home() {
             </span>
           </div>
           <h2 className="mt-3 text-lg font-medium tracking-tight sm:text-xl">
-            Frontend Engineer
+            Full Stack Engineer
           </h2>
           <p className="mt-4 max-w-xs leading-normal text-muted-foreground">
             I build accessible, pixel-perfect digital experiences for the web.
@@ -145,13 +145,6 @@ export default function Home() {
               into JavaScript, frameworks, and the endless rabbit hole of modern web development. Fast-forward 
               to today, and I've had the privilege of building software for startups, enterprise companies, 
               and everything in between.
-            </p>
-            <p>
-              My main focus these days is building accessible, inclusive products and digital experiences 
-              at scale. I'm most passionate about the intersection of design and engineering — creating 
-              interfaces that not only look pixel-perfect but are built with performance, accessibility, 
-              and maintainability in mind. I enjoy crafting thoughtful user experiences and robust 
-              architectures that stand the test of time.
             </p>
             <p>
               When I'm not coding, you can find me exploring the Scottish Highlands, experimenting with 

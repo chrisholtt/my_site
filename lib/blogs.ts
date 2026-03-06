@@ -22,7 +22,10 @@ type Tech =
     | "Move"
     | "Veriff"
     | "PowerApps"
-    | "Shopify";
+    | "Shopify"
+    | "React Native"
+    | "Expo"
+    | "Supabase";
 
 export interface Blog {
     id: string;
@@ -39,6 +42,20 @@ export interface Blog {
 }
 
 export const blogs: Blog[] = [
+    // {
+    //     id: "arbor-finance",
+    //     title: "Arbor Finance",
+    //     imageSrc: "/images/hive.png",
+    //     excerpt:
+    //         "A modern mobile finance app built with Expo and secure Supabase backend.",
+    //     date: "March 06, 2026",
+    //     content: [
+    //         "Arbor Finance is a modern mobile application built with native Expo for seamless cross-platform performance on iOS and Android.",
+    //         "The app features a secure Supabase backend with PostgreSQL for reliable data storage and real-time synchronization.",
+    //         "Built with a focus on performance, security, and user experience to make personal finance management simple and intuitive."
+    //     ],
+    //     techStack: ["React Native", "Expo", "Supabase", "PostgreSQL", "TypeScript"],
+    // },
     {
         id: "hive-crm",
         title: "Hive",

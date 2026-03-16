@@ -126,3 +126,8 @@
     background-color: rgba(139, 92, 246, 0.3);
     color: #c4b5fd;
 }
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}

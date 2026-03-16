@@ -132,7 +132,7 @@ export default function Home() {
       >
         {/* About */}
         <section id="about" className="mb-16 scroll-mt-16 lg:mb-24 lg:scroll-mt-24">
-          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur lg:hidden">
+          <div className="sticky top-0 z-20 -mx-10 mb-4 bg-background/75 px-10 py-5 backdrop-blur lg:hidden">
             <h2 className="text-sm font-bold uppercase tracking-widest">About</h2>
           </div>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -144,22 +144,14 @@ export default function Home() {
               and everything in between.
             </p>
             <p>
-              When I'm not coding, you can find me exploring the Scottish Highlands, experimenting with 
-              digital art, or diving into the latest frontend frameworks and tooling. I'm always eager 
-              to learn new technologies and share knowledge with the developer community.
-            </p>
-            <p>
-              I also occasionally write about web development, sharing insights on system design, 
-              performance optimization, and the lessons learned from building production applications. 
-              Check out my <a href="#projects" className="font-medium text-foreground hover:text-primary transition-colors cursor-pointer">projects</a> to 
-              see what I've been working on.
+              When I'm not coding, you can find me exploring the mountains.
             </p>
           </div>
         </section>
 
         {/* Experience */}
         <section id="experience" className="mb-16 scroll-mt-16 lg:mb-24 lg:scroll-mt-24">
-          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur lg:hidden">
+          <div className="sticky top-0 z-20 -mx-10 mb-4 bg-background/75 px-10 py-5 backdrop-blur lg:hidden">
             <h2 className="text-sm font-bold uppercase tracking-widest">Experience</h2>
           </div>
           <div>
@@ -208,7 +200,7 @@ export default function Home() {
 
         {/* Projects */}
         <section id="projects" className="mb-16 scroll-mt-16 lg:mb-24 lg:scroll-mt-24">
-          <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-background/75 px-6 py-5 backdrop-blur lg:hidden">
+          <div className="sticky top-0 z-20 -mx-10 mb-4 bg-background/75 px-10 py-5 backdrop-blur lg:hidden">
             <h2 className="text-sm font-bold uppercase tracking-widest">Projects</h2>
           </div>
           <div>

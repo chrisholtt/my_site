@@ -6,13 +6,12 @@ import { fontSans } from "@/config/fonts";
 import { CursorGlow } from "@/components/CursorGlow";
 
 export const metadata: Metadata = {
-  title: "Chris Holt | Frontend Software Engineer",
+  title: "Chris Holt | Full Stack Engineer",
   description: "Frontend Software Engineer building accessible, pixel-perfect digital experiences for the web.",
   icons: {
     icon: "/favicon.ico",
   },
 };
-
 
 export const viewport: Viewport = {
   themeColor: [

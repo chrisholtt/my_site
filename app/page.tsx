@@ -1,12 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { pageTransition } from "@/lib/animations";
+import { useSpring, useTrail, animated } from "@react-spring/web";
 import Link from "next/link";
 import Image from "next/image";
 import { blogs } from "@/lib/blogs";
 import { experiences } from "@/lib/experience";
 import { useState, useEffect } from "react";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { GlintBadge } from "@/components/GlintBadge";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("");
@@ -32,71 +33,74 @@ export default function Home() {
     handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Header animations
+  const headerSpring = useSpring({
+    from: { opacity: 0, transform: "translateY(-20px)" },
+    to: { opacity: 1, transform: "translateY(0px)" },
+    config: { tension: 280, friction: 60 },
+  });
+
+  // Navigation items trail animation
+  const navItems = ["about", "experience", "projects"];
+  const navTrail = useTrail(navItems.length, {
+    from: { opacity: 0, transform: "translateX(-20px)" },
+    to: { opacity: 1, transform: "translateX(0px)" },
+    config: { tension: 280, friction: 60 },
+    delay: 200,
+  });
+
+  // Social links animation
+  const socialSpring = useSpring({
+    from: { opacity: 0, transform: "translateY(20px)" },
+    to: { opacity: 1, transform: "translateY(0px)" },
+    config: { tension: 280, friction: 60 },
+    delay: 400,
+  });
+
   return (
     <div className="lg:flex lg:justify-between lg:gap-4 max-w-7xl mx-auto px-10 py-12 md:py-24 lg:px-0 lg:py-0">
       {/* Left Column - Sticky */}
       <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24 lg:pl-10 lg:overflow-hidden">
         <div>
-          <div className="flex items-center gap-3">
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              Chris Holt
-            </h1>
-            <span className="inline-flex items-center rounded-md bg-violet-400/10 px-2.5 py-0.5 text-xs font-medium text-violet-300 ring-1 ring-inset ring-violet-400/30">
-              v5.0
-            </span>
-          </div>
-          <h2 className="mt-3 text-lg font-medium tracking-tight sm:text-xl">
-            Full Stack Engineer
-          </h2>
-          <p className="mt-4 max-w-xs leading-normal text-muted-foreground">
-            I build accessible, pixel-perfect digital experiences for the web.
-          </p>
+          <animated.div style={headerSpring}>
+            <div className="flex items-center gap-3">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                Chris Holt
+              </h1>
+              <GlintBadge />
+            </div>
+            <h2 className="mt-3 text-lg font-medium tracking-tight sm:text-xl">
+              Full Stack Engineer
+            </h2>
+            <p className="mt-4 max-w-xs leading-normal text-muted-foreground">
+              I build accessible, pixel-perfect digital experiences for the web.
+            </p>
+          </animated.div>
           
           {/* Navigation - Desktop only */}
           <nav className="nav hidden lg:block mt-16" aria-label="In-page jump links">
             <ul className="w-max space-y-3">
-              <li>
-                <a href="#about" className="group flex items-center py-3 cursor-pointer">
-                  <span className={`nav-indicator mr-4 h-px transition-all group-hover:w-16 group-hover:bg-foreground group-focus-visible:w-16 group-focus-visible:bg-foreground ${
-                    activeSection === "about" ? "w-16 bg-foreground" : "w-8 bg-muted-foreground"
-                  }`}></span>
-                  <span className={`nav-text text-xs font-bold uppercase tracking-widest transition-colors group-hover:text-foreground group-focus-visible:text-foreground ${
-                    activeSection === "about" ? "text-foreground" : "text-muted-foreground"
-                  }`}>
-                    About
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#experience" className="group flex items-center py-3 cursor-pointer">
-                  <span className={`nav-indicator mr-4 h-px transition-all group-hover:w-16 group-hover:bg-foreground group-focus-visible:w-16 group-focus-visible:bg-foreground ${
-                    activeSection === "experience" ? "w-16 bg-foreground" : "w-8 bg-muted-foreground"
-                  }`}></span>
-                  <span className={`nav-text text-xs font-bold uppercase tracking-widest transition-colors group-hover:text-foreground group-focus-visible:text-foreground ${
-                    activeSection === "experience" ? "text-foreground" : "text-muted-foreground"
-                  }`}>
-                    Experience
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="#projects" className="group flex items-center py-3 cursor-pointer">
-                  <span className={`nav-indicator mr-4 h-px transition-all group-hover:w-16 group-hover:bg-foreground group-focus-visible:w-16 group-focus-visible:bg-foreground ${
-                    activeSection === "projects" ? "w-16 bg-foreground" : "w-8 bg-muted-foreground"
-                  }`}></span>
-                  <span className={`nav-text text-xs font-bold uppercase tracking-widest transition-colors group-hover:text-foreground group-focus-visible:text-foreground ${
-                    activeSection === "projects" ? "text-foreground" : "text-muted-foreground"
-                  }`}>
-                    Projects
-                  </span>
-                </a>
-              </li>
+              {navTrail.map((style, index) => (
+                <animated.li key={navItems[index]} style={style}>
+                  <a href={`#${navItems[index]}`} className="group flex items-center py-3 cursor-pointer">
+                    <span className={`nav-indicator mr-4 h-px transition-all group-hover:w-16 group-hover:bg-foreground group-focus-visible:w-16 group-focus-visible:bg-foreground ${
+                      activeSection === navItems[index] ? "w-16 bg-foreground" : "w-8 bg-muted-foreground"
+                    }`}></span>
+                    <span className={`nav-text text-xs font-bold uppercase tracking-widest transition-colors group-hover:text-foreground group-focus-visible:text-foreground ${
+                      activeSection === navItems[index] ? "text-foreground" : "text-muted-foreground"
+                    }`}>
+                      {navItems[index].charAt(0).toUpperCase() + navItems[index].slice(1)}
+                    </span>
+                  </a>
+                </animated.li>
+              ))}
             </ul>
           </nav>
         </div>
 
         {/* Social Links */}
-        <ul className="mt-8 flex items-center gap-5" aria-label="Social media">
+        <animated.ul style={socialSpring} className="mt-8 flex items-center gap-5" aria-label="Social media">
           <li>
             <a
               href="https://github.com/chrisholtt"
@@ -123,7 +127,7 @@ export default function Home() {
               </svg>
             </a>
           </li>
-        </ul>
+        </animated.ul>
       </header>
 
       {/* Right Column - Scrollable Content */}
@@ -135,18 +139,20 @@ export default function Home() {
           <div className="sticky top-0 z-20 -mx-10 mb-4 bg-background/75 px-10 py-5 backdrop-blur lg:hidden">
             <h2 className="text-sm font-bold uppercase tracking-widest">About</h2>
           </div>
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Back in 2018, I stumbled into web development while trying to build a simple landing page 
-              for a side project. What started as tweaking HTML and CSS quickly spiraled into a deep dive 
-              into JavaScript, frameworks, and the endless rabbit hole of modern web development. Fast-forward 
-              to today, and I've had the privilege of building software for startups, enterprise companies, 
-              and everything in between.
-            </p>
-            <p>
-              When I'm not coding, you can find me exploring the mountains.
-            </p>
-          </div>
+          <AnimatedSection>
+            <div className="space-y-4 text-muted-foreground leading-relaxed">
+              <p>
+                Back in 2018, I stumbled into web development while trying to build a simple landing page 
+                for a side project. What started as tweaking HTML and CSS quickly spiraled into a deep dive 
+                into JavaScript, frameworks, and the endless rabbit hole of modern web development. Fast-forward 
+                to today, and I've had the privilege of building software for startups, enterprise companies, 
+                and everything in between.
+              </p>
+              <p>
+                When I'm not coding, you can find me exploring the mountains.
+              </p>
+            </div>
+          </AnimatedSection>
         </section>
 
         {/* Experience */}
@@ -156,8 +162,9 @@ export default function Home() {
           </div>
           <div>
             <ul className="group/list space-y-12">
-              {experiences.map((experience) => (
-                <li key={experience.id} className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 lg:hover:opacity-100! lg:group-hover/list:opacity-50 cursor-pointer">
+              {experiences.map((experience, index) => (
+                <AnimatedSection key={experience.id} delay={index * 100}>
+                  <li className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 lg:hover:opacity-100! lg:group-hover/list:opacity-50 cursor-pointer">
                   <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-muted/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
                   <header className="z-10 mb-2 mt-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground sm:col-span-2">
                     {experience.period}
@@ -193,6 +200,7 @@ export default function Home() {
                     )}
                   </div>
                 </li>
+              </AnimatedSection>
               ))}
             </ul>
           </div>
@@ -205,8 +213,9 @@ export default function Home() {
           </div>
           <div>
             <ul className="group/list space-y-12">
-              {blogs.map((blog) => (
-                <li key={blog.id} className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 lg:hover:opacity-100! lg:group-hover/list:opacity-50 cursor-pointer">
+              {blogs.map((blog, index) => (
+                <AnimatedSection key={blog.id} delay={index * 100}>
+                  <li className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 lg:hover:opacity-100! lg:group-hover/list:opacity-50 cursor-pointer">
                   <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-muted/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
                   <div className="z-10 mb-2 mt-1 sm:col-span-2">
                     <Image
@@ -243,6 +252,7 @@ export default function Home() {
                     )}
                   </div>
                 </li>
+              </AnimatedSection>
               ))}
             </ul>
           </div>

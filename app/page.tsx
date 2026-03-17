@@ -116,7 +116,7 @@ export default function Home() {
           </li>
           <li>
             <a
-              href="https://linkedin.com/in/chris-holt"
+              href="https://linkedin.com/in/chrisphilholt"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-violet-300 transition-colors cursor-pointer"

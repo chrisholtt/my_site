@@ -20,12 +20,12 @@ export async function generateMetadata({
     if (!blog) return {};
 
     return {
-        title: blog.title,
+        title: `Blog | ${blog.title}`,
         description: blog.excerpt,
         openGraph: {
             title: blog.title,
             description: blog.excerpt,
-            images: [blog.imageSrc],
+            images: blog.images && blog.images.length > 0 ? [blog.images[0]] : [],
             type: "article",
         },
     };

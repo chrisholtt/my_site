@@ -30,7 +30,7 @@ type Tech =
 export interface Blog {
     id: string;
     title: string;
-    imageSrc: string;
+    images: string[];
     excerpt: string;
     date: string;
     content: string[];
@@ -58,10 +58,10 @@ export const blogs: Blog[] = [
     // },
     {
         id: "hive-crm",
-        title: "Hive",
-        imageSrc: "/images/hive.png",
+        title: "Hive 🐝",
+        images: ["/images/hive.png", "/images/message-hub.png", "/images/hive.png"],
         excerpt:
-            "A scalable CRM for VetsNow with automation and secure role-based access.",
+            "A scalable practice and contact CRM for VetsNow with automation and secure role-based access.",
         date: "Jan 22, 2026",
         content: [
             "Hive is a custom CRM I built for VetsNow to make their internal operations easier and more scalable.",
@@ -72,8 +72,8 @@ export const blogs: Blog[] = [
     },
     {
         id: "bulk-rcs",
-        title: "Bulk RCS",
-        imageSrc: "/images/message-hub.png",
+        title: "Bulk RCS 🤙",
+        images: ["/images/message-hub.png"],
         excerpt:
             "Enterprise-grade RCS messaging built to scale to millions of messages.",
         date: "Sep 18, 2025",
@@ -86,8 +86,8 @@ export const blogs: Blog[] = [
     },
     {
         id: "stock-take",
-        title: "Stock Take",
-        imageSrc: "/images/stock-take.png",
+        title: "Stock Take 📦",
+        images: ["/images/stock-take.png"],
         excerpt:
             "A stock taking app for veterinary practices to manage inventory efficiently.",
         date: "Sep 18, 2025",
@@ -100,8 +100,8 @@ export const blogs: Blog[] = [
     },
     {
         id: "my-memba",
-        title: "Memba",
-        imageSrc: "/images/memba.png",
+        title: "Memba 🎗️",
+        images: ["/images/memba.png"],
         excerpt:
             "An all-in-one membership CRM and community platform.",
         date: "Jul 22, 2025",
@@ -118,29 +118,34 @@ export const blogs: Blog[] = [
     },
     {
         id: "0xtra-nft-platform",
-        title: "0xtra",
-        imageSrc: "/images/0xtra.png",
+        title: "0xtra 💖",
+        images: ["/images/0xtra.png"],
         excerpt:
             "Web3 creator platform for minting and managing NFTs.",
         date: "Feb 19, 2025",
         content: [
-            "0xtra is a Web3 creator platform designed to make NFT minting and management simple.",
-            "Creators can mint digital assets, manage ownership, and track engagement through a clean, modern interface.",
-            "It’s built on a secure blockchain stack for fast transactions and transparent ownership."
+            "0xtra was my first attempt at a tech startup. I spent 1.5 years working on this project with a group of friends. It never survived, but I hold it very close to my heart.",
+            "What we built really impressed me, but sadly due to lack of time and high running costs, we had no option but to shut down the project.",
+            "I think at the peak we had about ~100 MAU.",
+            "0xtra was a SocialFi project that used EVM-compatible chains like POL, AVAX, FTM, and BSC.",
+            "Creators had to KYC to start uploading content. We integrated with Veriff as our KYC/AML provider. This prevented spam and ensured everyone was authentic.",
+            "Creators could set their price in USD, and buyers could then pay with whatever currency they liked. After successful payment, the content was then available.",
+            "We then expanded and built a minting platform where users could launch collections themselves for free. The contract was only deployed when the first purchase was made.",
+            "I wish this project was still going, but sometimes it's best to move on. I learnt a lot from 0xtra and I'll never forget the journey we all had. LONG LIVE 0xtra!"
         ],
         techStack: ["TypeScript", "Next.js", "Solidity", "Tailwind CSS", "Veriff"]
     },
     {
         id: "wildheart-organics",
-        title: "Wildheart Organics",
-        imageSrc: "/images/wildheart.png",
+        title: "Wildheart Organics 🕯️",
+        images: ["/images/wildheart.png"],
         excerpt:
             "A premium aromatherapy marketplace with seamless shopping.",
         date: "Feb 18, 2025",
         content: [
-            "Wildheart Organics is a curated marketplace for premium aromatherapy and wellness products.",
-            "The focus is on clean product discovery and a seamless shopping experience.",
-            "This site was built with Shopify to keep the experience smooth across devices."
+            "Wildheart was my first proper tech gig as a Web Developer. I got lucky with this one as it was a family friend (nepotism scores!)",
+            "The client wanted a custom Shopify store using their brand palette. I spent about 2 months building this out from scratch. I learned Figma, Liquid, and Stripe to make the idea come to life.",
+            "Fast forward to today and Wildheart is still using the website — you go Wildheart!"
         ],
         techStack: ["Shopify", "Stripe"],
         link: {
@@ -150,15 +155,18 @@ export const blogs: Blog[] = [
     },
     {
         id: "crazy-beanz",
-        title: "Crazy Beanz",
-        imageSrc: "/images/crazy-beanz.png",
+        title: "Crazy Beanz 🍋",
+        images: ["/images/crazy-beanz.png"],
         excerpt:
-            "Hand-drawn digital art series built for modern collectors.",
+            "Hand-drawn gamified art series built for collectors.",
         date: "Jan 7, 2025",
         content: [
-            "Crazy Beanz is a creative art project featuring hand-drawn coffee bean characters as digital collectibles.",
-            "It blends traditional illustration with modern web tech to create an interactive experience.",
-            "The project is built on scalable architecture and modern frontend tooling, showing both design and technical execution."
+            "Crazy Beanz was the first tech project I ever built - it's what got me interested in software development in the first place.",
+            "The idea was conceived during the crypto boom of 2021. I really liked the idea of digital collectibles and wanted to create some myself.",
+            "I spent 6 months drawing the Beanz on Illustrator. I had to draw individual layers like faces, hats, skins, clothes, backgrounds, and so on. I then used some JavaScript to mash up all the images, layer them, and output a PNG file with the corresponding metadata.",
+            "The images and metadata were then uploaded to IPFS. A smart contract was also created and deployed to the Ethereum network. I think I spent something like £800 to get my contract deployed (crazy, I know!) - a testament to my determination for the Beanz.",
+            "The Beanz launched and the mints started coming in. Beanz were a hit (or so I thought). The market tanked and suddenly, no one cared for Crazy Beanz or NFTs for that matter.",
+            "I used all of the mint funds to enroll myself in a professional software development course called CodeClan, and so my software journey began."
         ],
         techStack: ["TypeScript", "Next.js", "PostgreSQL", "Tailwind CSS", "Move"],
         link: {

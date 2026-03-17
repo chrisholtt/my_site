@@ -74,7 +74,7 @@ export default function Home() {
               Full Stack Engineer
             </h2>
             <p className="mt-4 max-w-xs leading-normal text-muted-foreground">
-              I build accessible, pixel-perfect digital experiences for the web.
+              I build accessible, pixel-perfect digital applications for the web.
             </p>
           </animated.div>
           
@@ -149,7 +149,7 @@ export default function Home() {
                 and everything in between.
               </p>
               <p>
-                When I'm not coding, you can find me exploring the mountains.
+                When I'm not building, you can find me exploring mountains.
               </p>
             </div>
           </AnimatedSection>
@@ -219,7 +219,7 @@ export default function Home() {
                   <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-muted/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)] lg:group-hover:drop-shadow-lg"></div>
                   <div className="z-10 mb-2 mt-1 sm:col-span-2">
                     <Image
-                      src={blog.imageSrc}
+                      src={blog.images[0]}
                       alt={blog.title}
                       width={200}
                       height={48}

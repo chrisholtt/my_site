@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Blog } from "@/lib/blogs";
 import { AnimatedSection } from "@/components/AnimatedSection";
+import ImageCarousel from "@/components/ImageCarousel";
 
 interface BlogClientProps {
     blog: Blog;
@@ -63,18 +64,10 @@ export default function BlogClient({ blog }: BlogClientProps) {
                         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl mb-4">
                             {blog.title}
                         </h1>
-                        
                         <time className="text-sm text-muted-foreground block mb-8">{blog.date}</time>
-
-                        {blog.imageSrc && (
+                        {blog.images && blog.images.length > 0 && (
                             <div className="mb-8">
-                                <Image
-                                    src={blog.imageSrc}
-                                    alt={blog.title}
-                                    width={400}
-                                    height={200}
-                                    className="rounded-lg border border-muted/40"
-                                />
+                                <ImageCarousel images={blog.images} alt={blog.title} />
                             </div>
                         )}
                     </animated.div>
@@ -113,7 +106,7 @@ export default function BlogClient({ blog }: BlogClientProps) {
             </aside>
 
             {/* Right Column - Content */}
-            <main className="lg:w-1/2 lg:py-24 lg:pr-10 mt-12 lg:mt-0">
+            <main className="lg:w-1/2 lg:py-24 lg:pr-10 mt-12 lg:mt-40">
                 <article className="prose prose-neutral dark:prose-invert max-w-none">
                     <div className="space-y-4 text-muted-foreground leading-relaxed">
                         {contentTrail.map((style, index) => (
